@@ -150,7 +150,7 @@
     overflow: hidden;
   }
   .hero-scroll-bg { position: absolute; inset: 0; z-index: 0; }
-  .hero-scroll-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(6px) brightness(0.65); transform: scale(1.05); }
+  .hero-scroll-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(2px) brightness(0.7); transform: scale(1.05); }
   .hero-scroll-eyebrow {
     position: absolute; top: 12%; left: 50%; transform: translateX(-50%); z-index: 3;
     color: var(--gold-300); text-shadow: 0 1px 4px rgba(20, 5, 10, 0.6); white-space: nowrap;
@@ -179,12 +179,16 @@
   }
   .hero-scroll-title {
     position: relative;
-    display: flex; gap: 12px; flex-wrap: nowrap; justify-content: center; text-align: center;
-    pointer-events: none; max-width: 98vw; white-space: nowrap;
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; text-align: center;
+    pointer-events: none; max-width: 92vw;
   }
   .hero-scroll-title .word {
     font-family: var(--display); font-weight: 600; font-size: clamp(1.6rem, 4vw, 2.9rem);
-    color: var(--beige-50); text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55); white-space: nowrap;
+    color: var(--beige-50); text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55);
+  }
+  @media (max-width: 640px) {
+    .hero-scroll-title { flex-direction: column; gap: 4px; }
+    .hero-scroll-title .word { font-size: 1.3rem; white-space: normal; }
   }
   .hero-scroll-hint {
     position: absolute; bottom: 7%; left: 50%; transform: translateX(-50%); z-index: 3;
