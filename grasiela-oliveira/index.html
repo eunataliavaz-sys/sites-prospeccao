@@ -278,12 +278,13 @@
 
   /* Parceria */
   .partner-section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
-  .partner-grid { display: grid; grid-template-columns: 0.7fr 1fr; gap: var(--space-2xl); align-items: center; }
-  .partner-photo { position: relative; max-width: 260px; }
+  .partner-grid { display: flex; justify-content: center; align-items: center; gap: var(--space-lg); }
+  .partner-photo { position: relative; flex: none; max-width: 390px; }
   .partner-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px; }
+  .partner-text { max-width: 420px; }
   .partner-role { color: var(--gold-600); font-size: 0.9rem; letter-spacing: 0.5px; margin: 4px 0 var(--space-md); font-weight: 500; }
   @media (max-width: 860px) {
-    .partner-grid { grid-template-columns: 1fr; text-align: center; }
+    .partner-grid { flex-direction: column; text-align: center; }
     .partner-photo { margin: 0 auto; }
   }
 
@@ -614,7 +615,7 @@
       <div class="partner-photo">
         <img src="assets/parceira 3.png" alt="Priscila Castelhano, nail designer e cabeleireira, e seu espaço de trabalho">
       </div>
-      <div>
+      <div class="partner-text">
         <p class="eyebrow">Parceria no espaço</p>
         <h2>Priscila Castelhano</h2>
         <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
