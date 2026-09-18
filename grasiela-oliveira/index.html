@@ -291,6 +291,12 @@
     .partner-grid { grid-template-columns: 1fr; text-align: center; }
     .partner-photo { margin: 0 auto; }
   }
+  .partner-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-2xl); }
+  .partner-gallery-item { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; }
+  .partner-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 640px) {
+    .partner-gallery { grid-template-columns: 1fr; }
+  }
 
   /* Projeto Noiva Radiante */
   .bride-banner {
@@ -626,6 +632,10 @@
         <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
         <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas por uma parede — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
       </div>
+    </div>
+    <div class="partner-gallery">
+      <div class="partner-gallery-item"><img src="assets/parceira 01.jpeg" alt="Espaço de lavagem e cabelo de Priscila Castelhano"></div>
+      <div class="partner-gallery-item"><img src="assets/parceira 02.jpeg" alt="Espaço de manicure de Priscila Castelhano"></div>
     </div>
   </div>
 </section>
