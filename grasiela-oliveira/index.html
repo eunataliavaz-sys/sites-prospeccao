@@ -345,7 +345,13 @@
   .contact-info-item .icon { color: var(--gold-600); font-size: 1.15rem; margin-top: 2px; }
   .contact-info-item h3 { font-size: 1rem; margin-bottom: 4px; }
   .contact-info-item p { font-size: 0.9rem; margin: 0; }
-  .map-frame { border: 1px solid var(--border); width: 100%; height: 340px; filter: grayscale(15%) sepia(8%); }
+  .map-frame {
+    border: 1px solid var(--border); border-radius: 16px; background: var(--beige-25);
+    width: 100%; height: 340px; color: var(--gold-600);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-md); padding: var(--space-lg);
+    text-align: center;
+  }
+  .map-frame-address { color: var(--text-primary); font-size: 0.95rem; margin: 0; }
 
   footer {
     background-color: var(--wine-900);
@@ -917,10 +923,10 @@
         </div>
         <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn-primary" style="margin-top: 8px;">Agendar pelo WhatsApp</a>
       </div>
-      <div>
-        <iframe class="map-frame" title="Mapa: Av. Anna Costa, 374 - Sala 63, Gonzaga, Santos - SP" src="https://www.google.com/maps?q=Av.+Anna+Costa,+374+-+Sl+63+-+Gonzaga,+Santos+-+SP,+11060-002&output=embed" allowfullscreen></iframe>
-        <a href="https://www.google.com/maps?q=Av.+Anna+Costa,+374+-+Sl+63+-+Gonzaga,+Santos+-+SP,+11060-002" target="_blank" rel="noopener" class="btn-outline" style="width: 100%; justify-content: center; margin-top: var(--space-md);">Ver localização no Google Maps</a>
-        <p style="margin-top: 8px; font-size: 0.75rem; color: var(--text-secondary); text-align: center;">O mapa acima pode não carregar dentro do navegador do WhatsApp/Instagram — nesse caso, use o botão.</p>
+      <div class="map-frame">
+        <svg width="2.2em" height="2.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p class="map-frame-address">Av. Anna Costa, 374 - Sala 63<br>Gonzaga, Santos - SP, 11060-002</p>
+        <a href="https://www.google.com/maps?q=Av.+Anna+Costa,+374+-+Sl+63+-+Gonzaga,+Santos+-+SP,+11060-002" target="_blank" rel="noopener" class="btn-primary">Ver rota no Google Maps</a>
       </div>
     </div>
   </div>
