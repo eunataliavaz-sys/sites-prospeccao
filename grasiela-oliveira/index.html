@@ -278,6 +278,7 @@
 
   /* Parceria */
   .partner-section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+  .partner-frame { border: 1px solid var(--border); border-radius: 16px; padding: var(--space-2xl); }
   .partner-grid { display: flex; justify-content: center; align-items: center; gap: var(--space-lg); }
   .partner-photo { position: relative; flex: none; max-width: 390px; }
   .partner-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px; }
@@ -286,6 +287,7 @@
   @media (max-width: 860px) {
     .partner-grid { flex-direction: column; text-align: center; }
     .partner-photo { margin: 0 auto; }
+    .partner-frame { padding: var(--space-xl) var(--space-lg); }
   }
 
   /* Projeto Noiva Radiante */
@@ -607,15 +609,17 @@
 
 <section class="section partner-section" id="parceria">
   <div class="container">
-    <div class="partner-grid">
-      <div class="partner-photo">
-        <img src="assets/parceira 3.png" alt="Priscila Castelhano, nail designer e cabeleireira, e seu espaço de trabalho">
-      </div>
-      <div class="partner-text">
-        <p class="eyebrow">Parceria no espaço</p>
-        <h2>Priscila Castelhano</h2>
-        <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
-        <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas por uma parede — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
+    <div class="partner-frame">
+      <div class="partner-grid">
+        <div class="partner-photo">
+          <img src="assets/parceira 3.png" alt="Priscila Castelhano, nail designer e cabeleireira, e seu espaço de trabalho">
+        </div>
+        <div class="partner-text">
+          <p class="eyebrow">Parceria no espaço</p>
+          <h2>Priscila Castelhano</h2>
+          <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
+          <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas por uma parede — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
+        </div>
       </div>
     </div>
   </div>
