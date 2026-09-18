@@ -285,7 +285,7 @@
   .partner-text { max-width: 420px; }
   .partner-role { color: var(--gold-600); font-size: 0.9rem; letter-spacing: 0.5px; margin: 4px 0 var(--space-md); font-weight: 500; }
   @media (max-width: 860px) {
-    .partner-grid { flex-direction: column; text-align: center; }
+    .partner-grid { flex-direction: column-reverse; text-align: center; }
     .partner-photo { margin: 0 auto; }
     .partner-frame { padding: 20px var(--space-lg); }
   }
@@ -453,6 +453,7 @@
     .nav-toggle { display: block; }
     .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .about-grid .about-photo { order: 2; }
     .about-badge { left: 12px; bottom: -16px; padding: 14px 18px; font-size: 0.9rem; }
     .hero-scroll-stage { min-height: 480px; }
   }
