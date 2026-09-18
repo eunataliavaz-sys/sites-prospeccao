@@ -280,22 +280,11 @@
   .partner-section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
   .partner-grid { display: grid; grid-template-columns: 0.7fr 1fr; gap: var(--space-2xl); align-items: center; }
   .partner-photo { position: relative; max-width: 260px; }
-  .partner-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
-  .partner-photo-badge {
-    position: absolute; bottom: -14px; right: -14px; width: 84px; height: 84px; border-radius: 50%;
-    overflow: hidden; border: 3px solid var(--beige-50); box-shadow: 0 10px 24px rgba(58, 30, 30, 0.18);
-  }
-  .partner-photo-badge img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border-radius: 0; }
+  .partner-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px; }
   .partner-role { color: var(--gold-600); font-size: 0.9rem; letter-spacing: 0.5px; margin: 4px 0 var(--space-md); font-weight: 500; }
   @media (max-width: 860px) {
     .partner-grid { grid-template-columns: 1fr; text-align: center; }
     .partner-photo { margin: 0 auto; }
-  }
-  .partner-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-2xl); }
-  .partner-gallery-item { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; }
-  .partner-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 640px) {
-    .partner-gallery { grid-template-columns: 1fr; }
   }
 
   /* Projeto Noiva Radiante */
@@ -623,8 +612,7 @@
   <div class="container">
     <div class="partner-grid">
       <div class="partner-photo">
-        <img src="assets/priscila castelhano.jpeg" alt="Priscila Castelhano, nail designer e cabeleireira">
-        <div class="partner-photo-badge"><img src="assets/unhas priscila castelhano.jpeg" alt="Trabalho de nail design de Priscila Castelhano"></div>
+        <img src="assets/parceira 3.png" alt="Priscila Castelhano, nail designer e cabeleireira, e seu espaço de trabalho">
       </div>
       <div>
         <p class="eyebrow">Parceria no espaço</p>
@@ -632,10 +620,6 @@
         <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
         <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas por uma parede — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
       </div>
-    </div>
-    <div class="partner-gallery">
-      <div class="partner-gallery-item"><img src="assets/parceira 01.jpeg" alt="Espaço de lavagem e cabelo de Priscila Castelhano"></div>
-      <div class="partner-gallery-item"><img src="assets/parceira 02.jpeg" alt="Espaço de manicure de Priscila Castelhano"></div>
     </div>
   </div>
 </section>
