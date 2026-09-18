@@ -967,8 +967,8 @@
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Fallback seguro: sem scroll-jacking em telas pequenas ou com movimento reduzido.
-    if (prefersReduced || window.innerWidth < 640) {
+    // Fallback seguro: sem scroll-jacking apenas quando o usuário pediu movimento reduzido.
+    if (prefersReduced) {
       media.style.width = '100%';
       media.style.height = '70vh';
       media.style.position = 'relative';
