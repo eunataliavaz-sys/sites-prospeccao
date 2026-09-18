@@ -261,6 +261,9 @@
 
   /* Sobre */
   .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-3xl); align-items: center; }
+  .about-grid .about-photo { grid-column: 1; grid-row: 1 / 3; }
+  .about-grid .about-title { grid-column: 2; grid-row: 1; }
+  .about-grid .about-body { grid-column: 2; grid-row: 2; }
   .about-photo { position: relative; }
   .about-photo img, .about-photo-fallback { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
   .about-photo-fallback {
@@ -453,7 +456,10 @@
     .nav-toggle { display: block; }
     .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .about-grid .about-title, .about-grid .about-photo, .about-grid .about-body { grid-column: 1; grid-row: auto; }
+    .about-grid .about-title { order: 1; }
     .about-grid .about-photo { order: 2; }
+    .about-grid .about-body { order: 3; }
     .about-badge { left: 12px; bottom: -16px; padding: 14px 18px; font-size: 0.9rem; }
     .hero-scroll-stage { min-height: 480px; }
   }
@@ -812,13 +818,15 @@
   <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
   <div class="container">
     <div class="about-grid">
+      <div class="about-title">
+        <p class="eyebrow">Sobre</p>
+        <h2>Grasiela Oliveira</h2>
+      </div>
       <div class="about-photo">
         <img src="assets/grasi id 2 jaleco.PNG" alt="Grasiela Oliveira em seu espaço de atendimento" onerror="this.outerHTML='&lt;div class=&quot;about-photo-fallback&quot;&gt;Foto de Grasiela Oliveira&lt;/div&gt;'">
         <div class="about-badge">Esteticista &amp; Massoterapeuta</div>
       </div>
-      <div>
-        <p class="eyebrow">Sobre</p>
-        <h2>Grasiela Oliveira</h2>
+      <div class="about-body">
         <div class="credentials">
           <span class="credential-pill">Esteticista</span>
           <span class="credential-pill">Massoterapeuta</span>
