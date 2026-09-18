@@ -1,0 +1,10 @@
+Salve aqui as imagens da Grasiela. Nomes de arquivo esperados pelo site (index.html):
+
+- grasiela-foto.jpg   -> a foto dela de jaleco no espaço (retrato, aparece no Hero e na seção Sobre)
+- promo-massagem.jpg  -> (opcional) o post promocional "Dia do Cliente", caso queira usar em algum banner
+- logo.png            -> a logo (desenho de linha + "Grasiela Oliveira"), aparece no cabeçalho do site
+
+Depois de salvar, é só recarregar a página do site no navegador (F5) que as fotos aparecem.
+
+Caminho completo desta pasta:
+c:\Users\natal\Downloads\maquina de sites\Kit--do--Aluno-----Máquina--de--Sites\Sites Propostas\Grasiela Oliveira\assets\

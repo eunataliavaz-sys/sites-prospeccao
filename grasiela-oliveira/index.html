@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grasiela Oliveira Massoterapia & Estética | Santos, SP</title>
+<meta name="description" content="Massoterapia e estética em Santos, SP. Drenagem linfática, limpeza de pele e cuidados que renovam sua autoestima. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Niramit:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wine-900: hsl(346, 62%, 12%);
+    --wine-800: hsl(346, 60%, 18%);
+    --wine-700: #67061D;
+    --wine-600: hsl(346, 55%, 32%);
+    --wine-500: hsl(346, 48%, 44%);
+    --wine-300: hsl(346, 38%, 74%);
+    --wine-200: hsl(346, 34%, 85%);
+    --wine-100: hsl(346, 30%, 93%);
+
+    --gold-700: hsl(27, 52%, 24%);
+    --gold-600: #A3693A;
+    --gold-500: hsl(27, 45%, 54%);
+    --gold-300: hsl(27, 40%, 78%);
+    --gold-100: hsl(27, 42%, 92%);
+
+    --beige-25: hsl(35, 46%, 95%);
+    --beige-50: #F1E3CF;
+    --beige-100: hsl(35, 40%, 82%);
+    --beige-200: hsl(35, 36%, 76%);
+
+    --text-primary: #3A2E2A;
+    --text-secondary: #8B7D74;
+    --border: hsl(35, 34%, 78%);
+
+    --display: 'Fraunces', Georgia, serif;
+    --sans: 'Niramit', -apple-system, 'Segoe UI', sans-serif;
+
+    --space-xs: 4px; --space-sm: 8px; --space-md: 16px;
+    --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text-primary);
+    background-color: var(--beige-50);
+    line-height: 1.6;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-600);
+    font-weight: 500;
+  }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; color: var(--wine-900); line-height: 1.15; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.5px; }
+  h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
+  h3 { font-size: 1.3rem; font-weight: 600; }
+  p { color: var(--text-secondary); font-size: 1rem; font-weight: 300; }
+
+  .section { padding: var(--space-3xl) 0; }
+  .section-center { text-align: center; }
+  .section-header { max-width: 620px; margin: 0 auto var(--space-2xl); text-align: center; }
+  .section-header h2 { margin-top: var(--space-sm); }
+  .section-header p { margin-top: var(--space-md); }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--wine-700);
+    color: var(--beige-50);
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--wine-700);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background-color: var(--wine-800); border-color: var(--wine-800); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: var(--wine-700);
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--wine-500);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover { background-color: var(--wine-100); }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background-color: rgba(250, 246, 241, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
+  .logo-mark { display: flex; align-items: center; gap: 12px; }
+  .logo-img { height: 64px; width: auto; display: block; }
+  @media (max-width: 480px) { .logo-img { height: 52px; } }
+  .logo-text h2 { font-size: 1.4rem; margin: 0; letter-spacing: 0.5px; }
+  .logo-text span { display: block; font-family: var(--sans); font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-600); margin-top: 2px; }
+  .logo-icon {
+    width: 38px; height: 38px;
+    border: 1px solid var(--gold-600);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-style: italic; font-weight: 600; color: var(--gold-700); font-size: 1.1rem;
+  }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { font-size: 0.8125rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-primary); font-weight: 500; }
+  .nav-links a:hover { color: var(--wine-700); }
+  .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--wine-800); cursor: pointer; }
+
+  /* Hero - SCROLL EXPAND (mídia pequena que expande conforme rola, texto se separa, depois revela o conteúdo) */
+  .hero-scroll { position: relative; background: var(--wine-900); }
+  .hero-scroll-stage {
+    position: relative; height: calc(100dvh - var(--nav-h, 76px)); min-height: 480px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-scroll-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-scroll-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(6px) brightness(0.65); transform: scale(1.05); }
+  .hero-scroll-eyebrow {
+    position: absolute; top: 12%; left: 50%; transform: translateX(-50%); z-index: 3;
+    color: var(--gold-300); text-shadow: 0 1px 4px rgba(20, 5, 10, 0.6); white-space: nowrap;
+  }
+  .hero-scroll-media {
+    position: absolute; z-index: 2; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 30px 70px rgba(10, 3, 6, 0.55);
+    width: 300px; height: 400px; max-width: 95vw; max-height: 80vh;
+  }
+  .hero-scroll-media::after { content: ""; position: absolute; inset: 0; background: rgba(20, 5, 10, 0.28); }
+  .hero-scroll-media video, .hero-scroll-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Logo + título agrupados como um único bloco centralizado, com espaçamento controlado entre eles */
+  .hero-scroll-centerpiece {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+  }
+  .hero-scroll-emblem {
+    position: relative;
+    width: 480px; height: 225px; max-width: 82vw; overflow: hidden;
+  }
+  .hero-scroll-emblem-mark {
+    position: absolute; top: -184px; left: -42px;
+    width: 564px; height: 564px;
+    filter: drop-shadow(0 3px 16px rgba(0, 0, 0, 0.6));
+  }
+  .hero-scroll-title {
+    position: relative;
+    display: flex; gap: 12px; flex-wrap: nowrap; justify-content: center; text-align: center;
+    pointer-events: none; max-width: 98vw; white-space: nowrap;
+  }
+  .hero-scroll-title .word {
+    font-family: var(--display); font-weight: 600; font-size: clamp(1.6rem, 4vw, 2.9rem);
+    color: var(--beige-50); text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55); white-space: nowrap;
+  }
+  .hero-scroll-hint {
+    position: absolute; bottom: 7%; left: 50%; transform: translateX(-50%); z-index: 3;
+    color: var(--beige-200); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
+    opacity: 0.85; text-shadow: 0 1px 4px rgba(0,0,0,0.5); transition: opacity 0.3s ease;
+  }
+  .hero-scroll-content {
+    padding: var(--space-3xl) 24px var(--space-md); text-align: center;
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  .hero-scroll-content.is-visible { opacity: 1; }
+  .hero-scroll-content .subtitle { max-width: 840px; margin: 0 auto; font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.4; color: var(--beige-200); }
+  html { overflow-y: scroll; }
+  .hero-stats { display: flex; justify-content: center; gap: var(--space-2xl); margin: var(--space-2xl) 0 var(--space-lg); flex-wrap: wrap; }
+  .hero-stat { text-align: center; }
+  .hero-stat strong { display: block; font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--wine-800); }
+  .hero-stat span { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary); }
+  .hero-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .hero-scroll-content .hero-stat strong { color: var(--gold-300); }
+  .hero-scroll-content .hero-stat span { color: var(--beige-200); }
+  .hero-scroll-content .btn-outline { color: var(--beige-100); border-color: var(--gold-300); }
+  .hero-scroll-content .btn-outline:hover { background: rgba(241, 229, 219, 0.1); }
+  .hero-scroll-content .btn-primary { background-color: var(--gold-500); color: var(--wine-900); border-color: var(--gold-500); }
+  .hero-scroll-content .btn-primary:hover { background-color: var(--gold-300); border-color: var(--gold-300); }
+
+  /* Agendamento strip */
+  .booking-strip {
+    background-color: var(--wine-900);
+    height: 10px;
+  }
+
+  /* Grid cards */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+
+  .card {
+    background-color: var(--beige-25);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+    transition: all 0.35s ease;
+  }
+  .card:hover { border-color: var(--gold-500); box-shadow: 0 18px 40px rgba(58, 30, 30, 0.08); transform: translateY(-4px); }
+  .card-icon { font-size: 1.6rem; margin-bottom: var(--space-md); color: var(--gold-600); }
+  .card h3 { margin-bottom: var(--space-sm); }
+  .card p { font-size: 0.9rem; }
+
+  .section-alt { background-color: var(--beige-100); }
+
+  /* Textura de folhagem no fundo, reforçando a identidade visual */
+  .has-leaf-decor { position: relative; overflow: hidden; }
+  .has-leaf-decor > .container { position: relative; z-index: 1; }
+  .leaf-decor { position: absolute; z-index: 0; opacity: 0.5; pointer-events: none; }
+  .leaf-decor img { width: 100%; height: auto; display: block; }
+  /* Emergem da lateral, visíveis mas com margem segura do conteúdo */
+  .leaf-decor--left { top: 8%; left: -90px; width: 220px; }
+  .leaf-decor--left-low { bottom: -40px; left: -80px; width: 200px; transform: scaleY(-1); }
+  .leaf-decor--right { top: 8%; right: -90px; width: 220px; transform: scaleX(-1); }
+  .leaf-decor--right-low { bottom: -40px; right: -80px; width: 200px; transform: scaleX(-1) scaleY(-1); }
+  @media (max-width: 640px) {
+    .leaf-decor { opacity: 0.4; }
+    .leaf-decor--left, .leaf-decor--right, .leaf-decor--left-low, .leaf-decor--right-low { width: 140px; }
+    .leaf-decor--left, .leaf-decor--left-low { left: -60px; }
+    .leaf-decor--right, .leaf-decor--right-low { right: -60px; }
+  }
+
+  .section-divider { position: relative; height: 0; display: flex; justify-content: center; align-items: flex-start; z-index: 5; }
+  .section-divider img { width: 130px; max-width: 40vw; height: auto; opacity: 0.95; transform: translateY(-50%); pointer-events: none; }
+
+  /* Sobre */
+  .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-3xl); align-items: center; }
+  .about-photo { position: relative; }
+  .about-photo img, .about-photo-fallback { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+  .about-photo-fallback {
+    background: var(--wine-100); display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-style: italic; font-size: 1.4rem; color: var(--wine-500); text-align: center; padding: 20px;
+  }
+  .about-badge {
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--wine-900); color: var(--beige-50);
+    padding: 18px 24px; font-family: var(--display); font-style: italic; font-size: 1.05rem;
+    border: 1px solid var(--gold-500);
+  }
+  .credentials { display: flex; gap: var(--space-lg); margin: var(--space-lg) 0; flex-wrap: wrap; }
+  .credential-pill { font-size: 0.8125rem; letter-spacing: 0.5px; color: var(--gold-700); border: 1px solid var(--gold-300); padding: 8px 16px; border-radius: 20px; }
+
+  /* Parceria */
+  .partner-section { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+  .partner-grid { display: grid; grid-template-columns: 0.7fr 1fr; gap: var(--space-2xl); align-items: center; }
+  .partner-photo { position: relative; max-width: 260px; }
+  .partner-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+  .partner-photo-badge {
+    position: absolute; bottom: -14px; right: -14px; width: 84px; height: 84px; border-radius: 50%;
+    overflow: hidden; border: 3px solid var(--beige-50); box-shadow: 0 10px 24px rgba(58, 30, 30, 0.18);
+  }
+  .partner-photo-badge img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border-radius: 0; }
+  .partner-role { color: var(--gold-600); font-size: 0.9rem; letter-spacing: 0.5px; margin: 4px 0 var(--space-md); font-weight: 500; }
+  @media (max-width: 860px) {
+    .partner-grid { grid-template-columns: 1fr; text-align: center; }
+    .partner-photo { margin: 0 auto; }
+  }
+
+  /* Projeto Noiva Radiante */
+  .bride-banner {
+    display: block; width: 100%; margin: var(--space-2xl) 0 var(--space-3xl);
+    box-shadow: 0 10px 30px rgba(58, 30, 30, 0.12);
+  }
+  .bride-banner img { width: 100%; height: auto; display: block; }
+
+  .package-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin-top: var(--space-2xl); align-items: start; }
+  .package-card { background: var(--beige-25); border: 1px solid var(--border); border-radius: 16px; padding: var(--space-xl); text-align: left; }
+  .package-card--featured { border-color: var(--gold-500); box-shadow: 0 18px 40px rgba(58, 30, 30, 0.08); }
+  .package-days { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-600); margin-bottom: 4px; }
+  .package-card h3 { margin-bottom: 0; }
+  .package-card ul { list-style: none; margin: var(--space-lg) 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .package-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: var(--text-secondary); }
+  .package-card li svg { flex: none; width: 16px; height: 16px; margin-top: 3px; color: var(--gold-600); }
+  .package-summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); cursor: pointer; list-style: none; }
+  .package-summary::-webkit-details-marker { display: none; }
+  .package-summary::marker { content: ""; }
+  .package-toggle {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--gold-500); color: var(--gold-600);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; line-height: 1; transition: transform 0.3s ease;
+  }
+  .package-card[open] .package-toggle { transform: rotate(45deg); }
+
+  .combo-card { text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+  .combo-card .btn-outline { margin-top: auto !important; }
+  .combo-num {
+    display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;
+    background: var(--wine-900); color: var(--beige-50); font-family: var(--display); font-weight: 600; font-size: 0.95rem; margin-bottom: var(--space-md);
+  }
+
+  @media (max-width: 860px) {
+    .package-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Prova social */
+  .rating-block { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); }
+  .stars { display: inline-flex; gap: 4px; color: var(--wine-300); }
+  .stars svg { width: 1.4rem; height: 1.4rem; }
+  .stars--google { color: var(--gold-500); }
+  .stars--google svg { fill: currentColor; }
+  .rating-block strong { font-family: var(--display); font-weight: 600; font-size: 2.2rem; color: var(--wine-900); }
+  .rating-block span { color: var(--text-secondary); font-size: 0.9rem; }
+  .reviews-subtitle { max-width: 460px; margin: 8px auto 0; color: var(--text-secondary); font-size: 1rem; }
+
+  /* Contato */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: start; }
+  .contact-info-item { display: flex; gap: 16px; margin-bottom: var(--space-lg); align-items: flex-start; }
+  .contact-info-item .icon { color: var(--gold-600); font-size: 1.15rem; margin-top: 2px; }
+  .contact-info-item h3 { font-size: 1rem; margin-bottom: 4px; }
+  .contact-info-item p { font-size: 0.9rem; margin: 0; }
+  .map-frame { border: 1px solid var(--border); width: 100%; height: 340px; filter: grayscale(15%) sepia(8%); }
+
+  footer {
+    background-color: var(--wine-900);
+    color: var(--wine-200);
+    padding: var(--space-2xl) 0 var(--space-lg);
+    text-align: center;
+  }
+  footer .logo-text h2 { color: var(--beige-50); }
+  footer .footer-links { display: flex; justify-content: center; gap: 28px; margin: var(--space-lg) 0; flex-wrap: wrap; }
+  footer .footer-links a { font-size: 0.8125rem; letter-spacing: 0.5px; }
+  footer .footer-links a:hover { color: var(--beige-50); }
+  footer .credit { font-size: 0.75rem; color: var(--wine-500); margin-top: var(--space-lg); border-top: 1px solid var(--wine-800); padding-top: var(--space-lg); }
+
+  .whatsapp-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 100;
+    background-color: var(--wine-700);
+    color: var(--beige-50);
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 24px rgba(58, 30, 30, 0.35);
+    transition: transform 0.25s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+
+  /* Agendamento no Hero */
+  .hero-booking {
+    max-width: 460px;
+    margin: var(--space-xl) auto 0;
+    background: var(--beige-50);
+    border: 1px solid var(--gold-300);
+    border-radius: 16px;
+    padding: var(--space-lg) var(--space-xl);
+    text-align: left;
+    box-shadow: 0 24px 50px rgba(58, 30, 30, 0.1);
+  }
+  .hero-booking h3 { font-size: 1.1rem; text-align: center; margin-bottom: var(--space-md); }
+  .hero-booking .field { margin-bottom: var(--space-md); }
+  .hero-booking label { display: block; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-600); margin-bottom: 6px; font-weight: 500; }
+  .hero-booking select {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--border); background: #fff;
+    font-family: var(--sans); font-size: 0.9rem; color: var(--text-primary); border-radius: 8px;
+  }
+  .hero-booking select:focus { outline: none; border-color: var(--gold-500); }
+  .hero-booking .btn-primary { width: 100%; justify-content: center; margin-top: var(--space-sm); }
+
+  /* Carrossel de imagens (loop automático, pausa no hover) */
+  .gallery-rows { display: flex; flex-direction: column; gap: 20px; }
+  .gallery-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+  .gallery-track { display: flex; width: max-content; gap: 20px; animation: galleryLeft 46s linear infinite; }
+  .gallery-track.reverse { animation-name: galleryRight; }
+  .gallery-wrap:hover .gallery-track { animation-play-state: paused; }
+  @keyframes galleryLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @keyframes galleryRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+  .gallery-card { position: relative; width: 260px; height: 300px; flex-shrink: 0; overflow: hidden; box-shadow: 0 10px 26px rgba(58, 30, 30, 0.12); }
+  .gallery-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .gallery-card:hover img { transform: scale(1.08); }
+  .gallery-card .overlay { position: absolute; inset: 0; background: linear-gradient(0deg, var(--wine-900) 0%, rgba(58,16,29,0.35) 45%, transparent 75%); }
+  .gallery-card .content { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; color: var(--beige-50); }
+  .gallery-card h4 { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 1.15rem; color: var(--beige-50); }
+  .gallery-note { text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: var(--space-md); }
+
+  /* Carrossel de avaliações */
+  .reviews-carousel { position: relative; max-width: 760px; margin: var(--space-xl) auto 0; }
+  .reviews-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; scrollbar-width: none; padding-bottom: 4px; }
+  .reviews-track::-webkit-scrollbar { display: none; }
+  .review-card {
+    position: relative; overflow: hidden;
+    flex: 0 0 100%; scroll-snap-align: center;
+    background: var(--beige-25); border: 1px solid var(--border); border-radius: 16px;
+    padding: var(--space-xl); text-align: left;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .review-card:hover { box-shadow: 0 18px 40px rgba(58, 30, 30, 0.1); transform: translateY(-3px); }
+  .review-card .review-mark {
+    position: absolute; top: 0; right: 20px; z-index: 0;
+    font-family: var(--display); font-size: 4.5rem; line-height: 1;
+    color: var(--wine-100); pointer-events: none;
+  }
+  .review-card .stars { position: relative; z-index: 1; margin-bottom: var(--space-md); }
+  .review-card .review-quote { position: relative; z-index: 1; font-family: var(--display); font-style: italic; font-size: 1.15rem; color: var(--wine-900); line-height: 1.5; }
+  .review-footer { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; margin-top: var(--space-lg); }
+  .review-avatar {
+    flex: none; width: 42px; height: 42px; border-radius: 50%;
+    background: var(--wine-700); color: var(--beige-50);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-weight: 600; font-size: 0.95rem;
+  }
+  .review-author { font-size: 0.875rem; font-weight: 600; color: var(--wine-900); }
+  .review-role { font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px; }
+  .reviews-nav { display: flex; justify-content: center; gap: 12px; margin-top: var(--space-lg); }
+  .reviews-nav button {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--gold-300); background: var(--beige-25);
+    color: var(--gold-700); cursor: pointer; font-size: 1rem; transition: all 0.2s ease;
+  }
+  .reviews-nav button:hover { background: var(--gold-100); border-color: var(--gold-500); }
+
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .about-badge { left: 12px; bottom: -16px; padding: 14px 18px; font-size: 0.9rem; }
+    .hero-scroll-stage { min-height: 480px; }
+  }
+
+  @media (max-width: 520px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .hero-stats { gap: var(--space-xl); }
+    .gallery-card { width: 220px; height: 260px; }
+    .hero-booking { padding: var(--space-lg); }
+    .hero-scroll-content { padding: var(--space-2xl) 16px var(--space-md); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo-mark" id="navLogo">
+      <img class="logo-img" src="assets/Grasiela Oliveira logo.png" alt="Grasiela Oliveira - Massoterapia &amp; Estética" onerror="document.getElementById('navLogo').innerHTML='&lt;div class=&quot;logo-icon&quot;&gt;G&lt;/div&gt;&lt;div class=&quot;logo-text&quot;&gt;&lt;h2&gt;Grasiela Oliveira&lt;/h2&gt;&lt;span&gt;Massoterapia &amp;amp; Est&eacute;tica&lt;/span&gt;&lt;/div&gt;'">
+    </div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#noivas">Noivas</a>
+      <a href="#avaliacoes">Depoimentos</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn-outline" style="padding: 10px 22px;">Agendar</a>
+    </div>
+    <button class="nav-toggle" aria-label="Abrir menu"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+  </div>
+</nav>
+
+<header class="hero-scroll" id="heroScroll">
+  <div class="hero-scroll-stage" id="heroScrollStage">
+    <div class="hero-scroll-bg" id="heroScrollBg">
+      <img src="assets/Grasi Hero.png" alt="Espaço de atendimento de Grasiela Oliveira">
+    </div>
+
+    <p class="hero-scroll-eyebrow">Massoterapia &amp; Estética · Santos, SP</p>
+
+    <div class="hero-scroll-media" id="heroScrollMedia">
+      <video id="heroScrollVideo" src="assets/video hero.mp4" poster="assets/Grasi Hero.png" autoplay muted loop playsinline preload="auto" onerror="this.style.display='none'; document.getElementById('heroScrollImg').style.display='block';"></video>
+      <img id="heroScrollImg" src="assets/Grasi Hero.png" alt="Espaço de atendimento de Grasiela Oliveira" style="display:none;">
+    </div>
+
+    <div class="hero-scroll-centerpiece">
+      <div class="hero-scroll-emblem" id="heroScrollEmblem" aria-hidden="true">
+        <img class="hero-scroll-emblem-mark" src="assets/Grasiela Oliveira logo sem fundo (2).png" alt="">
+      </div>
+
+      <div class="hero-scroll-title">
+        <span class="word" id="heroWordLeft">Cuidar</span>
+        <span class="word" id="heroWordRight">de você é sempre uma boa escolha</span>
+      </div>
+    </div>
+
+    <p class="hero-scroll-hint" id="heroScrollHint">Role para conhecer nosso espaço <svg width="0.9em" height="0.9em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -0.15em;"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg></p>
+  </div>
+
+  <div class="container hero-scroll-content" id="heroScrollContent">
+    <p class="subtitle">Melhore sua autoestima e qualidade de vida com massoterapia e estética. Atendimento especializado em drenagem linfática e limpeza de pele, num espaço pensado para o seu bem-estar.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>5,0 <svg width="0.8em" height="0.8em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" style="vertical-align: -0.05em;"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></strong><span>Google · 54 avaliações</span></div>
+      <div class="hero-stat"><strong>1.188+</strong><span>seguidores no Instagram</span></div>
+      <div class="hero-stat"><strong>+8</strong><span>anos na área</span></div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#especialidades" class="btn-outline">Ver especialidades</a>
+      <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn-primary">Falar no WhatsApp</a>
+      <a href="#nosso-espaco" class="btn-outline">Conhecer o espaço</a>
+    </div>
+  </div>
+</header>
+
+<div class="booking-strip"></div>
+
+<section class="section has-leaf-decor" id="especialidades">
+  <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/Folhagem 01.png" alt=""></div>
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">O que eu ofereço</p>
+      <h2>Especialidades</h2>
+      <p>Cada atendimento é pensado para o seu corpo e sua rotina, com técnicas reconhecidas e um cuidado genuíno em cada detalhe.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></div>
+        <h3>Drenagem Linfática</h3>
+        <p>Técnica especializada que reduz inchaço, melhora a circulação e renova a sensação de leveza.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.7L19 10l-5.2 1.3L12 17l-1.8-5.7L5 10l5.2-1.3z"/></svg></div>
+        <h3>Limpeza de Pele</h3>
+        <p>Higienização profunda e cuidado facial completo para uma pele mais saudável e luminosa.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Massoterapia Relaxante</h3>
+        <p>Alívio de tensões e estresse através de técnicas manuais que devolvem o equilíbrio ao corpo.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><circle cx="7" cy="12" r="2.4"/><circle cx="17" cy="12" r="2.4"/><circle cx="12" cy="12" r="1.8"/></svg></div>
+        <h3>Estética Corporal</h3>
+        <p>Protocolos personalizados que cuidam da sua autoestima com resultados que você sente e vê.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section has-leaf-decor" style="padding-top: 0;" id="nosso-espaco">
+  <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/Folhagem 02.png" alt=""></div>
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Nosso espaço</p>
+      <h2>Um ambiente pensado para o seu cuidado</h2>
+      <p>Conheça de perto o espaço e os atendimentos.</p>
+    </div>
+  </div>
+  <div class="gallery-rows">
+    <div class="gallery-wrap">
+      <div class="gallery-track" style="animation-duration: 69s;">
+        <div class="gallery-card"><img src="assets/Grasi espaço.png" alt="Sala de atendimento de Grasiela Oliveira"><div class="overlay"></div><div class="content"><h4>Sala de Atendimento</h4></div></div>
+        <div class="gallery-card"><img src="assets/espaço 01.jpeg" alt="Recepção do espaço de Grasiela Oliveira"><div class="overlay"></div><div class="content"><h4>Recepção</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi atendimento.png" alt="Cliente relaxando durante atendimento"><div class="overlay"></div><div class="content"><h4>Day Spa Completo</h4></div></div>
+        <div class="gallery-card"><img src="assets/atendimento gestante.jpeg" alt="Atendimento de massoterapia para gestantes"><div class="overlay"></div><div class="content"><h4>Atendimento Gestante</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi no espaço.png" alt="Grasiela Oliveira em seu espaço de atendimento"><div class="overlay"></div><div class="content"><h4>Grasiela Oliveira</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi aromaterapia.png" alt="Aromaterapia durante a massagem"><div class="overlay"></div><div class="content"><h4>Aromaterapia</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi espaço.png" alt="Sala de atendimento de Grasiela Oliveira"><div class="overlay"></div><div class="content"><h4>Sala de Atendimento</h4></div></div>
+        <div class="gallery-card"><img src="assets/espaço 01.jpeg" alt="Recepção do espaço de Grasiela Oliveira"><div class="overlay"></div><div class="content"><h4>Recepção</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi atendimento.png" alt="Cliente relaxando durante atendimento"><div class="overlay"></div><div class="content"><h4>Day Spa Completo</h4></div></div>
+        <div class="gallery-card"><img src="assets/atendimento gestante.jpeg" alt="Atendimento de massoterapia para gestantes"><div class="overlay"></div><div class="content"><h4>Atendimento Gestante</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi no espaço.png" alt="Grasiela Oliveira em seu espaço de atendimento"><div class="overlay"></div><div class="content"><h4>Grasiela Oliveira</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi aromaterapia.png" alt="Aromaterapia durante a massagem"><div class="overlay"></div><div class="content"><h4>Aromaterapia</h4></div></div>
+      </div>
+    </div>
+    <div class="gallery-wrap">
+      <div class="gallery-track reverse">
+        <div class="gallery-card"><img src="assets/Grasi limpeza de pele.png" alt="Limpeza de pele profissional"><div class="overlay"></div><div class="content"><h4>Limpeza de Pele</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi massoterapia.png" alt="Massoterapia com pedras quentes"><div class="overlay"></div><div class="content"><h4>Pedras Quentes</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi massagem.png" alt="Massagem relaxante"><div class="overlay"></div><div class="content"><h4>Massagem Relaxante</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi limpeza de pele.png" alt="Limpeza de pele profissional"><div class="overlay"></div><div class="content"><h4>Limpeza de Pele</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi massoterapia.png" alt="Massoterapia com pedras quentes"><div class="overlay"></div><div class="content"><h4>Pedras Quentes</h4></div></div>
+        <div class="gallery-card"><img src="assets/Grasi massagem.png" alt="Massagem relaxante"><div class="overlay"></div><div class="content"><h4>Massagem Relaxante</h4></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section partner-section" id="parceria">
+  <div class="container">
+    <div class="partner-grid">
+      <div class="partner-photo">
+        <img src="assets/priscila castelhano.jpeg" alt="Priscila Castelhano, nail designer e cabeleireira">
+        <div class="partner-photo-badge"><img src="assets/unhas priscila castelhano.jpeg" alt="Trabalho de nail design de Priscila Castelhano"></div>
+      </div>
+      <div>
+        <p class="eyebrow">Parceria no espaço</p>
+        <h2>Priscila Castelhano</h2>
+        <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
+        <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas por uma parede — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section has-leaf-decor" id="noivas">
+  <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/Folhagem 02.png" alt=""></div>
+  <div class="container">
+
+    <div class="section-header">
+      <p class="eyebrow">Projeto Noiva Radiante</p>
+      <h2>Acompanhamento especial para noivas</h2>
+    </div>
+  </div>
+
+  <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20Projeto%20Noiva%20Radiante%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener" class="bride-banner">
+    <img src="assets/Banner Noiva Radiante.png" alt="Projeto Noiva Radiante: acompanhamento de 30 ou 60 dias antes do casamento">
+  </a>
+
+  <div class="container">
+    <div class="package-grid">
+      <details class="package-card">
+        <summary class="package-summary">
+          <div>
+            <p class="package-days">30 dias</p>
+            <h3>Essencial</h3>
+          </div>
+          <span class="package-toggle" aria-hidden="true">+</span>
+        </summary>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Limpeza de pele</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Massagem relaxante</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Drenagem</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cronograma capilar</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Design de sobrancelha</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pé e mão</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Escalda pés</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lanche saudável</li>
+        </ul>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20pacote%20Essencial%20(30%20dias)%20do%20Projeto%20Noiva%20Radiante." target="_blank" rel="noopener" class="btn-outline">Consultar disponibilidade</a>
+      </details>
+
+      <details class="package-card package-card--featured">
+        <summary class="package-summary">
+          <div>
+            <p class="package-days">60 dias</p>
+            <h3>Luxo</h3>
+          </div>
+          <span class="package-toggle" aria-hidden="true">+</span>
+        </summary>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Limpeza de pele</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Massagem relaxante</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Drenagem</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cronograma capilar</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Design de sobrancelha</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pé e mão</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Escalda pés</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lanche saudável</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Hidratação facial</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Peeling + máscara (1 sessão)</li>
+        </ul>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20pacote%20Luxo%20(60%20dias)%20do%20Projeto%20Noiva%20Radiante." target="_blank" rel="noopener" class="btn-primary">Consultar disponibilidade</a>
+      </details>
+    </div>
+
+    <div class="section-header" style="margin-top: var(--space-3xl);">
+      <p class="eyebrow">Combos especiais</p>
+      <h3 style="font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--wine-900); margin-top: var(--space-sm);">Ou monte o seu, com tratamentos específicos</h3>
+    </div>
+    <div class="grid-3">
+      <div class="card combo-card">
+        <div class="combo-num">01</div>
+        <h3>Pré-Evento Glow</h3>
+        <p>Limpeza de pele + Massagem relaxante</p>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Pr%C3%A9-Evento%20Glow." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
+      </div>
+      <div class="card combo-card">
+        <div class="combo-num">02</div>
+        <h3>Dia da Noiva Relax</h3>
+        <p>Massagem + Pé e mão + Hidratação facial + Escalda pés + Lanche saudável</p>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Dia%20da%20Noiva%20Relax." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
+      </div>
+      <div class="card combo-card">
+        <div class="combo-num">03</div>
+        <h3>Corpo Leve</h3>
+        <p>Drenagem + Massagem modeladora + Escalda pés + Lanche saudável</p>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Corpo%20Leve." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section section-alt has-leaf-decor">
+  <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/Folhagem 03.png" alt=""></div>
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Por que escolher</p>
+      <h2>Um cuidado feito para você</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 8v6"/></svg></div>
+        <h3>Profissional Especializada</h3>
+        <p>Esteticista e massoterapeuta com formação e prática dedicadas ao seu bem-estar.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5L12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h4v-5h2v5h4a1 1 0 0 0 1-1v-9"/></svg></div>
+        <h3>Ambiente Acolhedor</h3>
+        <p>Um espaço reservado e tranquilo, pensado para você desacelerar e se cuidar de verdade.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Atendimento Personalizado</h3>
+        <p>Cada sessão é adaptada às suas necessidades, com atenção real aos seus objetivos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section section-center has-leaf-decor" id="avaliacoes">
+  <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/Folhagem 01.png" alt=""></div>
+  <div class="container">
+    <p class="eyebrow">Depoimentos</p>
+    <p class="reviews-subtitle">O que as clientes dizem após o atendimento.</p>
+    <div class="rating-block" style="margin-top: 16px;">
+      <div class="stars stars--google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
+      <strong>5,0</strong>
+      <span>Nota média no Google · 54 avaliações</span>
+    </div>
+    <a href="https://share.google/qOMsy5wIQLg3UZQ7N" target="_blank" rel="noopener" class="btn-outline" style="margin-top: 32px;">Ver avaliações no Google</a>
+
+    <div class="reviews-carousel">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review-card">
+          <span class="review-mark" aria-hidden="true">&rdquo;</span>
+          <div class="stars stars--google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
+          <p class="review-quote">A Grasi é maravilhosa, atenciosa, serve chazinho, é paciente e super flexível para pessoas com rotinas como a minha. A rotina da massagem me trouxe muita qualidade de vida, dores e tensões foram embora e quando chego com um desconforto diferente ela se dedica ao máximo para aliviar e salvar meu dia. Hoje, não consigo mais pensar na minha semana sem meu momento relax com ela. Super indico!</p>
+          <div class="review-footer">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-author">Mariana Fiorotto</div>
+              <div class="review-role">Avaliação no Google · há 5 meses</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <span class="review-mark" aria-hidden="true">&rdquo;</span>
+          <div class="stars stars--google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
+          <p class="review-quote">Excelente profissional. Recomendo muito para drenagem e massagem. Sou fã! Muito obrigada pelo cuidado e qualidade no atendimento.</p>
+          <div class="review-footer">
+            <div class="review-avatar">D</div>
+            <div>
+              <div class="review-author">Danielle Silva Dunder</div>
+              <div class="review-role">Avaliação no Google · há 3 anos</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <span class="review-mark" aria-hidden="true">&rdquo;</span>
+          <div class="stars stars--google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
+          <p class="review-quote">Atendimento maravilhoso. Minhas dores melhoraram muito. Atenciosa e muito gentil. Ambiente agradável.</p>
+          <div class="review-footer">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-author">Mayara Buono</div>
+              <div class="review-role">Avaliação no Google · há 2 anos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-nav">
+        <button type="button" id="reviewPrev" aria-label="Avaliação anterior"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="11 6 5 12 11 18"/></svg></button>
+        <button type="button" id="reviewNext" aria-label="Próxima avaliação"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section section-alt has-leaf-decor" id="sobre">
+  <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/Folhagem 02.png" alt=""></div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="assets/Grasi id 2 jaleco.png" alt="Grasiela Oliveira em seu espaço de atendimento" onerror="this.outerHTML='&lt;div class=&quot;about-photo-fallback&quot;&gt;Foto de Grasiela Oliveira&lt;/div&gt;'">
+        <div class="about-badge">Esteticista &amp; Massoterapeuta</div>
+      </div>
+      <div>
+        <p class="eyebrow">Sobre</p>
+        <h2>Grasiela Oliveira</h2>
+        <div class="credentials">
+          <span class="credential-pill">Esteticista</span>
+          <span class="credential-pill">Massoterapeuta</span>
+          <span class="credential-pill">Especialista em Drenagem Linfática</span>
+        </div>
+        <p>Há 8 anos dedicada à área da estética, Grasiela Oliveira iniciou sua trajetória como designer de sobrancelhas e encontrou na massoterapia sua grande paixão. Há 4 anos atua como massoterapeuta, com especialização em drenagem linfática e atendimento personalizado.</p>
+        <p style="margin-top: 16px;">Sua trajetória começou com atendimentos a domicílio e ganhou um novo capítulo quando recebeu a oportunidade de trabalhar no salão de uma amiga, experiência que fortaleceu sua confiança e impulsionou seu crescimento profissional. Há 2 anos, realizou o sonho de inaugurar seu próprio espaço: Grasiela Oliveira – Massoterapia &amp; Estética.</p>
+        <p style="margin-top: 16px;">Seu trabalho é voltado para gestantes, lactantes, pós-cirúrgicos, pessoas com fibromialgia e lipedema, além de tratamentos estéticos faciais para diferentes necessidades da pele. Hoje, oferece um cuidado acolhedor, seguro e individualizado, sempre respeitando as necessidades e os objetivos de cada paciente.</p>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn-primary" style="margin-top: 24px;">Agendar Avaliação</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section section-alt has-leaf-decor" id="agendamento">
+  <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/Folhagem 03.png" alt=""></div>
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Reserve seu horário</p>
+      <h2>Agendamento</h2>
+      <p>Escolha a especialidade, o dia e o período de sua preferência. Enviamos os detalhes direto pelo WhatsApp.</p>
+    </div>
+
+    <div class="hero-booking" style="text-align: left;">
+      <h3>Agende sua avaliação</h3>
+      <div class="field">
+        <label for="fieldEspecialidade">Especialidade desejada</label>
+        <select id="fieldEspecialidade">
+          <option value="">Qualquer especialidade</option>
+          <option>Drenagem Linfática</option>
+          <option>Limpeza de Pele</option>
+          <option>Massoterapia Relaxante</option>
+          <option>Estética Corporal</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fieldDia">Dia da semana</label>
+        <select id="fieldDia">
+          <option value="">Qualquer dia</option>
+          <option>Segunda-feira</option>
+          <option>Terça-feira</option>
+          <option>Quarta-feira</option>
+          <option>Quinta-feira</option>
+          <option>Sexta-feira</option>
+          <option>Sábado</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fieldPeriodo">Período de preferência</label>
+        <select id="fieldPeriodo">
+          <option value="">Qualquer período</option>
+          <option>Manhã</option>
+          <option>Tarde</option>
+          <option>Noite</option>
+        </select>
+      </div>
+      <button type="button" id="scheduleBtn" class="btn-primary">Agendar pelo WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><img src="assets/Grasi coração.png" alt=""></div>
+
+<section class="section has-leaf-decor" id="contato">
+  <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/Folhagem 01.png" alt=""></div>
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Vamos conversar</p>
+      <h2>Contato &amp; Localização</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item">
+          <div class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <h3>Endereço</h3>
+            <p>Av. Anna Costa, 374 - Sala 63<br>Gonzaga, Santos - SP, 11060-002</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div>
+            <h3>Horário de Atendimento</h3>
+            <p>Segunda a sexta: 8h às 18h<br>Sábado: 9h às 14h</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.1z"/></svg></div>
+          <div>
+            <h3>Telefone / WhatsApp</h3>
+            <p><a href="tel:+5513996312232">(13) 99631-2232</a></p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 7l1.4-2h5.2L16 7"/></svg></div>
+          <div>
+            <h3>Instagram</h3>
+            <p><a href="https://www.instagram.com/grasielaoliveira.estetica/" target="_blank" rel="noopener">@grasielaoliveira.estetica</a></p>
+          </div>
+        </div>
+        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn-primary" style="margin-top: 8px;">Agendar pelo WhatsApp</a>
+      </div>
+      <iframe class="map-frame" loading="lazy" src="https://www.google.com/maps?q=Av.+Anna+Costa,+374+-+Sl+63+-+Gonzaga,+Santos+-+SP,+11060-002&output=embed" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo-mark" style="justify-content: center;">
+      <div class="logo-icon" style="border-color: var(--wine-400, var(--wine-300)); color: var(--beige-100);">G</div>
+      <div class="logo-text">
+        <h2>Grasiela Oliveira</h2>
+        <span style="color: var(--wine-300);">Massoterapia &amp; Estética</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#noivas">Noivas</a>
+      <a href="#avaliacoes">Depoimentos</a>
+      <a href="#contato">Contato</a>
+      <a href="https://www.instagram.com/grasielaoliveira.estetica/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p style="font-size: 0.85rem;">Av. Anna Costa, 374 - Sl 63, Gonzaga, Santos - SP · (13) 99631-2232</p>
+    <div class="credit">Site desenvolvido para Grasiela Oliveira Massoterapia &amp; Estética</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Agendar pelo WhatsApp"><svg width="1.4em" height="1.4em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+
+<script>
+  (function setNavHeightVar() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    const update = () => document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+    update();
+    window.addEventListener('resize', update);
+  })();
+
+  (function heroScrollExpand() {
+    const stage = document.getElementById('heroScrollStage');
+    const bg = document.getElementById('heroScrollBg');
+    const media = document.getElementById('heroScrollMedia');
+    const wordLeft = document.getElementById('heroWordLeft');
+    const wordRight = document.getElementById('heroWordRight');
+    const hint = document.getElementById('heroScrollHint');
+    const emblem = document.getElementById('heroScrollEmblem');
+    const content = document.getElementById('heroScrollContent');
+    if (!stage) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Fallback seguro: sem scroll-jacking em telas pequenas ou com movimento reduzido.
+    if (prefersReduced || window.innerWidth < 640) {
+      media.style.width = '100%';
+      media.style.height = '70vh';
+      media.style.position = 'relative';
+      media.style.borderRadius = '0';
+      bg.style.display = 'none';
+      hint.style.display = 'none';
+      content.classList.add('is-visible');
+      return;
+    }
+
+    let progress = 0;
+    let expanded = false;
+    let touchStartY = 0;
+    const isMobile = () => window.innerWidth < 768;
+
+    function apply() {
+      const baseW = 300, baseH = 400;
+      const maxAddW = isMobile() ? 650 : 1250;
+      const maxAddH = isMobile() ? 200 : 400;
+      const w = Math.min(baseW + progress * maxAddW, window.innerWidth * 0.95);
+      const h = Math.min(baseH + progress * maxAddH, window.innerHeight * 0.85);
+      media.style.width = w + 'px';
+      media.style.height = h + 'px';
+      media.style.left = 'calc(50% - ' + (w / 2) + 'px)';
+      media.style.top = 'calc(50% - ' + (h / 2) + 'px)';
+      media.style.borderRadius = (16 - progress * 10) + 'px';
+      bg.style.opacity = String(1 - progress);
+
+      const textShift = progress * (isMobile() ? 70 : 120);
+      wordLeft.style.transform = 'translateX(-' + textShift + 'px)';
+      wordRight.style.transform = 'translateX(' + textShift + 'px)';
+      const textFade = String(Math.max(1 - progress * 1.3, 0));
+      wordLeft.style.opacity = textFade;
+      wordRight.style.opacity = textFade;
+      hint.style.opacity = String(Math.max(0.85 - progress * 1.5, 0));
+      if (emblem) {
+        emblem.style.opacity = String(Math.max(1 - progress * 1.6, 0));
+        emblem.style.transform = 'scale(' + (1 - progress * 0.15) + ')';
+      }
+    }
+
+    function setProgress(delta) {
+      progress = Math.min(Math.max(progress + delta, 0), 1);
+      apply();
+      if (progress >= 1) {
+        expanded = true;
+        content.classList.add('is-visible');
+        document.body.classList.remove('hero-locked');
+      } else if (progress < 0.75) {
+        content.classList.remove('is-visible');
+        if (!document.body.classList.contains('hero-locked')) {
+          document.body.classList.add('hero-locked');
+        }
+      }
+    }
+
+    function onWheel(e) {
+      if (expanded && e.deltaY < 0 && window.scrollY <= 5) {
+        expanded = false;
+        document.body.classList.add('hero-locked');
+        window.scrollTo(0, 0);
+        e.preventDefault();
+        return;
+      }
+      if (!expanded) {
+        e.preventDefault();
+        setProgress(e.deltaY * 0.0009);
+      }
+    }
+
+    function onTouchStart(e) { touchStartY = e.touches[0].clientY; }
+    function onTouchMove(e) {
+      if (!touchStartY) return;
+      const y = e.touches[0].clientY;
+      const deltaY = touchStartY - y;
+      if (expanded && deltaY < -20 && window.scrollY <= 5) {
+        expanded = false;
+        document.body.classList.add('hero-locked');
+        window.scrollTo(0, 0);
+        e.preventDefault();
+        return;
+      }
+      if (!expanded) {
+        e.preventDefault();
+        const factor = deltaY < 0 ? 0.008 : 0.005;
+        setProgress(deltaY * factor);
+        touchStartY = y;
+      }
+    }
+    function onTouchEnd() { touchStartY = 0; }
+    function onScroll() {
+      if (expanded) return;
+      const sy = window.scrollY;
+      if (sy > 0) {
+        setProgress(sy * 0.0018);
+        window.scrollTo(0, 0);
+      }
+    }
+    function onResize() { apply(); }
+
+    document.body.classList.add('hero-locked');
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('touchstart', onTouchStart, { passive: false });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('touchend', onTouchEnd);
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onResize);
+
+    apply();
+  })();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '100%';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'var(--beige-50)';
+      links.style.padding = '20px 24px';
+      links.style.borderBottom = '1px solid var(--border)';
+      links.style.gap = '18px';
+    });
+  }
+
+  const scheduleBtn = document.getElementById('scheduleBtn');
+  if (scheduleBtn) {
+    const diaPreposicao = {
+      'Segunda-feira': 'na segunda-feira',
+      'Terça-feira': 'na terça-feira',
+      'Quarta-feira': 'na quarta-feira',
+      'Quinta-feira': 'na quinta-feira',
+      'Sexta-feira': 'na sexta-feira',
+      'Sábado': 'no sábado'
+    };
+    scheduleBtn.addEventListener('click', () => {
+      const especialidade = document.getElementById('fieldEspecialidade').value;
+      const dia = document.getElementById('fieldDia').value;
+      const periodo = document.getElementById('fieldPeriodo').value;
+      let msg = 'Olá, Grasiela! Gostaria de agendar uma avaliação';
+      if (especialidade) msg += ' de ' + especialidade;
+      if (dia) msg += ', ' + diaPreposicao[dia];
+      if (periodo) msg += ', de preferência no período da ' + periodo.toLowerCase();
+      msg += '.';
+      window.open('https://wa.me/5513996312232?text=' + encodeURIComponent(msg), '_blank');
+    });
+  }
+
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  const reviewPrev = document.getElementById('reviewPrev');
+  const reviewNext = document.getElementById('reviewNext');
+  if (reviewsTrack && reviewPrev && reviewNext) {
+    const scrollByCard = (dir) => {
+      const card = reviewsTrack.querySelector('.review-card');
+      const amount = (card ? card.offsetWidth : 300) + 20;
+      reviewsTrack.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+    reviewPrev.addEventListener('click', () => scrollByCard(-1));
+    reviewNext.addEventListener('click', () => scrollByCard(1));
+  }
+</script>
+
+</body>
+</html>
