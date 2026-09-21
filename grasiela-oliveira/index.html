@@ -284,7 +284,8 @@
   .about-grid .about-title { grid-column: 2; grid-row: 1; }
   .about-grid .about-body { grid-column: 2; grid-row: 2; }
   .about-photo { position: relative; }
-  .about-photo img, .about-photo-fallback { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+  .about-photo-frame { border: 1px solid var(--border); border-radius: 16px; padding: 10px; background: var(--beige-25); }
+  .about-photo-frame img, .about-photo-fallback { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; display: block; }
   .about-photo-fallback {
     background: var(--wine-100); display: flex; align-items: center; justify-content: center;
     font-family: var(--display); font-style: italic; font-size: 1.4rem; color: var(--wine-500); text-align: center; padding: 20px;
@@ -293,7 +294,7 @@
     position: absolute; bottom: -20px; left: -20px;
     background: var(--wine-900); color: var(--beige-50);
     padding: 18px 24px; font-family: var(--display); font-style: italic; font-size: 1.05rem;
-    border: 1px solid var(--gold-500);
+    border: 1px solid var(--gold-500); border-radius: 16px;
   }
   .credentials { display: flex; gap: var(--space-lg); margin: var(--space-lg) 0; flex-wrap: wrap; }
   .credential-pill { font-size: 0.8125rem; letter-spacing: 0.5px; color: var(--gold-700); border: 1px solid var(--gold-300); padding: 8px 16px; border-radius: 20px; }
@@ -917,13 +918,13 @@
         <h2>Grasiela Oliveira</h2>
       </div>
       <div class="about-photo">
-        <img src="assets/grasi id 2 jaleco.PNG" alt="Grasiela Oliveira em seu espaço de atendimento" onerror="this.outerHTML='&lt;div class=&quot;about-photo-fallback&quot;&gt;Foto de Grasiela Oliveira&lt;/div&gt;'">
+        <div class="about-photo-frame">
+          <img src="assets/sobre grasi.jpeg" alt="Grasiela Oliveira" onerror="this.outerHTML='&lt;div class=&quot;about-photo-fallback&quot;&gt;Foto de Grasiela Oliveira&lt;/div&gt;'">
+        </div>
         <div class="about-badge">Esteticista &amp; Massoterapeuta</div>
       </div>
       <div class="about-body">
         <div class="credentials">
-          <span class="credential-pill">Esteticista</span>
-          <span class="credential-pill">Massoterapeuta</span>
           <span class="credential-pill">Especialista em Drenagem Linfática</span>
         </div>
         <p>Há 8 anos dedicada à área da estética, Grasiela Oliveira iniciou sua trajetória como designer de sobrancelhas e encontrou na massoterapia sua grande paixão. Há 4 anos atua como massoterapeuta, com especialização em drenagem linfática e atendimento personalizado.</p>
