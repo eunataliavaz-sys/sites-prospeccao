@@ -435,6 +435,30 @@
   .hero-booking select:focus { outline: none; border-color: var(--gold-500); }
   .hero-booking .btn-primary { width: 100%; justify-content: center; margin-top: var(--space-sm); }
 
+  .hero-booking .booking-services { border: 1px solid var(--border); border-radius: 8px; background: #fff; overflow: hidden; }
+  .hero-booking .booking-service-standalone {
+    display: flex; align-items: center; gap: 8px; padding: 12px 14px;
+    border-bottom: 1px solid var(--border); font-size: 0.85rem; text-transform: none; letter-spacing: normal;
+    color: var(--text-primary); font-weight: 400; cursor: pointer;
+  }
+  .booking-service-group { border-bottom: 1px solid var(--border); }
+  .booking-service-group:last-child { border-bottom: none; }
+  .hero-booking .booking-service-group summary {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+    padding: 12px 14px; cursor: pointer; list-style: none;
+    font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.5px; color: var(--wine-800); text-transform: none;
+  }
+  .booking-service-group summary::-webkit-details-marker { display: none; }
+  .booking-service-group summary::after { content: "+"; color: var(--gold-600); font-size: 1.1rem; line-height: 1; }
+  .booking-service-group[open] summary::after { content: "–"; }
+  .booking-service-options { display: flex; flex-direction: column; gap: 10px; padding: 0 14px 14px; }
+  .hero-booking .booking-service-options label {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 0.85rem; text-transform: none; letter-spacing: normal; font-weight: 400;
+    color: var(--text-primary); cursor: pointer; margin-bottom: 0;
+  }
+  .booking-service-standalone input, .booking-service-options input { flex: none; margin-top: 2px; accent-color: var(--wine-700); }
+
   /* Carrossel de imagens (loop automático, pausa no hover) */
   .gallery-rows { display: flex; flex-direction: column; gap: 20px; }
   .gallery-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
@@ -934,36 +958,47 @@
     <div class="hero-booking" style="text-align: left;">
       <h3>Agende sua avaliação</h3>
       <div class="field">
-        <label for="fieldEspecialidade">Especialidade desejada</label>
-        <select id="fieldEspecialidade">
-          <option value="">Qualquer especialidade</option>
-          <option>Fazer avaliação</option>
-          <optgroup label="Estética Corporal">
-            <option>Manta spa para detox corporal</option>
-            <option>Tratamento com correntes para flacidez e gordura localizada</option>
-            <option>Endermoterapia</option>
-            <option>Retirada de verrugas/acrocórdons</option>
-          </optgroup>
-          <optgroup label="Estética Facial">
-            <option>Limpeza de pele</option>
-            <option>Revitalização facial</option>
-            <option>Peeling de diamante</option>
-            <option>Microagulhamento</option>
-            <option>Jato de plasma</option>
-            <option>Dermaplaning</option>
-            <option>Tratamento para peles maduras e linhas de expressão</option>
-          </optgroup>
-          <optgroup label="Massoterapia">
-            <option>Drenagem Linfática</option>
-            <option>Drenagem em gestantes</option>
-            <option>Massagem terapêutica</option>
-            <option>Massagem relaxante</option>
-            <option>Massagem com pedras quentes</option>
-            <option>Shiatsu</option>
-            <option>Reflexologia</option>
-            <option>Massagem craniana</option>
-          </optgroup>
-        </select>
+        <label>Especialidade desejada</label>
+        <div class="booking-services">
+          <label class="booking-service-standalone">
+            <input type="checkbox" id="fieldAvaliacaoGeral">
+            Fazer avaliação (sem serviço específico)
+          </label>
+          <details class="booking-service-group" open>
+            <summary>Estética Corporal</summary>
+            <div class="booking-service-options">
+              <label><input type="checkbox" name="especialidade" value="Manta spa para detox corporal">Manta spa para detox corporal</label>
+              <label><input type="checkbox" name="especialidade" value="Tratamento com correntes para flacidez e gordura localizada">Tratamento com correntes para flacidez e gordura localizada</label>
+              <label><input type="checkbox" name="especialidade" value="Endermoterapia">Endermoterapia</label>
+              <label><input type="checkbox" name="especialidade" value="Retirada de verrugas/acrocórdons">Retirada de verrugas/acrocórdons</label>
+            </div>
+          </details>
+          <details class="booking-service-group">
+            <summary>Estética Facial</summary>
+            <div class="booking-service-options">
+              <label><input type="checkbox" name="especialidade" value="Limpeza de pele">Limpeza de pele</label>
+              <label><input type="checkbox" name="especialidade" value="Revitalização facial">Revitalização facial</label>
+              <label><input type="checkbox" name="especialidade" value="Peeling de diamante">Peeling de diamante</label>
+              <label><input type="checkbox" name="especialidade" value="Microagulhamento">Microagulhamento</label>
+              <label><input type="checkbox" name="especialidade" value="Jato de plasma">Jato de plasma</label>
+              <label><input type="checkbox" name="especialidade" value="Dermaplaning">Dermaplaning</label>
+              <label><input type="checkbox" name="especialidade" value="Tratamento para peles maduras e linhas de expressão">Tratamento para peles maduras e linhas de expressão</label>
+            </div>
+          </details>
+          <details class="booking-service-group">
+            <summary>Massoterapia</summary>
+            <div class="booking-service-options">
+              <label><input type="checkbox" name="especialidade" value="Drenagem Linfática">Drenagem Linfática</label>
+              <label><input type="checkbox" name="especialidade" value="Drenagem em gestantes">Drenagem em gestantes</label>
+              <label><input type="checkbox" name="especialidade" value="Massagem terapêutica">Massagem terapêutica</label>
+              <label><input type="checkbox" name="especialidade" value="Massagem relaxante">Massagem relaxante</label>
+              <label><input type="checkbox" name="especialidade" value="Massagem com pedras quentes">Massagem com pedras quentes</label>
+              <label><input type="checkbox" name="especialidade" value="Shiatsu">Shiatsu</label>
+              <label><input type="checkbox" name="especialidade" value="Reflexologia">Reflexologia</label>
+              <label><input type="checkbox" name="especialidade" value="Massagem craniana">Massagem craniana</label>
+            </div>
+          </details>
+        </div>
       </div>
       <div class="field">
         <label for="fieldDia">Dia da semana</label>
@@ -1223,11 +1258,15 @@
       'Sábado': 'no sábado'
     };
     scheduleBtn.addEventListener('click', () => {
-      const especialidade = document.getElementById('fieldEspecialidade').value;
+      const especialidades = Array.from(document.querySelectorAll('input[name="especialidade"]:checked')).map((el) => el.value);
       const dia = document.getElementById('fieldDia').value;
       const periodo = document.getElementById('fieldPeriodo').value;
       let msg = 'Olá, Grasiela! Gostaria de agendar uma avaliação';
-      if (especialidade && especialidade !== 'Fazer avaliação') msg += ' de ' + especialidade;
+      if (especialidades.length === 1) {
+        msg += ' de ' + especialidades[0];
+      } else if (especialidades.length > 1) {
+        msg += ' de ' + especialidades.slice(0, -1).join(', ') + ' e ' + especialidades[especialidades.length - 1];
+      }
       if (dia) msg += ', ' + diaPreposicao[dia];
       if (periodo) msg += ', de preferência no período da ' + periodo.toLowerCase();
       msg += '.';
