@@ -235,6 +235,15 @@
   .why-content p { font-size: 0.95rem; }
   .why-item { transition: opacity 0.5s ease, transform 0.5s ease; }
   .why-item--pending:not(.is-visible) { opacity: 0; transform: translateY(16px); }
+
+  /* Scroll reveal generico (nao usado na Hero, nav, footer ou na timeline "Por que escolher", que ja tem animacao propria acima) */
+  .reveal {
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal--pending:not(.is-visible) { opacity: 0; transform: translateY(32px); filter: blur(2px); }
+
   @media (max-width: 640px) {
     .why-timeline { margin-top: var(--space-xl); }
     .why-item { gap: var(--space-md); padding-bottom: var(--space-xl); }
@@ -619,13 +628,13 @@
 <section class="section has-leaf-decor" id="especialidades">
   <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 01.png" alt=""></div>
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <p class="eyebrow">O que eu ofereço</p>
       <h2>Especialidades</h2>
       <p>Cada atendimento é pensado para o seu corpo e sua rotina, com técnicas reconhecidas e um cuidado genuíno em cada detalhe.</p>
     </div>
     <div class="specialty-grid">
-      <details class="package-card">
+      <details class="package-card reveal">
         <summary class="package-summary specialty-summary">
           <div>
             <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
@@ -646,7 +655,7 @@
         </ul>
       </details>
 
-      <details class="package-card">
+      <details class="package-card reveal">
         <summary class="package-summary specialty-summary">
           <div>
             <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><circle cx="7" cy="12" r="2.4"/><circle cx="17" cy="12" r="2.4"/><circle cx="12" cy="12" r="1.8"/></svg></div>
@@ -663,7 +672,7 @@
         </ul>
       </details>
 
-      <details class="package-card">
+      <details class="package-card reveal">
         <summary class="package-summary specialty-summary">
           <div>
             <div class="card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.7L19 10l-5.2 1.3L12 17l-1.8-5.7L5 10l5.2-1.3z"/></svg></div>
@@ -691,13 +700,13 @@
 <section class="section has-leaf-decor" style="padding-top: 0;" id="nosso-espaco">
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <p class="eyebrow">Nosso espaço</p>
       <h2>Um ambiente pensado para o seu cuidado</h2>
       <p>Conheça de perto o espaço e os atendimentos.</p>
     </div>
   </div>
-  <div class="gallery-rows">
+  <div class="gallery-rows reveal">
     <div class="gallery-wrap">
       <div class="gallery-track" style="animation-duration: 69s;">
         <div class="gallery-card"><img src="assets/Grasi espaço.PNG" alt="Sala de atendimento de Grasiela Oliveira"><div class="overlay"></div><div class="content"><h4>Sala de Atendimento</h4></div></div>
@@ -733,7 +742,7 @@
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
   <div class="leaf-decor leaf-decor--right-low" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
   <div class="container">
-    <div class="partner-frame">
+    <div class="partner-frame reveal">
       <div class="partner-grid">
         <div class="partner-photo">
           <img src="assets/parceira 4.png" alt="Priscila Castelhano, nail designer e cabeleireira, e seu espaço de trabalho">
@@ -755,19 +764,19 @@
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
   <div class="container">
 
-    <div class="section-header bride-header">
+    <div class="section-header bride-header reveal">
       <p class="eyebrow">Projeto Noiva Radiante</p>
       <h2>Acompanhamento especial para noivas</h2>
     </div>
   </div>
 
-  <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20Projeto%20Noiva%20Radiante%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener" class="bride-banner">
+  <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20Projeto%20Noiva%20Radiante%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener" class="bride-banner reveal">
     <img src="assets/Banner Noiva Radiantes substituir.png" alt="Projeto Noiva Radiante: cronograma de cuidados de 30 ou 60 dias antes do casamento">
   </a>
 
   <div class="container">
     <div class="package-grid">
-      <details class="package-card">
+      <details class="package-card reveal">
         <summary class="package-summary">
           <div>
             <p class="package-days">30 dias</p>
@@ -791,7 +800,7 @@
         <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20pacote%20Essencial%20(30%20dias)%20do%20Projeto%20Noiva%20Radiante." target="_blank" rel="noopener" class="btn-outline">Consultar disponibilidade</a>
       </details>
 
-      <details class="package-card package-card--featured">
+      <details class="package-card package-card--featured reveal">
         <summary class="package-summary">
           <div>
             <p class="package-days">60 dias</p>
@@ -818,24 +827,24 @@
       </details>
     </div>
 
-    <div class="section-header" style="margin-top: var(--space-3xl);">
+    <div class="section-header reveal" style="margin-top: var(--space-3xl);">
       <p class="eyebrow">Combos especiais</p>
       <h3 style="font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--wine-900); margin-top: var(--space-sm);">Ou monte o seu, com tratamentos específicos</h3>
     </div>
     <div class="grid-3">
-      <div class="card combo-card">
+      <div class="card combo-card reveal">
         <div class="combo-num">01</div>
         <h3>Dia da Noiva Relax</h3>
         <p>Massagem + Pé e mão + Hidratação facial + Escalda pés + Lanche saudável</p>
         <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Dia%20da%20Noiva%20Relax." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
       </div>
-      <div class="card combo-card">
+      <div class="card combo-card reveal">
         <div class="combo-num">02</div>
         <h3>Corpo Leve</h3>
         <p>Drenagem + Massagem modeladora + Escalda pés + Lanche saudável</p>
         <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Corpo%20Leve." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
       </div>
-      <div class="card combo-card">
+      <div class="card combo-card reveal">
         <div class="combo-num">03</div>
         <h3>Pré-Evento Glow</h3>
         <p>Limpeza de pele + Massagem relaxante</p>
@@ -851,7 +860,7 @@
 <section class="section section-alt has-leaf-decor">
   <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <p class="eyebrow">Por que escolher</p>
       <h2>Um cuidado feito para você</h2>
     </div>
@@ -887,17 +896,17 @@
   <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
   <div class="container">
     <div class="about-grid">
-      <div class="about-title">
+      <div class="about-title reveal">
         <p class="eyebrow">Sobre</p>
         <h2>Grasiela Oliveira</h2>
       </div>
-      <div class="about-photo">
+      <div class="about-photo reveal">
         <div class="about-photo-frame">
           <img src="assets/sobre grasi.jpeg" alt="Grasiela Oliveira" onerror="this.outerHTML='&lt;div class=&quot;about-photo-fallback&quot;&gt;Foto de Grasiela Oliveira&lt;/div&gt;'">
         </div>
         <div class="about-badge">Esteticista &amp; Massoterapeuta</div>
       </div>
-      <div class="about-body">
+      <div class="about-body reveal">
         <div class="credentials">
           <span class="credential-pill">Especialista em Drenagem Linfática</span>
         </div>
@@ -914,16 +923,16 @@
 <section class="section section-center has-leaf-decor" id="avaliacoes">
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 01.png" alt=""></div>
   <div class="container">
-    <p class="eyebrow">Depoimentos</p>
-    <p class="reviews-subtitle">O que as clientes dizem após o atendimento.</p>
-    <div class="rating-block" style="margin-top: 16px;">
+    <p class="eyebrow reveal">Depoimentos</p>
+    <p class="reviews-subtitle reveal">O que as clientes dizem após o atendimento.</p>
+    <div class="rating-block reveal" style="margin-top: 16px;">
       <div class="stars stars--google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
       <strong>5,0</strong>
       <span>Nota média no Google · 54 avaliações</span>
     </div>
-    <a href="https://share.google/qOMsy5wIQLg3UZQ7N" target="_blank" rel="noopener" class="btn-outline" style="margin-top: 32px;">Ver avaliações no Google</a>
+    <a href="https://share.google/qOMsy5wIQLg3UZQ7N" target="_blank" rel="noopener" class="btn-outline reveal" style="margin-top: 32px;">Ver avaliações no Google</a>
 
-    <div class="reviews-carousel">
+    <div class="reviews-carousel reveal">
       <div class="reviews-track" id="reviewsTrack">
         <div class="review-card">
           <span class="review-mark" aria-hidden="true">&rdquo;</span>
@@ -975,13 +984,13 @@
 <section class="section section-alt has-leaf-decor" id="agendamento">
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <p class="eyebrow">Reserve seu horário</p>
       <h2>Agendamento</h2>
       <p>Escolha a especialidade, o dia e o período de sua preferência. Enviamos os detalhes direto pelo WhatsApp.</p>
     </div>
 
-    <div class="hero-booking" style="text-align: left;">
+    <div class="hero-booking reveal" style="text-align: left;">
       <h3>Agende sua avaliação</h3>
       <div class="field">
         <label>Especialidade desejada</label>
@@ -1057,12 +1066,12 @@
 <section class="section has-leaf-decor" id="contato">
   <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 01.png" alt=""></div>
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <p class="eyebrow">Vamos conversar</p>
       <h2>Contato &amp; Localização</h2>
     </div>
     <div class="contact-grid">
-      <div>
+      <div class="reveal">
         <div class="contact-info-item">
           <div class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
@@ -1093,7 +1102,7 @@
         </div>
         <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn-primary" style="margin-top: 8px;">Agendar pelo WhatsApp</a>
       </div>
-      <div class="map-frame">
+      <div class="map-frame reveal">
         <a class="map-mosaic" href="https://www.google.com/maps?q=Av.+Anna+Costa,+374+-+Sl+63+-+Gonzaga,+Santos+-+SP,+11060-002" target="_blank" rel="noopener" aria-label="Abrir localização no Google Maps">
           <img src="assets/mapa grasi.PNG" alt="Mapa mostrando a localização exata: Av. Anna Costa, 374 - Sala 63">
         </a>
@@ -1325,6 +1334,33 @@
         }
       });
     }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+
+    items.forEach((item) => observer.observe(item));
+  })();
+
+  (function scrollReveal() {
+    const items = document.querySelectorAll('.reveal');
+    if (!items.length) return;
+    const prefersReducedReveal = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedReveal || !('IntersectionObserver' in window)) return;
+
+    const groupCounters = new Map();
+    items.forEach((item) => {
+      const parent = item.parentElement;
+      const count = groupCounters.get(parent) || 0;
+      item.style.transitionDelay = (count % 4) * 80 + 'ms';
+      groupCounters.set(parent, count + 1);
+      item.classList.add('reveal--pending');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
     items.forEach((item) => observer.observe(item));
   })();
