@@ -482,6 +482,7 @@
   .review-card {
     position: relative; overflow: hidden;
     flex: 0 0 100%; scroll-snap-align: center;
+    display: flex; flex-direction: column; min-height: 260px;
     background: var(--beige-25); border: 1px solid var(--border); border-radius: 16px;
     padding: var(--space-xl); text-align: left;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -494,7 +495,7 @@
   }
   .review-card .stars { position: relative; z-index: 1; margin-bottom: var(--space-md); }
   .review-card .review-quote { position: relative; z-index: 1; font-family: var(--display); font-style: italic; font-size: 1.15rem; color: var(--wine-900); line-height: 1.5; }
-  .review-footer { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; margin-top: var(--space-lg); }
+  .review-footer { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: var(--space-lg); }
   .review-avatar {
     flex: none; width: 42px; height: 42px; border-radius: 50%;
     background: var(--wine-700); color: var(--beige-50);
@@ -874,7 +875,7 @@
         <div class="review-card">
           <span class="review-mark" aria-hidden="true">&rdquo;</span>
           <div class="stars stars--google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></div>
-          <p class="review-quote">A Grasi é maravilhosa, atenciosa, serve chazinho, é paciente e super flexível para pessoas com rotinas como a minha. A rotina da massagem me trouxe muita qualidade de vida, dores e tensões foram embora e quando chego com um desconforto diferente ela se dedica ao máximo para aliviar e salvar meu dia. Hoje, não consigo mais pensar na minha semana sem meu momento relax com ela. Super indico!</p>
+          <p class="review-quote">A Grasi é maravilhosa, atenciosa, serve chazinho, é paciente e super flexível para pessoas com rotinas como a minha. A rotina da massagem me trouxe muita qualidade de vida, dores e tensões foram embora e...</p>
           <div class="review-footer">
             <div class="review-avatar">M</div>
             <div>
