@@ -953,6 +953,7 @@
         <label for="fieldEspecialidade">Especialidade desejada</label>
         <select id="fieldEspecialidade">
           <option value="">Qualquer especialidade</option>
+          <option>Fazer avaliação</option>
           <optgroup label="Estética Corporal">
             <option>Manta spa para detox corporal</option>
             <option>Tratamento com correntes para flacidez e gordura localizada</option>
@@ -1250,7 +1251,7 @@
       const dia = document.getElementById('fieldDia').value;
       const periodo = document.getElementById('fieldPeriodo').value;
       let msg = 'Olá, Grasiela! Gostaria de agendar uma avaliação';
-      if (especialidade) msg += ' de ' + especialidade;
+      if (especialidade && especialidade !== 'Fazer avaliação') msg += ' de ' + especialidade;
       if (dia) msg += ', ' + diaPreposicao[dia];
       if (periodo) msg += ', de preferência no período da ' + periodo.toLowerCase();
       msg += '.';
