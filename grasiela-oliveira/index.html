@@ -357,9 +357,22 @@
     display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;
     background: var(--wine-900); color: var(--beige-50); font-family: var(--display); font-weight: 600; font-size: 0.95rem; margin-bottom: var(--space-md);
   }
+  .package-title-row { display: flex; align-items: center; gap: 8px; }
+  .package-title-row svg { flex: none; color: var(--gold-600); }
+  .package-title-row h3 { margin-bottom: 0; }
 
   @media (max-width: 860px) {
     .package-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Projeto Noiva Radiante - ajustes mobile */
+  @media (max-width: 640px) {
+    .bride-header { margin-bottom: 20px; }
+    .package-grid { margin-top: var(--space-lg); }
+    .package-grid .package-card { padding: var(--space-lg); }
+    .package-grid .package-card ul { margin: var(--space-md) 0; }
+    .combo-card { padding: 32px var(--space-lg); }
+    .combo-card .btn-outline { margin-top: var(--space-md) !important; }
   }
 
   /* Prova social */
@@ -705,7 +718,7 @@
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header bride-header">
       <p class="eyebrow">Projeto Noiva Radiante</p>
       <h2>Acompanhamento especial para noivas</h2>
     </div>
@@ -721,7 +734,10 @@
         <summary class="package-summary">
           <div>
             <p class="package-days">30 dias</p>
-            <h3>Essencial</h3>
+            <div class="package-title-row">
+              <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/></svg>
+              <h3>Essencial</h3>
+            </div>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
@@ -742,7 +758,10 @@
         <summary class="package-summary">
           <div>
             <p class="package-days">60 dias</p>
-            <h3>Luxo</h3>
+            <div class="package-title-row">
+              <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="6"/><path d="M9 8l3-4 3 4-3 3-3-3z"/></svg>
+              <h3>Luxo</h3>
+            </div>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
