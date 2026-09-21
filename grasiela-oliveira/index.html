@@ -281,15 +281,15 @@
   /* Parceria */
   .partner-section { padding-top: 20px; padding-bottom: 20px; }
   .partner-frame { border: 1px solid var(--border); border-radius: 16px; padding: 32px var(--space-2xl); }
-  .partner-grid { display: flex; justify-content: center; align-items: center; gap: var(--space-lg); }
-  .partner-photo { position: relative; flex: none; max-width: 390px; }
+  .partner-grid { display: flex; justify-content: center; align-items: flex-start; gap: var(--space-lg); }
+  .partner-photo { position: relative; flex: none; max-width: 300px; }
   .partner-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px; }
   .partner-text { max-width: 420px; }
   .partner-role { color: var(--gold-600); font-size: 0.9rem; letter-spacing: 0.5px; margin: 4px 0 var(--space-md); font-weight: 500; }
   @media (max-width: 860px) {
-    .partner-grid { flex-direction: column-reverse; text-align: center; }
+    .partner-grid { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
     .partner-photo { margin: 0 auto; }
-    .partner-frame { padding: 20px var(--space-lg); }
+    .partner-frame { padding: 16px var(--space-lg); }
   }
 
   /* Projeto Noiva Radiante */
@@ -661,7 +661,7 @@
 
 <section class="section partner-section has-leaf-decor" id="parceria">
   <div class="leaf-decor leaf-decor--left" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
-  <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
+  <div class="leaf-decor leaf-decor--right-low" aria-hidden="true"><img src="assets/folhagem 03.png" alt=""></div>
   <div class="container">
     <div class="partner-frame">
       <div class="partner-grid">
@@ -672,7 +672,7 @@
           <p class="eyebrow">Parceria no espaço</p>
           <h2>Priscila Castelhano</h2>
           <p class="partner-role">Nail Designer &amp; Cabeleireira</p>
-          <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas por uma parede — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
+          <p>Dividindo a sala com Grasiela — cada uma com sua própria estrutura completa, separadas apenas por uma porta — Priscila atende unhas e cabelo no mesmo espaço, para você cuidar de tudo em um só lugar.</p>
         </div>
       </div>
     </div>
