@@ -526,6 +526,38 @@
     .hero-booking { padding: var(--space-lg); }
     .hero-scroll-content { padding: var(--space-md) 16px var(--space-md); }
   }
+
+  /* Ritmo vertical padronizado no mobile - nao afeta a Hero (hero-scroll* nao usa .section) */
+  @media (max-width: 768px) {
+    .section { padding: 40px 0 !important; }
+
+    .section-header { margin: 0 auto 20px; }
+    .section-header h2 { margin-top: 4px; }
+    .section-header p { margin-top: 14px; }
+
+    /* Neutraliza margens proprias que colapsavam com o section-header, mascarando o ajuste acima */
+    .specialty-grid, .package-grid, .why-timeline { margin-top: 20px; }
+    .about-grid, .contact-grid { gap: 20px; }
+    .about-title h2 { margin-top: 4px; }
+    .partner-text h2 { margin-top: 4px; }
+    .bride-banner { margin-top: 20px; }
+    .reviews-subtitle { margin-top: 14px; }
+    #avaliacoes .rating-block { margin-top: 20px !important; }
+
+    /* Cards: gap e padding padronizados */
+    .specialty-grid, .package-grid, .grid-3, .reviews-track { gap: 12px; }
+    .specialty-grid .package-card,
+    .package-grid .package-card,
+    .combo-card,
+    .review-card,
+    .partner-frame,
+    .hero-booking { padding: 18px; }
+    .package-card ul { margin: 20px 0 0; }
+
+    /* Botoes: 16px de margem em relacao ao texto/conteudo acima */
+    .package-card > a.btn-outline, .package-card > a.btn-primary { margin-top: 16px; }
+    .hero-booking .btn-primary { margin-top: 16px; }
+  }
 </style>
 </head>
 <body>
