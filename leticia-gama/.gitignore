@@ -1,0 +1,7 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+# originais pesados (os otimizados ficam em public/assets)
+assets-originais/
