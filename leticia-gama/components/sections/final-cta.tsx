@@ -14,9 +14,9 @@ const ctaProduce: FloatingItem[] = [
     rotate: -12,
     depth: 0.5,
   },
-  // Mobile: laranja no respiro superior e folha no inferior, visíveis sem tocar texto ou botão
-  { name: "orange", className: "md:hidden top-[-6px] right-[-5%] w-24", rotate: -12, depth: 0.1 },
-  { name: "leaf-1", className: "md:hidden top-[-8px] left-[-12px] w-16", rotate: 32, depth: 0.1 },
+  // Mobile: laranja entre as seções (topo) e folha logo abaixo do botão, sem tocar texto
+  { name: "orange", className: "md:hidden top-[-3rem] right-6 w-24", rotate: -12, depth: 0.1 },
+  { name: "leaf-1", className: "md:hidden bottom-[-36px] left-4 w-20", rotate: 12, depth: 0 },
   {
     name: "leaf-1",
     className:
@@ -31,7 +31,7 @@ export function FinalCta() {
   return (
     <section
       aria-labelledby="cta-title"
-      className="relative overflow-hidden bg-green-dark py-16 text-cream md:py-20 lg:py-24"
+      className="relative overflow-hidden bg-green-dark max-md:overflow-x-clip max-md:overflow-y-visible py-16 text-cream md:py-20 lg:py-24"
     >
       <SeedOfLife
         aria-hidden="true"
