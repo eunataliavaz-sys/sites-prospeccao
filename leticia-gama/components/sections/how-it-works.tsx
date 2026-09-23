@@ -51,7 +51,10 @@ const tapeDecor: FloatingItem[] = [
     rotate: 0,
     depth: 0.3,
   },
-  { name: "measuring-tape", className: "xl:hidden bottom-[-54px] left-2 w-12", rotate: -78, depth: 0 },
+  // Tablet: deitada no canto inferior esquerdo
+  { name: "measuring-tape", className: "hidden md:block xl:hidden bottom-[-54px] left-2 w-12", rotate: -78, depth: 0 },
+  // Mobile: vertical, entrando pelo topo da seção no canto direito
+  { name: "measuring-tape", className: "md:hidden top-[-4.5rem] right-[-2px] w-14", rotate: 0, depth: 0.1 },
 ];
 
 function Icon({ name, className }: { name: ConsultationIcon; className?: string }) {

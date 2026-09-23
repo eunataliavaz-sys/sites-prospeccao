@@ -10,14 +10,17 @@ import { whatsappUrl } from "@/lib/site-config";
 const ctaProduce: FloatingItem[] = [
   {
     name: "orange",
-    className: "top-[-10%] right-[-8%] w-32 md:top-[-12%] md:right-[-4%] md:w-36 xl:top-[8%] xl:right-[3%] xl:w-56",
+    className: "hidden md:block md:top-[-12%] md:right-[-4%] md:w-36 xl:top-[8%] xl:right-[3%] xl:w-56",
     rotate: -12,
     depth: 0.5,
   },
+  // Mobile: laranja no respiro superior e folha no inferior, visíveis sem tocar texto ou botão
+  { name: "orange", className: "md:hidden top-[-6px] right-[-5%] w-24", rotate: -12, depth: 0.1 },
+  { name: "leaf-1", className: "md:hidden top-[-8px] left-[-12px] w-16", rotate: 32, depth: 0.1 },
   {
     name: "leaf-1",
     className:
-      "bottom-[-14%] left-[-14%] w-28 md:bottom-[-10%] md:left-[-4%] md:w-40 xl:bottom-[6%] xl:left-[2%] xl:w-52",
+      "hidden md:block md:bottom-[-10%] md:left-[-4%] md:w-40 xl:bottom-[6%] xl:left-[2%] xl:w-52",
     rotate: 32,
     depth: 0.35,
   },
