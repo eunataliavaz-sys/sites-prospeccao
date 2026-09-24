@@ -2,6 +2,7 @@ import { HeartHandshake, Microscope, NotebookPen, Salad, Sprout, type LucideIcon
 
 import { Reveal } from "@/components/motion/reveal";
 import { Container, SectionHeading } from "@/components/section";
+import { FloatingProduce, type FloatingItem } from "@/components/ui/floating-produce";
 import { differentials } from "@/lib/content";
 
 const icons: Record<(typeof differentials)[number]["icon"], LucideIcon> = {
@@ -12,10 +13,27 @@ const icons: Record<(typeof differentials)[number]["icon"], LucideIcon> = {
   salad: Salad,
 };
 
+const differentialsProduce: FloatingItem[] = [
+  {
+    name: "cherry",
+    className: "hidden md:block top-[-2%] right-[3%] w-16 lg:top-[8%] lg:right-[4%] lg:w-24",
+    rotate: 10,
+    depth: 0.4,
+  },
+  // Mobile: cereja entrando pela divisa superior, no canto direito
+  { name: "cherry", className: "md:hidden top-[-2.25rem] right-3 w-16", rotate: 10, depth: 0.1 },
+];
+
 export function Differentials() {
   return (
-    <section id="diferenciais" aria-labelledby="diferenciais-title" className="relative py-16 md:py-20 lg:py-24">
-      <Container>
+    <section
+      id="diferenciais"
+      aria-labelledby="diferenciais-title"
+      className="relative overflow-x-clip py-16 md:py-20 lg:py-24"
+    >
+      <FloatingProduce items={differentialsProduce} />
+
+      <Container className="relative">
         <SectionHeading
           id="diferenciais-title"
           eyebrow="Diferenciais"

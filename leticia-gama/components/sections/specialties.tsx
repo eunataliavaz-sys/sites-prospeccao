@@ -7,14 +7,6 @@ import { specialties } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const servicesProduce: FloatingItem[] = [
-  {
-    name: "cherry",
-    className: "hidden md:block top-[-2%] right-[3%] w-16 lg:top-[8%] lg:right-[4%] lg:w-24",
-    rotate: 10,
-    depth: 0.4,
-  },
-  // Mobile: cereja entrando pela divisa superior, no canto direito
-  { name: "cherry", className: "md:hidden top-[-2.25rem] right-3 w-16", rotate: 10, depth: 0.1 },
   { name: "leaf-2", className: "hidden xl:block bottom-[6%] left-[-3%] w-32", rotate: 40, depth: 0.3, blur: true },
 ];
 

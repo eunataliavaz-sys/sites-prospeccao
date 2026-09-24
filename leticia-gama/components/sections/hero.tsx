@@ -16,6 +16,14 @@ import { siteConfig, whatsappUrl } from "@/lib/site-config";
 const backProduce: FloatingItem[] = [
   { name: "leaf-1", className: "top-[-3%] right-[2%] w-[30%] sm:w-[24%] lg:w-[30%]", rotate: 18, depth: 0.2 },
   { name: "lemon", className: "hidden lg:block top-[46%] right-[-9%] w-[13%]", rotate: -20, depth: 0.15, blur: true },
+  // Mobile/tablet: o mesmo limão desfocado, na margem à direita do arco
+  {
+    name: "lemon",
+    className: "lg:hidden top-[44%] right-[-1%] w-[11%] sm:right-[9%] sm:w-[9%]",
+    rotate: -20,
+    depth: 0.15,
+    blur: true,
+  },
 ];
 
 // Camada à frente da foto
