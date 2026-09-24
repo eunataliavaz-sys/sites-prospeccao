@@ -22,8 +22,8 @@ export default function Home() {
       <SiteHeader />
       <main id="conteudo">
         <Hero />
-        <About />
         <Specialties />
+        <About />
         <HowItWorks />
         <Differentials />
         <Testimonials />
