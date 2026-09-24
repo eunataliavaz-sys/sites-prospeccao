@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { SeedOfLife } from "@/components/brand";
 import { EASE_OUT } from "@/components/motion/reveal";
@@ -93,17 +93,11 @@ export function Hero() {
                 <ArrowUpRight strokeWidth={1.5} aria-hidden="true" />
               </a>
             </Button>
-            <Button asChild variant="link" className="h-auto px-0 text-ink/75 hover:text-ink">
-              <a href="#sobre">
-                Conheça minha história
-                <ArrowDown strokeWidth={1.5} aria-hidden="true" />
-              </a>
-            </Button>
           </motion.div>
 
           <motion.p
             {...textItem(4)}
-            className="mt-10 flex items-center gap-2.5 text-[0.62rem] tracking-[0.1em] whitespace-nowrap text-ink/50 uppercase sm:mt-14 sm:gap-4 sm:text-[0.72rem] sm:tracking-[0.22em]"
+            className="mt-6 flex items-center gap-2.5 text-[0.62rem] tracking-[0.1em] whitespace-nowrap text-ink/50 uppercase sm:mt-14 sm:gap-4 sm:text-[0.72rem] sm:tracking-[0.22em]"
           >
             <span aria-hidden="true" className="h-px w-5 shrink-0 bg-ink/25 sm:w-10" />
             Emagrecimento <span aria-hidden="true">•</span> Nutrição Esportiva

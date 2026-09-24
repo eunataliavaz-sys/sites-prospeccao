@@ -14,7 +14,7 @@ export function Specialties() {
     <section
       id="especialidades"
       aria-labelledby="especialidades-title"
-      className="relative overflow-x-clip bg-sand py-16 md:py-20 lg:py-24"
+      className="relative overflow-x-clip bg-linen py-16 md:py-20 lg:py-24"
     >
       <FloatingProduce items={servicesProduce} />
 
