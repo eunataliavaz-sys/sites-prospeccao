@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ComponentType, type KeyboardEvent, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
+  ArrowUp,
   Bone,
   BookOpenText,
   Camera,
@@ -66,6 +67,18 @@ export function HowItWorks() {
   const [active, setActive] = useState<ConsultationMode["id"]>(consultationModes[0].id);
   const activeMode = consultationModes.find((mode) => mode.id === active) ?? consultationModes[0];
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const reduceMotion = useReducedMotion();
+
+  // Convite no fim da aba: troca de modalidade e sobe até os botões
+  const switchMode = () => {
+    const nextIndex = (consultationModes.findIndex((mode) => mode.id === active) + 1) % consultationModes.length;
+    setActive(consultationModes[nextIndex].id);
+    document
+      .getElementById("selecione-modalidade")
+      ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    tabRefs.current[nextIndex]?.focus({ preventScroll: true });
+  };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     const keys: Record<string, number> = {
@@ -151,7 +164,7 @@ export function HowItWorks() {
         <Reveal delay={0.15} className="mt-8">
           <AutoHeight>
             <AnimatePresence mode="wait" initial={false}>
-              <ModePanel key={activeMode.id} mode={activeMode} />
+              <ModePanel key={activeMode.id} mode={activeMode} onSwitch={switchMode} />
             </AnimatePresence>
           </AutoHeight>
         </Reveal>
@@ -242,7 +255,7 @@ function AutoHeight({ children }: { children: ReactNode }) {
   );
 }
 
-function ModePanel({ mode }: { mode: ConsultationMode }) {
+function ModePanel({ mode, onSwitch }: { mode: ConsultationMode; onSwitch: () => void }) {
   return (
     <motion.div
       id="painel-consulta"
@@ -306,6 +319,19 @@ function ModePanel({ mode }: { mode: ConsultationMode }) {
           </div>
         )}
       </div>
+
+      {/* Convite para conhecer a outra modalidade */}
+      <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.92rem] text-ink/55 lg:col-span-2">
+        {mode.switchPrompt}
+        <button
+          type="button"
+          onClick={onSwitch}
+          className="inline-flex cursor-pointer items-center gap-1.5 rounded-sm font-medium text-green-dark underline-offset-[6px] transition-colors hover:text-wine hover:underline focus-visible:ring-[3px] focus-visible:ring-wine/40 focus-visible:outline-none"
+        >
+          {mode.switchLabel}
+          <ArrowUp className="size-4" strokeWidth={1.5} aria-hidden="true" />
+        </button>
+      </p>
     </motion.div>
   );
 }

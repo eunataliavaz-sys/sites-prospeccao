@@ -84,6 +84,9 @@ export type ConsultationMode = {
   assessmentNote?: string;
   advantages: { text: string; icon: ConsultationIcon }[];
   observation?: string;
+  /** Convite no fim da aba para conhecer a outra modalidade. */
+  switchPrompt: string;
+  switchLabel: string;
 };
 
 export const consultationModes: ConsultationMode[] = [
@@ -91,8 +94,7 @@ export const consultationModes: ConsultationMode[] = [
     id: "presencial",
     label: "Consulta Presencial",
     badge: "PERSONAL DIET",
-    howItWorks:
-      "Vou até você com todos os equipamentos necessários para realizar uma avaliação física completa.",
+    howItWorks: "Vou até você com todos os equipamentos necessários para realizar uma avaliação física completa.",
     assessmentTitle: "Avaliação física",
     assessment: [
       { label: "Aferição de peso", icon: "weight" },
@@ -107,13 +109,14 @@ export const consultationModes: ConsultationMode[] = [
       { text: "Avaliação física completa + suporte via WhatsApp.", icon: "whatsapp" },
     ],
     observation: "Atendimento domiciliar no Grande ABC e algumas regiões de São Paulo (consulte disponibilidade).",
+    switchPrompt: "Prefere atendimento à distância?",
+    switchLabel: "Conheça a Consulta Online",
   },
   {
     id: "online",
     label: "Consulta Online",
     badge: "VIDEOCONSULTA",
-    howItWorks:
-      "Atendimento realizado por videoconferência, permitindo acompanhamento à distância.",
+    howItWorks: "Atendimento realizado por videoconferência, permitindo acompanhamento à distância.",
     assessmentTitle: "Avaliação",
     assessment: [
       { label: "Peso e estatura", icon: "height" },
@@ -121,6 +124,8 @@ export const consultationModes: ConsultationMode[] = [
       { label: "Fotos comparativas", icon: "camera" },
     ],
     assessmentNote: "Você receberá orientação para realizar corretamente todas as medidas.",
+    switchPrompt: "Prefere atendimento em casa?",
+    switchLabel: "Conheça a Consulta Presencial",
     advantages: [
       { text: "Atendimento personalizado de qualquer lugar do mundo.", icon: "globe" },
       { text: "Suporte via WhatsApp durante 30 dias.", icon: "whatsapp" },
