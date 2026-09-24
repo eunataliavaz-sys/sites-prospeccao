@@ -103,6 +103,9 @@ export function HowItWorks() {
 
         {/* Abas */}
         <Reveal delay={0.1} className="mt-8">
+          <p id="selecione-modalidade" className="eyebrow mb-3 pl-1 text-ink/45">
+            Selecione
+          </p>
           <div
             role="tablist"
             aria-label="Modalidade de atendimento"
