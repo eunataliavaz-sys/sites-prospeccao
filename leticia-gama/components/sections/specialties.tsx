@@ -4,7 +4,6 @@ import { Reveal } from "@/components/motion/reveal";
 import { Container, SectionHeading } from "@/components/section";
 import { FloatingProduce, type FloatingItem } from "@/components/ui/floating-produce";
 import { specialties } from "@/lib/content";
-import { cn } from "@/lib/utils";
 
 const servicesProduce: FloatingItem[] = [
   { name: "leaf-2", className: "hidden xl:block bottom-[6%] left-[-3%] w-32", rotate: 40, depth: 0.3, blur: true },
@@ -15,7 +14,7 @@ export function Specialties() {
     <section
       id="especialidades"
       aria-labelledby="especialidades-title"
-      className="relative overflow-x-clip py-16 md:py-20 lg:py-24"
+      className="relative overflow-x-clip bg-sand py-16 md:py-20 lg:py-24"
     >
       <FloatingProduce items={servicesProduce} />
 
@@ -36,12 +35,8 @@ export function Specialties() {
               as="li"
               key={item.title}
               delay={(index % 3) * 0.08}
-              className={cn(
-                "relative flex flex-col rounded-[1.5rem] border px-7 py-6 transition-colors duration-500 xl:h-[185px] xl:px-6",
-                item.featured
-                  ? "border-green/70 bg-[#f7f1e7] hover:bg-[#f4ede1]"
-                  : "border-ink/10 bg-linen/70 hover:bg-linen",
-              )}
+              // Todos os cards com o visual do primeiro; a estrela marca as especialidades principais
+              className="relative flex flex-col rounded-[1.5rem] border border-green/70 bg-[#f7f1e7] px-7 py-6 transition-colors duration-500 hover:bg-[#f4ede1] xl:h-[185px] xl:px-6"
             >
               {item.featured && (
                 <Star
@@ -52,12 +47,7 @@ export function Specialties() {
                 />
               )}
               <div className="flex items-baseline justify-between gap-4 pr-8">
-                <span
-                  className={cn(
-                    "font-display text-[1.6rem] leading-none",
-                    item.featured ? "text-green" : "text-green/35",
-                  )}
-                >
+                <span className="font-display text-[1.6rem] leading-none text-green">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {item.note && (
