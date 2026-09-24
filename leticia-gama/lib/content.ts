@@ -17,6 +17,11 @@ export const images = {
     src: asset("/assets/images/leticia-depois.webp"),
     alt: "Letícia Gama hoje, após a sua transformação",
   },
+  // Foto de perfil usada na citação de "A consulta é sobre você"
+  profile: {
+    src: asset("/assets/images/leticia-perfil.webp"),
+    alt: "",
+  },
 } as const;
 
 export type Specialty = {

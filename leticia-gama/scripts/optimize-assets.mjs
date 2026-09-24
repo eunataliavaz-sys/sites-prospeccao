@@ -21,6 +21,14 @@ const jobs = [
   { src: "leticia hero.jpg", out: "images/leticia-hero.webp", width: 1400, quality: 80 },
   { src: "leticia antes.png", out: "images/leticia-antes.webp", width: 1100, quality: 78 },
   { src: "leticia depois.jpg", out: "images/leticia-depois.webp", width: 1100, quality: 80 },
+  // Avatar: recorte de rosto e ombros da foto "A consulta é sobre você"
+  {
+    src: "A consulta é sobre você.png",
+    out: "images/leticia-perfil.webp",
+    extract: { left: 405, top: 150, width: 500, height: 500 },
+    width: 240,
+    quality: 85,
+  },
   // Logos
   { src: "logo verde escuro.png", out: "brand/logo-verde-escuro.webp", width: 240, trim: true },
   { src: "logo bege.png", out: "brand/logo-bege.webp", width: 240, trim: true },
@@ -39,6 +47,7 @@ for (const job of jobs) {
   const outPath = path.join(OUT, job.out);
   await mkdir(path.dirname(outPath), { recursive: true });
   let img = sharp(path.join(SRC, job.src)).rotate();
+  if (job.extract) img = img.extract(job.extract);
   if (job.trim) img = img.trim();
   const info = await img
     .resize({ width: job.width, withoutEnlargement: true })

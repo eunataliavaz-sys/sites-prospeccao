@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState, type ComponentType, type KeyboardEvent, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -23,7 +24,13 @@ import { WhatsAppIcon } from "@/components/brand";
 import { EASE_OUT, Reveal } from "@/components/motion/reveal";
 import { Container, SectionHeading } from "@/components/section";
 import { FloatingProduce, type FloatingItem } from "@/components/ui/floating-produce";
-import { consultationHighlights, consultationModes, type ConsultationIcon, type ConsultationMode } from "@/lib/content";
+import {
+  consultationHighlights,
+  consultationModes,
+  images,
+  type ConsultationIcon,
+  type ConsultationMode,
+} from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 type IconComponent = ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean }>;
@@ -205,10 +212,23 @@ export function HowItWorks() {
           </div>
 
           <figure className="flex flex-col justify-center lg:col-span-5 lg:border-l lg:border-wine/20 lg:pl-10">
-            <span aria-hidden="true" className="font-display text-7xl leading-none text-wine/30">
-              &ldquo;
-            </span>
-            <blockquote className="font-display -mt-4 text-[1.6rem] leading-snug text-green-dark sm:text-[1.9rem]">
+            {/* Foto de perfil com selo de aspas */}
+            <div className="relative size-16 sm:size-[4.5rem]">
+              <Image
+                src={images.profile.src}
+                alt={images.profile.alt}
+                fill
+                sizes="72px"
+                className="rounded-full object-cover ring-1 ring-wine/40 ring-offset-[3px] ring-offset-linen"
+              />
+              <span
+                aria-hidden="true"
+                className="font-display absolute -right-1.5 -bottom-1.5 grid size-7 place-items-center rounded-full bg-wine pt-2 text-[1.35rem] leading-none text-cream ring-2 ring-linen"
+              >
+                &ldquo;
+              </span>
+            </div>
+            <blockquote className="font-display mt-6 text-[1.6rem] leading-snug text-green-dark sm:text-[1.9rem]">
               Meu papel não é criar restrições, mas construir um caminho possível para você.
             </blockquote>
             <figcaption className="eyebrow mt-6 text-ink/45">Letícia Gama</figcaption>
