@@ -229,7 +229,6 @@
                 filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .reveal--pending:not(.is-visible) { opacity: 0; transform: translateY(32px); filter: blur(2px); }
-  .reveal--from-left.reveal--pending:not(.is-visible) { opacity: 0; transform: translateX(-24px); filter: none; }
 
   @media (max-width: 640px) {
     .why-timeline { margin-top: var(--space-xl); }
@@ -245,12 +244,13 @@
   /* Emergem da lateral, visíveis mas com margem segura do conteúdo */
   .leaf-decor--left { top: 8%; left: -90px; width: 220px; }
   .leaf-decor--left-low { bottom: -40px; left: -80px; width: 200px; transform: scaleY(-1); }
+  .leaf-decor--left-mid { top: 50%; left: -90px; width: 220px; transform: translateY(-50%); }
   .leaf-decor--right { top: 8%; right: -90px; width: 220px; transform: scaleX(-1); }
   .leaf-decor--right-low { bottom: -40px; right: -80px; width: 200px; transform: scaleX(-1); }
   @media (max-width: 640px) {
     .leaf-decor { opacity: 0.4; }
-    .leaf-decor--left, .leaf-decor--right, .leaf-decor--left-low, .leaf-decor--right-low { width: 140px; }
-    .leaf-decor--left, .leaf-decor--left-low { left: -60px; }
+    .leaf-decor--left, .leaf-decor--right, .leaf-decor--left-low, .leaf-decor--right-low, .leaf-decor--left-mid { width: 140px; }
+    .leaf-decor--left, .leaf-decor--left-low, .leaf-decor--left-mid { left: -60px; }
     .leaf-decor--right, .leaf-decor--right-low { right: -60px; }
   }
 
@@ -349,21 +349,14 @@
     color: var(--gold-700); font-weight: 500;
   }
   .spa-badge svg { flex: none; width: 14px; height: 14px; }
-  .spa-images { position: relative; display: flex; gap: var(--space-xl); align-items: stretch; margin-top: var(--space-2xl); margin-bottom: 32px; }
-  .spa-image-main {
-    position: relative; z-index: 2; flex: 1 1 58%; border-radius: 24px; overflow: hidden;
-    border: 1px solid var(--wine-300); box-shadow: 0 20px 50px rgba(58, 30, 30, 0.15);
-  }
+  .spa-images { display: flex; gap: var(--space-xl); align-items: stretch; margin-top: var(--space-2xl); }
+  .spa-image-main { flex: 1 1 58%; border: 1px solid var(--wine-300); border-radius: 26px; padding: 8px; background: transparent; }
+  .spa-image-main .spa-image-inner { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(58, 30, 30, 0.15); }
   .spa-image-main img { width: 100%; height: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
-  .spa-side { flex: 1 1 38%; display: flex; }
-  .spa-image-detail {
-    position: absolute; z-index: 3; left: 56%; bottom: -28px; transform: translateX(-50%);
-    width: 44%; max-width: 190px; border-radius: 14px; overflow: hidden;
-    border: 6px solid var(--beige-25); box-shadow: 0 18px 38px rgba(58, 30, 30, 0.22);
-  }
+  .spa-side { flex: 1 1 38%; display: flex; flex-direction: column; gap: var(--space-lg); }
+  .spa-image-detail { border: 1px solid var(--wine-300); border-radius: 18px; padding: 8px; background: transparent; }
+  .spa-image-detail .spa-image-inner { border-radius: 12px; overflow: hidden; box-shadow: 0 14px 34px rgba(58, 30, 30, 0.12); }
   .spa-image-detail img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
-  .spa-images-leaf { position: absolute; z-index: 1; left: -46px; top: -18px; width: 130px; opacity: 0.55; pointer-events: none; }
-  .spa-images-leaf img { width: 100%; height: auto; display: block; }
   .spa-highlight {
     background: rgba(241, 227, 207, 0.65); border: 1px solid var(--gold-300); border-radius: 16px;
     overflow: hidden; flex: 1; display: flex; flex-direction: column;
@@ -384,13 +377,8 @@
   .spa-footer h3 { margin-bottom: 8px; }
   .spa-footer p { max-width: 480px; margin: 0 auto var(--space-lg); }
   @media (max-width: 860px) {
-    .spa-images { flex-direction: column; margin-bottom: var(--space-xl); }
+    .spa-images { flex-direction: column; }
     .spa-image-main, .spa-side { flex: none; }
-    .spa-image-detail {
-      position: relative; z-index: 3; left: auto; bottom: auto; transform: none;
-      width: 130px; max-width: 130px; margin: -38px auto 0;
-    }
-    .spa-images-leaf { display: none; }
     .spa-grid { grid-template-columns: 1fr; }
   }
 
@@ -797,6 +785,7 @@
 
 <section class="section has-leaf-decor" id="spa-day">
   <div class="leaf-decor leaf-decor--right" aria-hidden="true"><img src="assets/folhagem 01.png" alt=""></div>
+  <div class="leaf-decor leaf-decor--left-mid" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
   <div class="container">
     <div class="section-header reveal">
       <p class="spa-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.6"/><path d="M12 4c1.4 1.4 1.4 3.8 0 5.2-1.4-1.4-1.4-3.8 0-5.2z"/><path d="M12 20c1.4-1.4 1.4-3.8 0-5.2-1.4 1.4-1.4 3.8 0 5.2z"/><path d="M4 12c1.4-1.4 3.8-1.4 5.2 0-1.4 1.4-3.8 1.4-5.2 0z"/><path d="M20 12c-1.4-1.4-3.8-1.4-5.2 0 1.4 1.4 3.8 1.4 5.2 0z"/></svg>Experiência exclusiva</p>
@@ -806,13 +795,16 @@
 
     <div class="spa-images">
       <div class="spa-image-main reveal">
-        <img src="assets/spa day.jpeg" alt="Cliente vivendo a experiência SPA Day">
-      </div>
-      <div class="spa-images-leaf reveal reveal--from-left" aria-hidden="true"><img src="assets/folhagem 02.png" alt=""></div>
-      <div class="spa-image-detail reveal">
-        <img src="assets/cascata.jpeg" alt="Detalhe do ambiente do SPA Day">
+        <div class="spa-image-inner">
+          <img src="assets/spa day.jpeg" alt="Cliente vivendo a experiência SPA Day">
+        </div>
       </div>
       <div class="spa-side">
+        <div class="spa-image-detail reveal">
+          <div class="spa-image-inner">
+            <img src="assets/cascata.jpeg" alt="Detalhe do ambiente do SPA Day">
+          </div>
+        </div>
         <div class="spa-highlight reveal">
           <div class="spa-highlight-video">
             <video src="assets/chazinho 2.mp4" autoplay muted loop playsinline preload="auto"></video>
