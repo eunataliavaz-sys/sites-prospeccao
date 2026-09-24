@@ -203,21 +203,7 @@
     height: 10px;
   }
 
-  /* Grid cards */
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
-
-  .card {
-    background-color: var(--beige-25);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: var(--space-xl) var(--space-lg);
-    text-align: center;
-    transition: all 0.35s ease;
-  }
-  .card:hover { border-color: var(--gold-500); box-shadow: 0 18px 40px rgba(58, 30, 30, 0.08); transform: translateY(-4px); }
   .card-icon { font-size: 1.6rem; margin-bottom: var(--space-md); color: var(--gold-600); }
-  .card h3 { margin-bottom: var(--space-sm); }
-  .card p { font-size: 0.9rem; }
 
   .section-alt { background-color: var(--beige-100); }
 
@@ -344,15 +330,10 @@
     .specialty-grid { grid-template-columns: 1fr; }
   }
 
-  .combo-card { text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
-  .combo-card .btn-outline { margin-top: auto !important; }
-  .combo-num {
-    display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;
-    background: var(--wine-900); color: var(--beige-50); font-family: var(--display); font-weight: 600; font-size: 0.95rem; margin-bottom: var(--space-md);
-  }
   .package-title-row { display: flex; align-items: center; gap: 8px; }
   .package-title-row svg { flex: none; height: 1.6rem; width: auto; color: var(--gold-600); }
   .package-title-row h3 { margin-bottom: 0; }
+  .package-note { text-align: center; margin-top: var(--space-xl); font-size: 0.9rem; color: var(--text-secondary); font-style: italic; }
 
   @media (max-width: 860px) {
     .package-grid { grid-template-columns: 1fr; }
@@ -365,8 +346,6 @@
     .package-grid { margin-top: 12px; }
     .package-grid .package-card { padding: var(--space-lg); }
     .package-grid .package-card ul { margin: var(--space-md) 0; }
-    .combo-card { padding: 32px var(--space-lg); }
-    .combo-card .btn-outline { margin-top: var(--space-md) !important; }
   }
 
   /* Prova social */
@@ -518,7 +497,6 @@
   @media (max-width: 860px) {
     .nav-links { display: none; }
     .nav-toggle { display: block; }
-    .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
     .about-grid .about-title, .about-grid .about-photo, .about-grid .about-body { grid-column: 1; grid-row: auto; }
     .about-grid .about-title { order: 1; }
@@ -529,7 +507,6 @@
   }
 
   @media (max-width: 520px) {
-    .grid-3 { grid-template-columns: 1fr; }
     .hero-stats { gap: var(--space-xl); }
     .gallery-card { width: 220px; height: 260px; }
     .hero-booking { padding: var(--space-lg); }
@@ -554,10 +531,9 @@
     #avaliacoes .rating-block { margin-top: 20px !important; }
 
     /* Cards: gap e padding padronizados */
-    .specialty-grid, .package-grid, .grid-3, .reviews-track { gap: 12px; }
+    .specialty-grid, .package-grid, .reviews-track { gap: 12px; }
     .specialty-grid .package-card,
     .package-grid .package-card,
-    .combo-card,
     .review-card,
     .partner-frame,
     .hero-booking { padding: 18px; }
@@ -831,30 +807,7 @@
       </details>
     </div>
 
-    <div class="section-header reveal" style="margin-top: var(--space-3xl);">
-      <p class="eyebrow">Combos especiais</p>
-      <h3 style="font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--wine-900); margin-top: var(--space-sm);">Ou monte o seu, com tratamentos específicos</h3>
-    </div>
-    <div class="grid-3">
-      <div class="card combo-card reveal">
-        <div class="combo-num">01</div>
-        <h3>Dia da Noiva Relax</h3>
-        <p>Massagem + Pé e mão + Hidratação facial + Escalda pés + Lanche saudável</p>
-        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Dia%20da%20Noiva%20Relax." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
-      </div>
-      <div class="card combo-card reveal">
-        <div class="combo-num">02</div>
-        <h3>Corpo Leve</h3>
-        <p>Drenagem + Massagem modeladora + Escalda pés + Lanche saudável</p>
-        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Corpo%20Leve." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
-      </div>
-      <div class="card combo-card reveal">
-        <div class="combo-num">03</div>
-        <h3>Pré-Evento Glow</h3>
-        <p>Limpeza de pele + Massagem relaxante</p>
-        <a href="https://wa.me/5513996312232?text=Ol%C3%A1%2C%20Grasiela!%20Tenho%20interesse%20no%20combo%20Pr%C3%A9-Evento%20Glow." target="_blank" rel="noopener" class="btn-outline" style="margin-top: var(--space-md); padding: 10px 20px; font-size: 0.75rem;">Consultar</a>
-      </div>
-    </div>
+    <p class="package-note reveal">Consultar para combos especiais com tratamentos específicos.</p>
 
   </div>
 </section>
