@@ -53,6 +53,12 @@ type FloatingProduceProps = {
   eager?: boolean;
   /** `mount` anima ao montar; `view` anima quando a seção entra na tela. */
   trigger?: "mount" | "view";
+  /**
+   * Faz o grupo inteiro orbitar no sentido horário em volta do centro do container
+   * conforme a rolagem (como ponteiros de relógio), em graus a cada 100px.
+   * Cada item continua "em pé": só muda de posição na órbita.
+   */
+  orbitOnScroll?: number;
 };
 
 const MAX_FLOAT = 12; // px
@@ -80,6 +86,7 @@ export function FloatingProduce({
   enterDelay = 0.2,
   eager = false,
   trigger = "view",
+  orbitOnScroll,
 }: FloatingProduceProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion() ?? false;
@@ -88,12 +95,19 @@ export function FloatingProduce({
     target: ref,
     offset: ["start end", "end start"],
   });
+  const { scrollY } = useScroll();
+  // Ângulo da órbita (positivo = horário) e a contra-rotação que mantém cada item em pé
+  const orbitAngle = useTransform(scrollY, (value) =>
+    reduceMotion || !orbitOnScroll ? 0 : (value / 100) * orbitOnScroll,
+  );
+  const counterRotate = useTransform(orbitAngle, (value) => -value);
 
   return (
-    <div
+    <motion.div
       ref={ref}
       aria-hidden="true"
       className={cn("pointer-events-none absolute inset-0 overflow-x-clip select-none", className)}
+      style={orbitOnScroll ? { rotate: orbitAngle } : undefined}
     >
       {items.map((item, index) => (
         <FloatingPiece
@@ -102,6 +116,7 @@ export function FloatingProduce({
           item={item}
           index={index}
           progress={scrollYProgress}
+          counterRotate={orbitOnScroll ? counterRotate : undefined}
           amplitude={amplitude}
           reduceMotion={reduceMotion}
           enterDelay={enterDelay}
@@ -109,7 +124,7 @@ export function FloatingProduce({
           trigger={trigger}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -117,6 +132,7 @@ type FloatingPieceProps = {
   item: FloatingItem;
   index: number;
   progress: MotionValue<number>;
+  counterRotate?: MotionValue<number>;
   amplitude: { parallax: number; tilt: number };
   reduceMotion: boolean;
   enterDelay: number;
@@ -128,6 +144,7 @@ function FloatingPiece({
   item,
   index,
   progress,
+  counterRotate,
   amplitude,
   reduceMotion,
   enterDelay,
@@ -164,7 +181,7 @@ function FloatingPiece({
   return (
     <motion.div
       className={cn("absolute", item.className)}
-      style={{ y: parallaxY, rotate: scrollRotate }}
+      style={{ y: parallaxY, rotate: counterRotate ?? scrollRotate }}
       initial={enter.initial}
       {...(trigger === "mount"
         ? { animate: { opacity: 1, scale: 1 } }

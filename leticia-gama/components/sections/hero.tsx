@@ -64,7 +64,7 @@ export function Hero() {
         <div className="absolute bottom-[-20%] left-[-15%] size-[34rem] rounded-full bg-sand/80 blur-3xl" />
       </div>
 
-      <Container className="relative grid min-h-[calc(100svh-4.5rem)] items-center gap-12 py-10 lg:grid-cols-12 lg:gap-8 lg:py-16">
+      <Container className="relative grid min-h-[calc(100svh-4.5rem)] items-center gap-12 py-10 sm:gap-[4.5rem] lg:grid-cols-12 lg:gap-8 lg:py-16">
         {/* Texto */}
         <div className="relative z-10 lg:col-span-6 xl:col-span-6">
           <motion.p {...textItem(0)} className="eyebrow text-wine">
@@ -107,7 +107,14 @@ export function Hero() {
         {/* Imagem */}
         <div className="relative lg:col-span-6 xl:col-span-6">
           <div className="relative mx-auto w-full max-w-[34rem]">
-            <FloatingProduce items={backProduce} trigger="mount" enterDelay={0.9} eager className="overflow-visible" />
+            <FloatingProduce
+              items={backProduce}
+              trigger="mount"
+              enterDelay={0.9}
+              eager
+              orbitOnScroll={12}
+              className="overflow-visible"
+            />
 
             <SeedOfLife
               aria-hidden="true"
@@ -138,7 +145,14 @@ export function Hero() {
               </div>
             </motion.div>
 
-            <FloatingProduce items={frontProduce} trigger="mount" enterDelay={1} eager className="overflow-visible" />
+            <FloatingProduce
+              items={frontProduce}
+              trigger="mount"
+              enterDelay={1}
+              eager
+              orbitOnScroll={12}
+              className="overflow-visible"
+            />
           </div>
         </div>
       </Container>
