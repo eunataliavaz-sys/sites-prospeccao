@@ -92,7 +92,7 @@ export const consultationModes: ConsultationMode[] = [
     label: "Consulta Presencial",
     badge: "PERSONAL DIET",
     howItWorks:
-      "Vou até você com todos os equipamentos necessários para realizar uma avaliação física completa, no conforto da sua casa.",
+      "Vou até você com todos os equipamentos necessários para realizar uma avaliação física completa.",
     assessmentTitle: "Avaliação física",
     assessment: [
       { label: "Aferição de peso", icon: "weight" },
@@ -113,7 +113,7 @@ export const consultationModes: ConsultationMode[] = [
     label: "Consulta Online",
     badge: "VIDEOCONSULTA",
     howItWorks:
-      "Atendimento realizado por videoconferência, permitindo acompanhamento personalizado de qualquer lugar do mundo.",
+      "Atendimento realizado por videoconferência, permitindo acompanhamento à distância.",
     assessmentTitle: "Avaliação",
     assessment: [
       { label: "Peso e estatura", icon: "height" },
