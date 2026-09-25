@@ -8,21 +8,51 @@ import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 
 /**
- * Assets em /public/assets/floating. Para trocar um elemento, basta
- * substituir o .webp mantendo o nome (e ajustar width/height se mudar a proporção).
+ * Assets em /public/assets/floating, gerados por scripts/floating-assets.mjs (npm run assets)
+ * com a sombra já gravada na imagem (sem filtros CSS, que causam um retângulo no Safari/iPhone).
+ * width/height são as dimensões do arquivo, já com a margem da sombra. `soft` = versão desfocada.
  */
 export const produceAssets = {
-  lemon: { src: asset("/assets/floating/lemon.webp"), width: 640, height: 566 },
-  strawberry: { src: asset("/assets/floating/strawberry.webp"), width: 560, height: 510 },
-  broccoli: { src: asset("/assets/floating/broccoli.webp"), width: 640, height: 845 },
-  orange: { src: asset("/assets/floating/orange.webp"), width: 640, height: 432 },
-  cherry: { src: asset("/assets/floating/cherry.webp"), width: 480, height: 485 },
-  "leaf-1": { src: asset("/assets/floating/leaf-1.webp"), width: 720, height: 670 },
-  "leaf-2": { src: asset("/assets/floating/leaf-2.webp"), width: 640, height: 689 },
-  "measuring-tape": { src: asset("/assets/floating/measuring-tape.webp"), width: 420, height: 1151 },
-  // Aguardando asset: coloque avocado.webp na pasta para habilitar
+  lemon: {
+    src: asset("/assets/floating/lemon.webp"),
+    soft: asset("/assets/floating/lemon-soft.webp"),
+    width: 716,
+    height: 706,
+  },
+  strawberry: { src: asset("/assets/floating/strawberry.webp"), width: 628, height: 634 },
+  broccoli: {
+    src: asset("/assets/floating/broccoli.webp"),
+    soft: asset("/assets/floating/broccoli-soft.webp"),
+    width: 716,
+    height: 985,
+  },
+  orange: { src: asset("/assets/floating/orange.webp"), width: 716, height: 572 },
+  cherry: { src: asset("/assets/floating/cherry.webp"), width: 538, height: 591 },
+  "leaf-1": { src: asset("/assets/floating/leaf-1.webp"), width: 806, height: 828 },
+  "leaf-2": {
+    src: asset("/assets/floating/leaf-2.webp"),
+    soft: asset("/assets/floating/leaf-2-soft.webp"),
+    width: 716,
+    height: 829,
+  },
+  "measuring-tape": { src: asset("/assets/floating/measuring-tape.webp"), width: 470, height: 1243 },
+  // Aguardando asset: coloque avocado.png em assets-originais e inclua no script para habilitar
   avocado: { src: asset("/assets/floating/avocado.webp"), width: 600, height: 600 },
 } as const;
+
+/**
+ * Margem transparente reservada para a sombra, em frações da largura da fruta.
+ * Mantenha em sincronia com SHADOW_PAD em scripts/floating-assets.mjs.
+ * As margens negativas abaixo fazem a fruta ocupar exatamente a caixa do item.
+ */
+const SHADOW_PAD = { side: 0.06, top: 0.06, bottom: 0.16 };
+const shadowFit = {
+  width: `${(1 + SHADOW_PAD.side * 2) * 100}%`,
+  maxWidth: "none",
+  marginLeft: `-${SHADOW_PAD.side * 100}%`,
+  marginTop: `-${SHADOW_PAD.top * 100}%`,
+  marginBottom: `-${SHADOW_PAD.bottom * 100}%`,
+};
 
 export type ProduceName = keyof typeof produceAssets;
 
@@ -201,18 +231,15 @@ function FloatingPiece({
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={asset.src}
+          src={item.blur && "soft" in asset ? asset.soft : asset.src}
           width={asset.width}
           height={asset.height}
           alt=""
           draggable={false}
           loading={eager ? "eager" : "lazy"}
           sizes="(min-width: 1024px) 220px, 140px"
-          className={cn(
-            "h-auto w-full drop-shadow-[0_22px_28px_rgba(43,43,43,0.16)]",
-            item.flip && "-scale-x-100",
-            item.blur && "blur-[2px] opacity-90",
-          )}
+          className={cn("h-auto", item.flip && "-scale-x-100", item.blur && "opacity-90")}
+          style={shadowFit}
         />
       </motion.div>
     </motion.div>

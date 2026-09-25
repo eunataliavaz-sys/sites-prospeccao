@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "assets": "node scripts/optimize-assets.mjs",
+    "assets": "node scripts/optimize-assets.mjs && node scripts/floating-assets.mjs",
     "publish:pages": "node scripts/publish-pages.mjs"
   },
   "dependencies": {

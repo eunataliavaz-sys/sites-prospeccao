@@ -8,15 +8,7 @@ const SRC = "assets-originais";
 const OUT = "public/assets";
 
 const jobs = [
-  // Elementos flutuantes (PNG com transparência -> recorta bordas vazias)
-  { src: "limão siciliano.png", out: "floating/lemon.webp", width: 640, trim: true },
-  { src: "morango.png", out: "floating/strawberry.webp", width: 560, trim: true },
-  { src: "brócolis.png", out: "floating/broccoli.webp", width: 640, trim: true },
-  { src: "laranja.png", out: "floating/orange.webp", width: 640, trim: true },
-  { src: "cereja.png", out: "floating/cherry.webp", width: 480, trim: true },
-  { src: "espinafre.png", out: "floating/leaf-1.webp", width: 720, trim: true },
-  { src: "rúcula.png", out: "floating/leaf-2.webp", width: 640, trim: true },
-  { src: "fita métrica.png", out: "floating/measuring-tape.webp", width: 420, trim: true },
+  // Elementos flutuantes: ver scripts/floating-assets.mjs (sombra gravada na imagem)
   // Fotos da Letícia
   { src: "leticia hero.jpg", out: "images/leticia-hero.webp", width: 1400, quality: 80 },
   { src: "leticia antes.png", out: "images/leticia-antes.webp", width: 1100, quality: 78 },
