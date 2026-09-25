@@ -64,7 +64,7 @@ export function Hero() {
         <div className="absolute bottom-[-20%] left-[-15%] size-[34rem] rounded-full bg-sand/80 blur-3xl" />
       </div>
 
-      <Container className="relative grid min-h-[calc(100svh-4.5rem)] items-center gap-12 py-10 sm:gap-[4.5rem] lg:grid-cols-12 lg:gap-8 lg:py-16">
+      <Container className="relative grid min-h-[calc(100svh-4.5rem)] items-center gap-16 py-10 sm:gap-[4.5rem] lg:grid-cols-12 lg:gap-8 lg:py-16">
         {/* Texto */}
         <div className="relative z-10 lg:col-span-6 xl:col-span-6">
           <motion.p {...textItem(0)} className="eyebrow text-wine">

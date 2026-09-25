@@ -1,40 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { Reveal } from "@/components/motion/reveal";
+import { EASE_OUT } from "@/components/motion/reveal";
 import { Container, SectionHeading } from "@/components/section";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+import { FloatingProduce, type FloatingItem } from "@/components/ui/floating-produce";
 import { testimonials, type Testimonial } from "@/lib/content";
-import { cn } from "@/lib/utils";
+
+// Folhagem grande na lateral esquerda, atrás dos mockups
+const testimonialsProduce: FloatingItem[] = [
+  {
+    name: "leaf-1",
+    className: "hidden md:block top-[34%] left-[-7%] w-44 lg:w-56 xl:left-[calc(50%-760px)] xl:w-64",
+    rotate: -18,
+    depth: 0.25,
+    flip: true,
+  },
+];
 
 export function Testimonials() {
-  const [api, setApi] = useState<CarouselApi>();
-  const [selected, setSelected] = useState(0);
-  const [snapCount, setSnapCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) return;
-    const update = () => {
-      setSelected(api.selectedScrollSnap());
-      setSnapCount(api.scrollSnapList().length);
-    };
-    update();
-    api.on("select", update);
-    api.on("reInit", update);
-    return () => {
-      api.off("select", update);
-      api.off("reInit", update);
-    };
-  }, [api]);
+  const reduceMotion = useReducedMotion();
 
   if (testimonials.length === 0) return null;
 
@@ -44,7 +30,9 @@ export function Testimonials() {
       aria-labelledby="depoimentos-title"
       className="relative overflow-x-clip bg-linen py-16 md:py-20 lg:py-24"
     >
-      <Container>
+      <FloatingProduce items={testimonialsProduce} />
+
+      <Container className="relative">
         <SectionHeading
           id="depoimentos-title"
           eyebrow="Depoimentos"
@@ -55,77 +43,84 @@ export function Testimonials() {
           }
         />
 
-        <Reveal delay={0.1} className="mt-8">
-          <Carousel
-            setApi={setApi}
-            opts={{ align: "start", containScroll: "trimSnaps" }}
-            aria-label="Depoimentos de pacientes"
-          >
-            <CarouselContent className="-ml-6">
-              {testimonials.map((item, index) => (
-                <CarouselItem
-                  key={item.src}
-                  className="basis-[82%] pl-6 sm:basis-1/2 lg:basis-1/3"
-                  aria-label={`Depoimento ${index + 1} de ${testimonials.length}`}
-                >
-                  <PhoneFrame testimonial={item} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
+        <div className="relative mt-8">
+          <OrganicArcs />
 
-            <div className="mt-8 flex items-center justify-between gap-6">
-              <div className="flex gap-2" role="group" aria-label="Escolher depoimento">
-                {Array.from({ length: snapCount }).map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => api?.scrollTo(index)}
-                    aria-label={`Ir para o grupo ${index + 1}`}
-                    aria-current={selected === index}
-                    className={cn(
-                      "h-1.5 cursor-pointer rounded-full transition-all duration-500",
-                      selected === index ? "w-8 bg-green-dark" : "w-1.5 bg-ink/20 hover:bg-ink/40",
-                    )}
-                  />
-                ))}
-              </div>
-              <div className="hidden gap-3 sm:flex">
-                <CarouselPrevious className="static size-11 translate-y-0 border-ink/15 bg-transparent hover:bg-cream disabled:opacity-30" />
-                <CarouselNext className="static size-11 translate-y-0 border-ink/15 bg-transparent hover:bg-cream disabled:opacity-30" />
-              </div>
-            </div>
-          </Carousel>
-        </Reveal>
+          {/* Mobile: carrossel com snap · Tablet: 2 × 2 · Desktop: 4 em linha, alinhados pela base */}
+          <ul
+            aria-label="Depoimentos de pacientes"
+            className="relative -mx-5 flex snap-x snap-mandatory items-end gap-5 overflow-x-auto px-5 py-6 [scrollbar-width:none] sm:-mx-8 sm:px-8 md:mx-auto md:grid md:max-w-[560px] md:grid-cols-2 md:overflow-visible md:px-0 xl:flex xl:max-w-none xl:justify-center [&::-webkit-scrollbar]:hidden"
+          >
+            {testimonials.map((item, index) => (
+              <motion.li
+                key={item.src}
+                className="w-[78%] max-w-[270px] shrink-0 snap-center md:w-full md:max-w-none xl:w-[260px]"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.8, delay: index * 0.12, ease: EASE_OUT }}
+              >
+                <motion.div
+                  animate={reduceMotion ? undefined : { y: [0, -5, 0] }}
+                  transition={{ duration: 6.5 + index * 0.7, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
+                >
+                  <PhoneMockup testimonial={item} index={index} total={testimonials.length} />
+                </motion.div>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </Container>
     </section>
   );
 }
 
-/** Moldura de celular moderno que recebe o print do depoimento. */
-function PhoneFrame({ testimonial }: { testimonial: Testimonial }) {
+/** Mockup de celular delicado: moldura fina off-white, cantos suaves e sombra mínima. */
+function PhoneMockup({ testimonial, index, total }: { testimonial: Testimonial; index: number; total: number }) {
   return (
-    <figure className="mx-auto w-full max-w-[20rem]">
-      <div className="rounded-[2.75rem] bg-ink p-2.5 shadow-[0_40px_70px_-40px_rgba(43,43,43,0.6)]">
-        <div className="relative flex aspect-[9/16] flex-col overflow-hidden rounded-[2.2rem] bg-[#efe7de]">
-          {/* Dynamic island */}
-          <div aria-hidden="true" className="absolute top-2.5 left-1/2 h-6 w-24 -translate-x-1/2 rounded-full bg-ink" />
-          {/* Barra superior neutra */}
-          <div aria-hidden="true" className="flex h-16 shrink-0 items-end border-b border-ink/5 bg-[#f6f2ec] px-5 pb-3">
-            <span className="h-2 w-16 rounded-full bg-ink/10" />
-          </div>
-          <div className="flex flex-1 items-center px-2.5">
-            <Image
-              src={testimonial.src}
-              width={testimonial.width}
-              height={testimonial.height}
-              alt={testimonial.alt}
-              sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 80vw"
-              className="h-auto w-full rounded-xl"
-            />
-          </div>
-          <div aria-hidden="true" className="mx-auto mb-2 h-1 w-28 shrink-0 rounded-full bg-ink/25" />
+    <figure aria-label={`Depoimento ${index + 1} de ${total}`} className="w-full">
+      <div className="flex aspect-[9/14] flex-col overflow-hidden rounded-[1.6rem] border border-white bg-[#efe7de] shadow-[0_18px_40px_-30px_rgba(43,43,43,0.3)]">
+        <div aria-hidden="true" className="mx-auto mt-2.5 h-1 w-9 shrink-0 rounded-full bg-ink/15" />
+        <div className="flex flex-1 items-center px-1.5">
+          <Image
+            src={testimonial.src}
+            width={testimonial.width}
+            height={testimonial.height}
+            alt={testimonial.alt}
+            sizes="(min-width: 1280px) 260px, (min-width: 768px) 270px, 78vw"
+            className="h-auto w-full rounded-xl"
+          />
         </div>
+        <div aria-hidden="true" className="mx-auto mb-2.5 h-1 w-12 shrink-0 rounded-full bg-ink/15" />
       </div>
     </figure>
+  );
+}
+
+/** Dois arcos orgânicos atrás dos mockups, em baixa opacidade. */
+function OrganicArcs() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 1200 520"
+      fill="none"
+      preserveAspectRatio="none"
+      className="pointer-events-none absolute top-1/2 left-1/2 h-[92%] w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
+    >
+      <path
+        d="M20 470 C 200 80, 520 20, 720 120 S 1080 320, 1180 70"
+        stroke="var(--brand-wine)"
+        strokeOpacity="0.16"
+        strokeWidth="1.2"
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d="M40 150 C 280 430, 600 490, 850 340 S 1130 140, 1190 400"
+        stroke="var(--brand-green)"
+        strokeOpacity="0.22"
+        strokeWidth="1.2"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
   );
 }
