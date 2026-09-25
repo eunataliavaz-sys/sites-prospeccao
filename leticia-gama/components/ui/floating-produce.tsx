@@ -12,40 +12,78 @@ import { cn } from "@/lib/utils";
  * com a sombra já gravada na imagem (sem filtros CSS, que causam um retângulo no Safari/iPhone).
  * width/height são as dimensões do arquivo, já com a margem da sombra. `soft` = versão desfocada.
  */
-export const produceAssets = {
+type ProduceAsset = {
+  src: string;
+  flat: string;
+  soft?: string;
+  softFlat?: string;
+  width: number;
+  height: number;
+};
+
+export const produceAssets: Record<ProduceName, ProduceAsset> = {
   lemon: {
     src: asset("/assets/floating/lemon.webp"),
+    flat: asset("/assets/floating/lemon-flat.webp"),
     soft: asset("/assets/floating/lemon-soft.webp"),
-    width: 716,
-    height: 706,
+    softFlat: asset("/assets/floating/lemon-soft-flat.webp"),
+    width: 794,
+    height: 736,
   },
-  strawberry: { src: asset("/assets/floating/strawberry.webp"), width: 628, height: 634 },
+  strawberry: {
+    src: asset("/assets/floating/strawberry.webp"),
+    flat: asset("/assets/floating/strawberry-flat.webp"),
+    width: 694,
+    height: 658,
+  },
   broccoli: {
     src: asset("/assets/floating/broccoli.webp"),
+    flat: asset("/assets/floating/broccoli-flat.webp"),
     soft: asset("/assets/floating/broccoli-soft.webp"),
-    width: 716,
-    height: 985,
+    softFlat: asset("/assets/floating/broccoli-soft-flat.webp"),
+    width: 794,
+    height: 1015,
   },
-  orange: { src: asset("/assets/floating/orange.webp"), width: 716, height: 572 },
-  cherry: { src: asset("/assets/floating/cherry.webp"), width: 538, height: 591 },
-  "leaf-1": { src: asset("/assets/floating/leaf-1.webp"), width: 806, height: 828 },
+  orange: {
+    src: asset("/assets/floating/orange.webp"),
+    flat: asset("/assets/floating/orange-flat.webp"),
+    width: 794,
+    height: 602,
+  },
+  cherry: {
+    src: asset("/assets/floating/cherry.webp"),
+    flat: asset("/assets/floating/cherry-flat.webp"),
+    width: 596,
+    height: 613,
+  },
+  "leaf-1": {
+    src: asset("/assets/floating/leaf-1.webp"),
+    flat: asset("/assets/floating/leaf-1-flat.webp"),
+    width: 892,
+    height: 860,
+  },
   "leaf-2": {
     src: asset("/assets/floating/leaf-2.webp"),
+    flat: asset("/assets/floating/leaf-2-flat.webp"),
     soft: asset("/assets/floating/leaf-2-soft.webp"),
-    width: 716,
-    height: 829,
+    softFlat: asset("/assets/floating/leaf-2-soft-flat.webp"),
+    width: 794,
+    height: 859,
   },
-  "measuring-tape": { src: asset("/assets/floating/measuring-tape.webp"), width: 470, height: 1243 },
-  // Aguardando asset: coloque avocado.png em assets-originais e inclua no script para habilitar
-  avocado: { src: asset("/assets/floating/avocado.webp"), width: 600, height: 600 },
-} as const;
+  "measuring-tape": {
+    src: asset("/assets/floating/measuring-tape.webp"),
+    flat: asset("/assets/floating/measuring-tape-flat.webp"),
+    width: 520,
+    height: 1262,
+  },
+};
 
 /**
  * Margem transparente reservada para a sombra, em frações da largura da fruta.
  * Mantenha em sincronia com SHADOW_PAD em scripts/floating-assets.mjs.
  * As margens negativas abaixo fazem a fruta ocupar exatamente a caixa do item.
  */
-const SHADOW_PAD = { side: 0.06, top: 0.06, bottom: 0.16 };
+const SHADOW_PAD = { side: 0.12, top: 0.12, bottom: 0.145 };
 const shadowFit = {
   width: `${(1 + SHADOW_PAD.side * 2) * 100}%`,
   maxWidth: "none",
@@ -54,7 +92,8 @@ const shadowFit = {
   marginBottom: `-${SHADOW_PAD.bottom * 100}%`,
 };
 
-export type ProduceName = keyof typeof produceAssets;
+export type ProduceName =
+  "lemon" | "strawberry" | "broccoli" | "orange" | "cherry" | "leaf-1" | "leaf-2" | "measuring-tape";
 
 export type FloatingItem = {
   name: ProduceName;
@@ -83,6 +122,8 @@ type FloatingProduceProps = {
   eager?: boolean;
   /** `mount` anima ao montar; `view` anima quando a seção entra na tela. */
   trigger?: "mount" | "view";
+  /** Sombra sob os elementos (padrão: true). A Hero usa sem sombra. */
+  shadow?: boolean;
   /**
    * Faz o grupo inteiro orbitar no sentido horário em volta do centro do container
    * conforme a rolagem (como ponteiros de relógio), em graus a cada 100px.
@@ -117,6 +158,7 @@ export function FloatingProduce({
   eager = false,
   trigger = "view",
   orbitOnScroll,
+  shadow = true,
 }: FloatingProduceProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion() ?? false;
@@ -147,6 +189,7 @@ export function FloatingProduce({
           index={index}
           progress={scrollYProgress}
           counterRotate={orbitOnScroll ? counterRotate : undefined}
+          shadow={shadow}
           amplitude={amplitude}
           reduceMotion={reduceMotion}
           enterDelay={enterDelay}
@@ -163,6 +206,7 @@ type FloatingPieceProps = {
   index: number;
   progress: MotionValue<number>;
   counterRotate?: MotionValue<number>;
+  shadow: boolean;
   amplitude: { parallax: number; tilt: number };
   reduceMotion: boolean;
   enterDelay: number;
@@ -175,6 +219,7 @@ function FloatingPiece({
   index,
   progress,
   counterRotate,
+  shadow,
   amplitude,
   reduceMotion,
   enterDelay,
@@ -231,7 +276,7 @@ function FloatingPiece({
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={item.blur && "soft" in asset ? asset.soft : asset.src}
+          src={pickSrc(asset, Boolean(item.blur), shadow)}
           width={asset.width}
           height={asset.height}
           alt=""
@@ -244,6 +289,11 @@ function FloatingPiece({
       </motion.div>
     </motion.div>
   );
+}
+
+function pickSrc(asset: ProduceAsset, blur: boolean, shadow: boolean) {
+  if (blur && asset.soft) return shadow ? asset.soft : (asset.softFlat ?? asset.soft);
+  return shadow ? asset.src : asset.flat;
 }
 
 function clamp(value: number, min: number, max: number) {

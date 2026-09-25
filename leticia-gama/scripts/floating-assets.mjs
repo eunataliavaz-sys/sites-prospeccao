@@ -7,8 +7,9 @@ import sharp from "sharp";
 import { mkdir } from "node:fs/promises";
 
 // Mantenha em sincronia com SHADOW_PAD em components/ui/floating-produce.tsx
-export const SHADOW_PAD = { side: 0.06, top: 0.06, bottom: 0.16 }; // frações da largura da fruta
-const SHADOW = { offsetY: 0.045, sigma: 0.035, opacity: 0.18, rgb: [43, 43, 43] }; // idem
+// Sombra discreta e difusa; a margem cobre 3 desvios do desfoque para a sombra nunca ser cortada
+const SHADOW = { offsetY: 0.025, sigma: 0.04, opacity: 0.08, rgb: [43, 43, 43] }; // frações da largura da fruta
+export const SHADOW_PAD = { side: 0.12, top: 0.12, bottom: 0.145 }; // idem
 const SOFT_SIGMA = 0.02; // desfoque das versões "-soft" (profundidade de campo)
 
 const SRC = "assets-originais";
@@ -66,20 +67,30 @@ for (const job of jobs) {
   // cauda do desfoque vira transparência total
   for (let i = 3; i < composed.data.length; i += 4) if (composed.data[i] < 2) composed.data[i] = 0;
 
+  const flat = await sharp({ create: canvas })
+    .composite([{ input: data, ...raw, left: padSide, top: padTop }])
+    .raw()
+    .toBuffer();
+
   const toWebp = (buffer, file) =>
     sharp(buffer, { raw: { width: canvas.width, height: canvas.height, channels: 4 } })
       .webp({ quality: 82, alphaQuality: 100, effort: 5 })
       .toFile(`${OUT}/${file}`);
 
   const out = await toWebp(composed.data, `${job.name}.webp`);
+  await toWebp(flat, `${job.name}-flat.webp`); // sem sombra (Hero)
   let softInfo = "";
   if (job.soft) {
-    const soft = await sharp(composed.data, { raw: { width: canvas.width, height: canvas.height, channels: 4 } })
-      .blur(W * SOFT_SIGMA)
-      .raw()
-      .toBuffer();
-    for (let i = 3; i < soft.length; i += 4) if (soft[i] < 2) soft[i] = 0;
-    const s = await toWebp(soft, `${job.name}-soft.webp`);
+    const blurred = async (buffer) => {
+      const b = await sharp(buffer, { raw: { width: canvas.width, height: canvas.height, channels: 4 } })
+        .blur(W * SOFT_SIGMA)
+        .raw()
+        .toBuffer();
+      for (let i = 3; i < b.length; i += 4) if (b[i] < 2) b[i] = 0;
+      return b;
+    };
+    const s = await toWebp(await blurred(composed.data), `${job.name}-soft.webp`);
+    await toWebp(await blurred(flat), `${job.name}-soft-flat.webp`);
     softInfo = ` + soft ${(s.size / 1024).toFixed(0)} KB`;
   }
   console.log(`${job.name.padEnd(16)} ${out.width}x${out.height}  ${(out.size / 1024).toFixed(0)} KB${softInfo}`);

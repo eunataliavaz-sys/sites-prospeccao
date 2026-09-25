@@ -1,2 +1,2 @@
-:HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/chunks/31cd1t5ropywx.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"VXKJPbZq8MygZ8dzulcBz"}
+:HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/chunks/0ay95fyqjhx4n.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"up4aIIPkGsLVf_wyuCNlH"}

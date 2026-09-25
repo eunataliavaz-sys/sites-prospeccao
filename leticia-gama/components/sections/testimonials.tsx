@@ -17,6 +17,14 @@ const testimonialsProduce: FloatingItem[] = [
     depth: 0.25,
     flip: true,
   },
+  // Morango na divisa com Diferenciais, à esquerda (fora da coluna de texto)
+  {
+    name: "strawberry",
+    className:
+      "top-[-2.75rem] left-[-4%] w-16 md:top-[-3.5rem] md:left-[-2%] md:w-20 xl:left-[calc(50%-688px)] xl:w-24",
+    rotate: -16,
+    depth: 0.15,
+  },
 ];
 
 export function Testimonials() {

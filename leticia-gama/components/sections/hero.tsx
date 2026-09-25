@@ -113,6 +113,7 @@ export function Hero() {
               enterDelay={0.9}
               eager
               orbitOnScroll={12}
+              shadow={false}
               className="overflow-visible"
             />
 
@@ -151,6 +152,7 @@ export function Hero() {
               enterDelay={1}
               eager
               orbitOnScroll={12}
+              shadow={false}
               className="overflow-visible"
             />
           </div>
