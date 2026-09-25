@@ -5,9 +5,7 @@ import { Container, SectionHeading } from "@/components/section";
 import { FloatingProduce, type FloatingItem } from "@/components/ui/floating-produce";
 import { specialties } from "@/lib/content";
 
-const servicesProduce: FloatingItem[] = [
-  { name: "leaf-2", className: "hidden xl:block bottom-[6%] left-[-3%] w-32", rotate: 40, depth: 0.3, blur: true },
-];
+const servicesProduce: FloatingItem[] = [];
 
 export function Specialties() {
   return (

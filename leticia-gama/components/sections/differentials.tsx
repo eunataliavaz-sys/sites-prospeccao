@@ -18,7 +18,8 @@ const icons: Record<(typeof differentials)[number]["icon"], LucideIcon> = {
 const differentialsProduce: FloatingItem[] = [
   {
     name: "cherry",
-    className: "hidden md:block top-[-2%] right-[3%] w-16 lg:top-[-3rem] lg:right-[4%] lg:w-20 xl:top-[8%] xl:w-24",
+    className:
+      "hidden md:block top-[-2%] right-[3%] w-16 lg:top-[-3rem] lg:right-[4%] lg:w-20 xl:top-[-3.75rem] xl:w-24",
     rotate: 10,
     depth: 0.4,
     noShadow: true,

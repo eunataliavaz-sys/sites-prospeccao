@@ -54,8 +54,8 @@ const icons: Record<ConsultationIcon, IconComponent> = {
 const tapeDecor: FloatingItem[] = [
   {
     name: "measuring-tape",
-    // Vertical como a foto original, entrando pelo topo da seção na margem esquerda do conteúdo
-    className: "hidden xl:block top-[-3rem] w-32 left-[calc(50%-724px)] 2xl:w-40 2xl:left-[calc(50%-756px)]",
+    // Vertical como a foto original, entrando pelo topo da seção na margem direita do conteúdo
+    className: "hidden xl:block top-[-3rem] w-32 right-[calc(50%-724px)] 2xl:w-40 2xl:right-[calc(50%-756px)]",
     rotate: 0,
     depth: 0.3,
   },

@@ -12,7 +12,7 @@ import { testimonials, type Testimonial } from "@/lib/content";
 const testimonialsProduce: FloatingItem[] = [
   {
     name: "leaf-1",
-    className: "hidden md:block top-[34%] left-[-7%] w-44 lg:w-56 xl:left-[calc(50%-760px)] xl:w-64",
+    className: "hidden md:block xl:hidden top-[34%] left-[-7%] w-44 lg:w-56",
     rotate: -18,
     depth: 0.25,
     flip: true,
@@ -20,11 +20,12 @@ const testimonialsProduce: FloatingItem[] = [
   // Morango na divisa com Diferenciais, à esquerda (fora da coluna de texto)
   {
     name: "strawberry",
-    className:
-      "top-[-2.75rem] left-3 w-16 md:top-[-3.5rem] md:left-[-2%] md:w-20 xl:left-[calc(50%-688px)] xl:w-24",
+    className: "top-[-2.75rem] left-3 w-16 md:top-[-3.5rem] md:left-[-2%] md:w-20 xl:hidden",
     rotate: -16,
     depth: 0.15,
   },
+  // Desktop: morango grande à esquerda, atrás do primeiro mockup (no lugar da folhagem)
+  { name: "strawberry", className: "hidden xl:block top-[42%] left-[calc(50%-760px)] w-48", rotate: -14, depth: 0.25 },
 ];
 
 export function Testimonials() {
