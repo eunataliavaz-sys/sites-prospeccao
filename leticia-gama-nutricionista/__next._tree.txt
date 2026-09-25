@@ -1,8 +1,8 @@
-:HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/chunks/01nnny3s8tgi2.css","style"]
+:HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/chunks/40ixcd-yt399f.css","style"]
 :HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/media/57b02995d6e1530a-s.p.1n10e_apdb6ux.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/media/8e6fa89aa22d24ec-s.p.2o7m9ogm38dql.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/media/a218039a3287bcfd-s.p.43zbiuwnnoiok.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/media/b67966e0b83b2cd0-s.p.0fuf3937kiol3.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/media/c875c6f5d3e977ac-s.p.1h18_wedhzk4h.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/sites-prospeccao/leticia-gama-nutricionista/_next/static/media/e2334d715941921e-s.p.3o_v2fun1jzxk.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"VoqIFLOgZ55m1Kb1ibejV"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"CZFgxGByoOFt1oAl4KWFY"}
