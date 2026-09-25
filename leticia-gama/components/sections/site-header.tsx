@@ -71,15 +71,13 @@ export function SiteHeader() {
       <Container className="flex h-[4.5rem] items-center justify-between gap-3 sm:gap-6">
         <a
           href="#inicio"
-          className="flex min-w-0 items-center gap-2.5 rounded-full text-green-dark sm:gap-3"
+          className="flex min-w-0 items-center gap-3 rounded-full text-green-dark"
           aria-label={`${siteConfig.name}, voltar ao início`}
         >
-          <SeedOfLife className="size-7 shrink-0 sm:size-8" strokeWidth={4} aria-hidden="true" />
+          <SeedOfLife className="size-8 shrink-0" strokeWidth={4} aria-hidden="true" />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-[1.15rem] whitespace-nowrap text-ink sm:text-[1.3rem]">
-              {siteConfig.name}
-            </span>
-            <span className="mt-1 text-[0.55rem] font-medium tracking-[0.26em] text-ink/55 uppercase sm:text-[0.6rem] sm:tracking-[0.3em]">
+            <span className="font-display text-[1.3rem] whitespace-nowrap text-ink">{siteConfig.name}</span>
+            <span className="mt-1 text-[0.6rem] font-medium tracking-[0.3em] text-ink/55 uppercase">
               {siteConfig.role}
             </span>
           </span>
@@ -102,15 +100,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-          <Button asChild size="sm" className="max-sm:h-8 max-sm:px-3.5 max-sm:text-[0.75rem]">
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Agendar consulta pelo WhatsApp"
-            >
-              <span className="sm:hidden">Agendar</span>
-              <span className="hidden sm:inline">Agendar consulta</span>
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+              Agendar consulta
             </a>
           </Button>
           <Button
