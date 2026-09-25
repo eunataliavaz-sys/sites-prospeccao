@@ -25,7 +25,7 @@ const testimonialsProduce: FloatingItem[] = [
     depth: 0.15,
   },
   // Desktop: morango grande à esquerda, atrás do primeiro mockup (no lugar da folhagem)
-  { name: "strawberry", className: "hidden xl:block top-[42%] left-[calc(50%-760px)] w-48", rotate: -14, depth: 0.25 },
+  { name: "strawberry", className: "hidden xl:block top-[42%] left-[calc(50%-672px)] w-48", rotate: -14, depth: 0.25 },
 ];
 
 export function Testimonials() {
