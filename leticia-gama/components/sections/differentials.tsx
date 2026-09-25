@@ -21,9 +21,10 @@ const differentialsProduce: FloatingItem[] = [
     className: "hidden md:block top-[-2%] right-[3%] w-16 lg:top-[-3rem] lg:right-[4%] lg:w-20 xl:top-[8%] xl:w-24",
     rotate: 10,
     depth: 0.4,
+    noShadow: true,
   },
   // Mobile: cereja entrando pela divisa superior, no canto direito
-  { name: "cherry", className: "md:hidden top-[-2.25rem] right-3 w-16", rotate: 10, depth: 0.1 },
+  { name: "cherry", className: "md:hidden top-[-2.25rem] right-3 w-16", rotate: 10, depth: 0.1, noShadow: true },
 ];
 
 const steps = differentials.map((item) => ({

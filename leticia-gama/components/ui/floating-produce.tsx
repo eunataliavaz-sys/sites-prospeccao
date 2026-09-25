@@ -109,6 +109,8 @@ export type FloatingItem = {
   delay?: number;
   /** Desfoque leve para sugerir profundidade de campo. */
   blur?: boolean;
+  /** Desliga a sombra só deste item (a do grupo continua valendo para os demais). */
+  noShadow?: boolean;
   /** Espelha horizontalmente para variar a composição. */
   flip?: boolean;
 };
@@ -276,7 +278,7 @@ function FloatingPiece({
         transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={pickSrc(asset, Boolean(item.blur), shadow)}
+          src={pickSrc(asset, Boolean(item.blur), shadow && !item.noShadow)}
           width={asset.width}
           height={asset.height}
           alt=""
