@@ -200,9 +200,8 @@ export function HowItWorks() {
             </h3>
             <div className="mt-6 max-w-xl space-y-5 text-[1rem] leading-[1.85] text-ink/70">
               <p>
-                Durante aproximadamente 1h15, teremos uma conversa leve e descontraída para entender sua rotina,
-                horários, hábitos, lazer, histórico de saúde, uso de medicamentos, preferências alimentares e seus
-                objetivos.
+                Teremos uma conversa leve e descontraída para entender sua rotina, horários, hábitos, lazer, histórico
+                de saúde, uso de medicamentos, preferências alimentares e seus objetivos.
               </p>
               <p>
                 Cada estratégia é construída de forma individual, respeitando sua realidade para que o planejamento seja

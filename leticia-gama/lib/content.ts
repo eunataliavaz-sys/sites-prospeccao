@@ -139,7 +139,7 @@ export const consultationModes: ConsultationMode[] = [
 ];
 
 export const consultationHighlights: { title: string; text: string; icon: ConsultationIcon }[] = [
-  { title: "Duração", text: "Aproximadamente 1h15", icon: "clock" },
+  { title: "Duração", text: "Aproximadamente 1:20h", icon: "clock" },
   { title: "Suporte", text: "Via WhatsApp por 30 dias", icon: "whatsapp" },
   { title: "Planejamento", text: "Materiais de apoio para adesão ao planejamento alimentar", icon: "book" },
 ];
