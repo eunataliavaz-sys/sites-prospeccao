@@ -16,7 +16,7 @@ const aboutProduce: FloatingItem[] = [
     flip: true,
   },
   // Mobile: folha atravessando a divisa com a Hero, no respiro acima do título
-  { name: "leaf-1", className: "md:hidden top-[-3.25rem] left-[-7%] w-28", rotate: -28, depth: 0.15, flip: true },
+  { name: "leaf-1", className: "md:hidden top-[-4.75rem] left-[-7%] w-28", rotate: -28, depth: 0.15, flip: true },
   // Brócolis no canto inferior
   { name: "broccoli", className: "hidden xl:block bottom-[4%] left-[38%] w-28", rotate: 12, depth: 0.55, blur: true },
   // Limão junto ao slider; no mobile fica no respiro superior da seção

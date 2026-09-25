@@ -21,7 +21,7 @@ const testimonialsProduce: FloatingItem[] = [
   {
     name: "strawberry",
     className:
-      "top-[-2.75rem] left-[-4%] w-16 md:top-[-3.5rem] md:left-[-2%] md:w-20 xl:left-[calc(50%-688px)] xl:w-24",
+      "top-[-2.75rem] left-3 w-16 md:top-[-3.5rem] md:left-[-2%] md:w-20 xl:left-[calc(50%-688px)] xl:w-24",
     rotate: -16,
     depth: 0.15,
   },
