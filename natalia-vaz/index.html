@@ -121,7 +121,9 @@
   .logo em { color: var(--lilac); }
   .logo small { display: block; font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--on-dark-muted); margin-top: 6px; }
   .nav { display: flex; align-items: center; gap: 30px; }
-  .nav a { font-size: 0.86rem; color: var(--on-dark-muted); transition: color 0.3s; }
+  .nav a { font-size: 0.86rem; color: var(--on-dark-muted); transition: color 0.3s; white-space: nowrap; }
+  .header .btn { white-space: nowrap; }
+  .logo { white-space: nowrap; }
   .nav a:hover { color: var(--on-dark); }
   .header .btn { min-height: 44px; padding: 0 22px; font-size: 0.84rem; }
   .menu-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; }
@@ -524,7 +526,7 @@
   @media (max-width: 1200px) {
     .aud-grid { grid-template-columns: 1fr 1fr; }
   }
-  @media (max-width: 1020px) {
+  @media (max-width: 1100px) {
     .nav { display: none; }
     .menu-toggle { display: inline-flex; }
     .header .btn { display: none; }
@@ -534,6 +536,8 @@
     }
     .menu-open .nav a { font-family: var(--serif); font-size: 1.7rem; color: var(--on-dark); }
     .menu-open .header { background: var(--ink); }
+  }
+  @media (max-width: 1020px) {
     .steps { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line); gap: 34px; margin-left: 4px; }
     .step { padding: 0 0 0 30px; }
     .step::before { top: 6px; left: -4px; }
@@ -605,11 +609,11 @@
   <div class="wrap">
     <a href="#inicio" class="logo" aria-label="Natália Vaz, início">Natália <em>Vaz</em><small>Estratégia digital</small></a>
     <nav class="nav" id="nav" aria-label="Menu principal">
+      <a href="#para-quem">Para quem</a>
       <a href="#servicos">Serviços</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#ensaios">Ensaios com IA</a>
-      <a href="#investimento">Investimento</a>
       <a href="#sobre">Sobre mim</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
