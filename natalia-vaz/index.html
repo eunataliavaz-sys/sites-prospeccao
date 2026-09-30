@@ -235,6 +235,11 @@
   .aud-foot strong { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; display: block; }
   .aud-foot span { color: var(--on-dark-muted); font-size: 0.95rem; }
 
+  /* Transição entre "Para quem eu crio" e "Serviços": a primeira fica presa, encolhe e inclina; a segunda sobe por cima */
+  .stack { position: relative; background: #050407; overflow: clip; }
+  .stack > .audience { position: sticky; top: 0; z-index: 1; will-change: transform; }
+  .stack > .services { position: relative; z-index: 2; will-change: transform; transform-origin: 50% 50vh; box-shadow: 0 -30px 60px -20px rgba(0, 0, 0, 0.55); }
+
   /* Serviços */
   .services { background: var(--paper-2); }
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; }
@@ -513,15 +518,15 @@
   .js .reveal.in { opacity: 1; transform: none; }
 
   /* Fundo claro: mesma fonte com traços mais encorpados (versão de texto da Bodoni Moda) */
-  main > section:not(.dark) :is(.h2, h3, .num, .stats strong, .bigger strong, summary) {
+  main section:not(.dark) :is(.h2, h3, .num, .stats strong, .bigger strong, summary) {
     font-variation-settings: "opsz" 16; font-weight: 500;
   }
-  main > section:not(.dark) .h2 { letter-spacing: -0.02em; }
+  main section:not(.dark) .h2 { letter-spacing: -0.02em; }
   /* Subtítulos no fundo claro: versão para textos menores, mais encorpada */
-  main > section:not(.dark) :is(h3, .num, .bigger strong, summary) {
+  main section:not(.dark) :is(h3, .num, .bigger strong, summary) {
     font-variation-settings: "opsz" 9; font-weight: 600;
   }
-  main > section:not(.dark) .card.feature :is(h3, .num) { font-variation-settings: normal; font-weight: 400; }
+  main section:not(.dark) .card.feature :is(h3, .num) { font-variation-settings: normal; font-weight: 400; }
 
   /* Responsivo */
   @media (max-width: 1200px) {
@@ -676,6 +681,7 @@
     </div>
   </section>
 
+  <div class="stack" id="stack">
   <!-- PARA QUEM EU CRIO -->
   <section class="section dark audience" id="para-quem">
     <div class="audience-glow a" aria-hidden="true"></div>
@@ -832,6 +838,8 @@
       </div>
     </div>
   </section>
+
+  </div>
 
   <!-- PORTFÓLIO -->
   <section class="showcase dark" id="portfolio" aria-label="Portfólio">
@@ -1169,6 +1177,53 @@
     btn.setAttribute('aria-expanded', open);
     btn.closest('.aud-card').classList.toggle('open', open);
   }));
+
+  /* Transição com rolagem entre "Para quem eu crio" e "Serviços" */
+  (function stackTransition() {
+    const pin = document.getElementById('para-quem');
+    const next = document.getElementById('servicos');
+    if (!pin || !next || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    let ticking = false;
+
+    // A seção é mais alta que a tela: ela só "prende" quando o final dela chega ao pé da tela
+    function layout() {
+      const h = pin.offsetHeight, vh = window.innerHeight;
+      pin.style.top = Math.min(0, vh - h) + 'px';
+      pin.style.transformOrigin = `50% ${Math.max(h - vh / 2, h / 2)}px`;
+      update();
+    }
+    function update() {
+      const vh = window.innerHeight;
+      const p = clamp(1 - next.getBoundingClientRect().top / vh, 0, 1);
+      pin.style.transform = p > 0 ? `scale(${1 - 0.2 * p}) rotate(${-5 * p}deg)` : '';
+      pin.style.borderRadius = p > 0 ? `${Math.round(40 * p)}px` : '';
+      pin.style.boxShadow = p > 0 ? `0 0 0 1px rgba(191, 166, 242, ${(0.18 * p).toFixed(3)}), 0 40px 80px -30px rgba(0, 0, 0, ${(0.8 * p).toFixed(2)})` : '';
+      next.style.transform = p < 1 ? `scale(${0.8 + 0.2 * p}) rotate(${5 * (1 - p)}deg)` : '';
+      next.style.borderRadius = p < 1 ? `${Math.round(40 * (1 - p))}px ${Math.round(40 * (1 - p))}px 0 0` : '';
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
+    }, { passive: true });
+    window.addEventListener('resize', layout);
+    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(pin); // cards abertos mudam a altura
+    layout();
+  })();
+
+  /* Links internos: rolam até a posição real da seção (sem contar o efeito de encolher/inclinar) */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    a.addEventListener('click', e => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      let y = 0, n = el;
+      while (n) { y += n.offsetTop; n = n.offsetParent; }
+      window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      history.replaceState(null, '', '#' + id);
+    });
+  });
 
   /* Header e menu mobile */
   const header = document.getElementById('header');
