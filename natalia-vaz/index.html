@@ -183,6 +183,50 @@
   .benefits h3, .card h3, .step h3 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.2; letter-spacing: -0.01em; }
   .benefits p { color: var(--muted); margin-top: 6px; font-size: 0.98rem; }
 
+  /* Para quem eu crio: cards de vidro que abrem */
+  .audience { position: relative; overflow: hidden; }
+  .audience-glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .audience-glow.a { width: 520px; height: 520px; left: -120px; top: 18%; background: rgba(106, 61, 191, 0.45); }
+  .audience-glow.c { width: 600px; height: 420px; left: 50%; top: 55%; transform: translate(-50%, -50%); background: rgba(106, 61, 191, 0.22); }
+  .audience-glow.b { width: 460px; height: 460px; right: -100px; bottom: 6%; background: rgba(191, 166, 242, 0.22); }
+  .audience .wrap { position: relative; }
+  .aud-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 64px; align-items: start; }
+  .aud-card {
+    border-radius: 22px; color: var(--on-dark);
+    background: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 20px 50px -24px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.10);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
+  }
+  .aud-card:hover, .aud-card.open { border-color: rgba(191, 166, 242, 0.38); }
+  .aud-card.open { background: linear-gradient(145deg, rgba(191,166,242,0.11) 0%, rgba(255,255,255,0.025) 100%); }
+  .aud-card h3 { font: inherit; }
+  .aud-toggle { width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 16px; padding: 26px 26px; text-align: left; }
+  .aud-toggle .num { grid-column: 1 / -1; font-size: 0.95rem; }
+  .aud-title { font-family: var(--serif); font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.01em; }
+  .aud-sub { grid-column: 1; font-size: 0.86rem; color: var(--on-dark-muted); }
+  .aud-plus { grid-column: 2; grid-row: 2 / span 2; position: relative; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); transition: border-color 0.4s, background 0.4s, transform 0.5s var(--ease); }
+  .aud-plus::before, .aud-plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.5px; background: var(--on-dark); transform: translate(-50%, -50%); transition: transform 0.4s var(--ease); }
+  .aud-plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .aud-toggle:hover .aud-plus { border-color: var(--lilac); }
+  .aud-card.open .aud-plus { background: var(--lilac); border-color: var(--lilac); transform: rotate(180deg); }
+  .aud-card.open .aud-plus::before, .aud-card.open .aud-plus::after { background: var(--ink); }
+  .aud-card.open .aud-plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .aud-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s var(--ease); }
+  .aud-card.open .aud-body { grid-template-rows: 1fr; }
+  .aud-inner { overflow: hidden; }
+  .aud-content { padding: 0 26px 26px; opacity: 0; transform: translateY(-6px); transition: opacity 0.4s, transform 0.5s var(--ease); }
+  .aud-card.open .aud-content { opacity: 1; transform: none; transition-delay: 0.1s; }
+  .aud-content > p { font-size: 0.94rem; color: var(--on-dark-muted); padding-top: 18px; border-top: 1px solid var(--line-dark); }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chips li { font-size: 0.8rem; padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(191,166,242,0.28); background: rgba(191,166,242,0.07); color: var(--on-dark); }
+  .aud-note { display: flex; gap: 10px; align-items: flex-start; margin-top: 18px; font-size: 0.82rem; color: var(--lilac); }
+  .aud-note svg { width: 16px; height: 16px; flex: none; margin-top: 2px; }
+  .aud-foot { margin-top: 44px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 26px clamp(24px, 3.4vw, 40px); border-radius: 22px; border: 1px dashed rgba(191,166,242,0.35); }
+  .aud-foot strong { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; display: block; }
+  .aud-foot span { color: var(--on-dark-muted); font-size: 0.95rem; }
+
   /* Serviços */
   .services { background: var(--paper-2); }
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; }
@@ -486,6 +530,7 @@
     .step::before { top: 6px; left: -4px; }
     .notes { grid-template-columns: 1fr; }
     .pricing-grid, .about-grid, .split { grid-template-columns: 1fr; }
+    .aud-grid { grid-template-columns: 1fr 1fr; }
     .why { grid-template-columns: 1fr 1fr; }
     .why li:nth-child(3) { border-top: 0; }
     .about-photo { min-height: 0; aspect-ratio: 1 / 1.08; max-width: 440px; margin-right: 18px; }
@@ -502,6 +547,10 @@
     .hero-tag strong { font-size: 1rem; }
     .hero-actions .btn { width: 100%; }
     .cards { grid-template-columns: 1fr; margin-top: 44px; }
+    .aud-grid { grid-template-columns: 1fr; margin-top: 44px; }
+    .aud-toggle { padding: 22px; }
+    .aud-content { padding: 0 22px 22px; }
+    .aud-foot .btn { width: 100%; }
     .card { min-height: 0; }
     .checks, .incl, .why { grid-template-columns: 1fr; }
     .why li:nth-child(2) { border-top: 0; }
@@ -614,13 +663,133 @@
     </div>
   </section>
 
+  <!-- PARA QUEM EU CRIO -->
+  <section class="section dark audience" id="para-quem">
+    <div class="audience-glow a" aria-hidden="true"></div>
+    <div class="audience-glow b" aria-hidden="true"></div>
+    <div class="audience-glow c" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Para quem eu crio</span>
+          <h2 class="h2">O seu negócio<br> tem <em>espaço aqui.</em></h2>
+        </div>
+        <p class="lead">Crio sites para profissionais e negócios que querem ser encontrados, transmitir confiança e receber mais contatos. Veja se a sua área está aqui.</p>
+      </div>
+      <div class="aud-grid">
+        <article class="aud-card reveal">
+          <h3>
+            <button class="aud-toggle" aria-expanded="false" aria-controls="area-1">
+              <span class="num">01</span>
+              <span class="aud-title">Saúde</span>
+              <span class="aud-sub">Médicos, dentistas, psicólogos e mais</span>
+              <span class="aud-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="aud-body" id="area-1">
+            <div class="aud-inner"><div class="aud-content">
+              <p>Para quem precisa transmitir confiança antes mesmo da primeira consulta.</p>
+              <ul class="chips"><li>Médicos</li><li>Dentistas</li><li>Psicólogos</li><li>Nutricionistas</li><li>Fisioterapeutas</li><li>Fonoaudiólogos</li><li>Terapeutas ocupacionais</li><li>Veterinários</li></ul>
+              <p class="aud-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Conteúdo pensado para respeitar as normas do seu conselho profissional (CFM, CFO, CRP, CRN e outros).</span></p>
+            </div></div>
+          </div>
+        </article>
+        <article class="aud-card reveal">
+          <h3>
+            <button class="aud-toggle" aria-expanded="false" aria-controls="area-2">
+              <span class="num">02</span>
+              <span class="aud-title">Beleza e estética</span>
+              <span class="aud-sub">Esteticistas, clínicas, salões e mais</span>
+              <span class="aud-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="aud-body" id="area-2">
+            <div class="aud-inner"><div class="aud-content">
+              <p>Para mostrar o seu espaço, os seus procedimentos e facilitar o agendamento.</p>
+              <ul class="chips"><li>Esteticistas</li><li>Clínicas de estética</li><li>Massoterapeutas</li><li>Cabeleireiros e salões</li><li>Maquiadoras</li><li>Designers de sobrancelha</li><li>Nail designers</li></ul>
+            </div></div>
+          </div>
+        </article>
+        <article class="aud-card reveal">
+          <h3>
+            <button class="aud-toggle" aria-expanded="false" aria-controls="area-3">
+              <span class="num">03</span>
+              <span class="aud-title">Bem-estar e movimento</span>
+              <span class="aud-sub">Personal trainers, pilates, yoga e mais</span>
+              <span class="aud-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="aud-body" id="area-3">
+            <div class="aud-inner"><div class="aud-content">
+              <p>Para apresentar a sua metodologia e transformar seguidores em alunos.</p>
+              <ul class="chips"><li>Personal trainers</li><li>Estúdios de pilates</li><li>Estúdios de yoga</li><li>Terapeutas holísticos</li><li>Coaches</li></ul>
+            </div></div>
+          </div>
+        </article>
+        <article class="aud-card reveal">
+          <h3>
+            <button class="aud-toggle" aria-expanded="false" aria-controls="area-4">
+              <span class="num">04</span>
+              <span class="aud-title">Jurídico e consultoria</span>
+              <span class="aud-sub">Advogados, contadores, arquitetos e mais</span>
+              <span class="aud-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="aud-body" id="area-4">
+            <div class="aud-inner"><div class="aud-content">
+              <p>Autoridade e credibilidade para quem vende conhecimento e confiança.</p>
+              <ul class="chips"><li>Advogados</li><li>Contadores</li><li>Consultores</li><li>Corretores de imóveis</li><li>Arquitetos</li><li>Engenheiros</li><li>Despachantes</li></ul>
+              <p class="aud-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Para advogados, sites de acordo com as regras de publicidade da OAB (Provimento 205/2021). Demais áreas, respeitando o seu conselho.</span></p>
+            </div></div>
+          </div>
+        </article>
+        <article class="aud-card reveal">
+          <h3>
+            <button class="aud-toggle" aria-expanded="false" aria-controls="area-5">
+              <span class="num">05</span>
+              <span class="aud-title">Educação</span>
+              <span class="aud-sub">Professores, escolas e mentores</span>
+              <span class="aud-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="aud-body" id="area-5">
+            <div class="aud-inner"><div class="aud-content">
+              <p>Para divulgar aulas, cursos e mentorias e captar novos alunos.</p>
+              <ul class="chips"><li>Professores particulares</li><li>Escolas de idiomas</li><li>Mentores</li><li>Criadores de cursos</li></ul>
+            </div></div>
+          </div>
+        </article>
+        <article class="aud-card reveal">
+          <h3>
+            <button class="aud-toggle" aria-expanded="false" aria-controls="area-6">
+              <span class="num">06</span>
+              <span class="aud-title">Negócios locais</span>
+              <span class="aud-sub">Restaurantes, lojas, fotógrafos e mais</span>
+              <span class="aud-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="aud-body" id="area-6">
+            <div class="aud-inner"><div class="aud-content">
+              <p>Para ser encontrado no Google por quem está perto de você e procurando agora.</p>
+              <ul class="chips"><li>Restaurantes</li><li>Confeitarias</li><li>Cafeterias</li><li>Pet shops</li><li>Fotógrafos</li><li>Cerimonialistas e eventos</li><li>Lojas</li></ul>
+            </div></div>
+          </div>
+        </article>
+      </div>
+      <div class="aud-foot reveal">
+        <p><strong>Não encontrou a sua área?</strong><span>Atendo profissionais e negócios de todos os segmentos.</span></p>
+        <a class="btn btn-primary" data-wa="area" href="#">Falar com a Natália <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVIÇOS -->
   <section class="section services" id="servicos">
     <div class="wrap">
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">Serviços</span>
-          <h2 class="h2">O que posso criar<br>para o <em>seu negócio.</em></h2>
+          <h2 class="h2">O que posso criar<br> para o <em>seu negócio.</em></h2>
         </div>
         <p class="lead">Você escolhe o formato mais adequado ao seu objetivo. Cada projeto é feito do zero, pensado para o seu público.</p>
       </div>
@@ -726,7 +895,7 @@
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">Como funciona</span>
-          <h2 class="h2">Do primeiro contato<br>ao site no ar, <em>em 5 passos.</em></h2>
+          <h2 class="h2">Do primeiro contato<br> ao site no ar, <em>em 5 passos.</em></h2>
         </div>
         <p class="lead">Você vê o resultado antes de decidir. Nada de formulários longos ou pagamento adiantado.</p>
       </div>
@@ -773,7 +942,7 @@
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">Investimento</span>
-          <h2 class="h2">Um valor justo para uma<br><em>presença digital de verdade.</em></h2>
+          <h2 class="h2">Um valor justo para uma<br> <em>presença digital de verdade.</em></h2>
         </div>
         <p class="lead">Você solicita a prévia e só paga se aprovar.</p>
       </div>
@@ -941,7 +1110,8 @@
     previa: 'Olá, Natália! Vim pelo seu site e quero solicitar uma prévia gratuita do meu site.',
     orcamento: 'Olá, Natália! Vim pelo seu site e gostaria de um orçamento para um site com várias páginas.',
     ensaio: 'Olá, Natália! Vim pelo seu site e quero saber mais sobre o ensaio profissional com IA.',
-    duvida: 'Olá, Natália! Vim pelo seu site e tenho uma dúvida.'
+    duvida: 'Olá, Natália! Vim pelo seu site e tenho uma dúvida.',
+    area: 'Olá, Natália! Vim pelo seu site e queria saber se você cria site para a minha área: '
   };
   document.querySelectorAll('[data-wa]').forEach(a => {
     a.href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(MSGS[a.dataset.wa] || MSGS.previa);
@@ -985,6 +1155,13 @@
       wrap.appendChild(track); gallery.appendChild(wrap);
     });
   })();
+
+  /* Para quem eu crio: abrir e fechar os cards */
+  document.querySelectorAll('.aud-toggle').forEach(btn => btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', open);
+    btn.closest('.aud-card').classList.toggle('open', open);
+  }));
 
   /* Header e menu mobile */
   const header = document.getElementById('header');
