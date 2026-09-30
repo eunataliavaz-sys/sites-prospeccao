@@ -237,8 +237,8 @@
 
   /* Transição entre "Para quem eu crio" e "Serviços": a primeira fica presa, encolhe e inclina; a segunda sobe por cima */
   .stack { position: relative; background: #050407; overflow: clip; }
-  .stack > .audience { position: sticky; top: 0; z-index: 1; will-change: transform; }
-  .stack > .services { position: relative; z-index: 2; will-change: transform; transform-origin: 50% 50vh; box-shadow: 0 -30px 60px -20px rgba(0, 0, 0, 0.55); }
+  .stack > section:first-child { position: sticky; top: 0; z-index: 1; will-change: transform; }
+  .stack > section:last-child { position: relative; z-index: 2; will-change: transform; transform-origin: 50% 50vh; box-shadow: 0 -30px 60px -20px rgba(0, 0, 0, 0.55); }
 
   /* Serviços */
   .services { background: var(--paper-2); }
@@ -394,7 +394,7 @@
   .pricing-foot span { color: var(--on-dark-muted); font-size: 0.94rem; }
 
   /* Sobre */
-  #sobre { padding: clamp(72px, 9vw, 120px) 0; }
+  #sobre { padding: clamp(72px, 9vw, 120px) 0; background: var(--paper); }
   #sobre .h2 { font-size: clamp(2rem, 3.6vw, 3rem); }
   .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(40px, 6vw, 88px); align-items: stretch; }
   .about-photo { position: relative; min-height: 420px; }
@@ -681,7 +681,7 @@
     </div>
   </section>
 
-  <div class="stack" id="stack">
+  <div class="stack">
   <!-- PARA QUEM EU CRIO -->
   <section class="section dark audience" id="para-quem">
     <div class="audience-glow a" aria-hidden="true"></div>
@@ -951,6 +951,7 @@
     <p class="gallery-note">Imagens geradas com inteligência artificial.</p>
   </section>
 
+  <div class="stack">
   <!-- SOBRE -->
   <section class="section" id="sobre">
     <div class="wrap about-grid">
@@ -1031,6 +1032,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- FAQ -->
   <section class="section faq" id="duvidas">
@@ -1178,15 +1180,14 @@
     btn.closest('.aud-card').classList.toggle('open', open);
   }));
 
-  /* Transição com rolagem entre "Para quem eu crio" e "Serviços" */
-  (function stackTransition() {
-    const pin = document.getElementById('para-quem');
-    const next = document.getElementById('servicos');
-    if (!pin || !next || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  /* Transição com rolagem entre pares de seções (.stack): a primeira fica presa, encolhe e inclina; a segunda sobe por cima */
+  document.querySelectorAll('.stack').forEach(stack => {
+    const pin = stack.firstElementChild, next = stack.lastElementChild;
+    if (!pin || !next || pin === next || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
     let ticking = false;
 
-    // A seção é mais alta que a tela: ela só "prende" quando o final dela chega ao pé da tela
+    // A seção pode ser mais alta que a tela: ela só "prende" quando o final dela chega ao pé da tela
     function layout() {
       const h = pin.offsetHeight, vh = window.innerHeight;
       pin.style.top = Math.min(0, vh - h) + 'px';
@@ -1206,9 +1207,9 @@
       if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
     }, { passive: true });
     window.addEventListener('resize', layout);
-    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(pin); // cards abertos mudam a altura
+    if ('ResizeObserver' in window) new ResizeObserver(layout).observe(pin); // conteúdo que abre/fecha muda a altura
     layout();
-  })();
+  });
 
   /* Links internos: rolam até a posição real da seção (sem contar o efeito de encolher/inclinar) */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
