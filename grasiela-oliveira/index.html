@@ -309,6 +309,8 @@
   .package-card--featured { border-color: var(--gold-500); box-shadow: 0 18px 40px rgba(58, 30, 30, 0.08); }
   .package-days { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-600); margin-bottom: 4px; }
   .package-card h3 { margin-bottom: 0; }
+  .package-price { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--wine-800); margin-top: 6px; }
+  .package-price small { display: block; font-family: var(--sans); font-size: 0.78rem; font-weight: 400; color: var(--text-secondary); margin-top: 2px; }
   .package-card ul { list-style: none; margin: var(--space-lg) 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .package-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: var(--text-secondary); }
   .package-card li svg { flex: none; width: 16px; height: 16px; margin-top: 3px; color: var(--gold-600); }
@@ -832,9 +834,12 @@
     <div class="spa-grid">
       <details class="package-card spa-card reveal">
         <summary class="package-summary">
-          <div class="package-title-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C4 11 11 4 20 4c0 9-7 16-16 16z"/><path d="M4 20c3-6 8-11 14-14"/></svg>
-            <h3>SPA Day Serenidade</h3>
+          <div>
+            <div class="package-title-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C4 11 11 4 20 4c0 9-7 16-16 16z"/><path d="M4 20c3-6 8-11 14-14"/></svg>
+              <h3>SPA Day Serenidade</h3>
+            </div>
+            <p class="package-price">R$ 250,00</p>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
@@ -848,9 +853,12 @@
 
       <details class="package-card spa-card reveal">
         <summary class="package-summary">
-          <div class="package-title-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-4-1-7-5-7-9 3 0 6 2 7 5 1-3 4-5 7-5 0 4-3 8-7 9z"/><path d="M12 16V4"/><path d="M9 8c1 2 2 3 3 4"/><path d="M15 8c-1 2-2 3-3 4"/></svg>
-            <h3>SPA Day Equilíbrio</h3>
+          <div>
+            <div class="package-title-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-4-1-7-5-7-9 3 0 6 2 7 5 1-3 4-5 7-5 0 4-3 8-7 9z"/><path d="M12 16V4"/><path d="M9 8c1 2 2 3 3 4"/><path d="M15 8c-1 2-2 3-3 4"/></svg>
+              <h3>SPA Day Equilíbrio</h3>
+            </div>
+            <p class="package-price">R$ 410,00</p>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
@@ -866,9 +874,12 @@
 
       <details class="package-card spa-card reveal">
         <summary class="package-summary">
-          <div class="package-title-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
-            <h3>SPA Day Renovar</h3>
+          <div>
+            <div class="package-title-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+              <h3>SPA Day Renovar</h3>
+            </div>
+            <p class="package-price">R$ 550,00</p>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
@@ -885,9 +896,12 @@
 
       <details class="package-card spa-card reveal">
         <summary class="package-summary">
-          <div class="package-title-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16l-1.3-8.6L15 13l-3-7-3 7-3.7-3.6z"/></svg>
-            <h3>SPA Day Prestige</h3>
+          <div>
+            <div class="package-title-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16l-1.3-8.6L15 13l-3-7-3 7-3.7-3.6z"/></svg>
+              <h3>SPA Day Prestige</h3>
+            </div>
+            <p class="package-price">R$ 670,00</p>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
@@ -938,6 +952,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="6"/><path d="M9 8l3-4 3 4-3 3-3-3z"/></svg>
               <h3>Essencial</h3>
             </div>
+            <p class="package-price">R$ 980,00<small>ou 3x de R$ 326,67</small></p>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
@@ -962,6 +977,7 @@
               <svg viewBox="0 0 34 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="15" r="6"/><path d="M7 8l3-4 3 4-3 3-3-3z"/><circle cx="24" cy="15" r="6"/><path d="M21 8l3-4 3 4-3 3-3-3z"/></svg>
               <h3>Luxo</h3>
             </div>
+            <p class="package-price">R$ 1.280,00<small>ou 3x de R$ 426,67</small></p>
           </div>
           <span class="package-toggle" aria-hidden="true">+</span>
         </summary>
