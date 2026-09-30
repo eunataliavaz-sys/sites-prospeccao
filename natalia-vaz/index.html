@@ -388,6 +388,8 @@
   .incl li { display: flex; gap: 10px; font-size: 0.9rem; color: var(--on-dark); align-items: flex-start; }
   .incl svg { width: 16px; height: 16px; color: var(--lilac); flex: none; margin-top: 4px; }
   .price-card .btn { margin-top: auto; align-self: flex-start; }
+  .incl-one { grid-template-columns: 1fr; }
+  .price-card > p.tagline { font-family: var(--serif); font-style: italic; font-size: 1.12rem; color: var(--lilac); }
   .fineprint { font-size: 0.82rem; color: var(--on-dark-muted); margin-top: 18px; }
   .pricing-foot { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; border: 1px solid var(--line-dark); border-radius: 24px; padding: 26px clamp(26px, 4vw, 52px); }
   .pricing-foot strong { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; display: block; }
@@ -1021,9 +1023,17 @@
           <h3>10 imagens profissionais em estética de estúdio.</h3>
           <div class="price"><small>R$</small><strong>97</strong></div>
           <p class="price-sub">junto com o site ou separadamente</p>
-          <p class="desc">Outras configurações, como quantidade de imagens, cenários e formatos personalizados, sob consulta.</p>
-          <div style="height:34px"></div>
+          <p class="desc tagline">Todo o resultado de um ensaio, sem a produção de um ensaio.</p>
+          <ul class="incl incl-one">
+            <li><svg><use href="#i-check"/></svg>Você só envia 2 fotos: uma de frente e uma de lado</li>
+            <li><svg><use href="#i-check"/></svg>Escolhe poses e looks em um banco de imagens e pode trocar as cores das roupas</li>
+            <li><svg><use href="#i-check"/></svg>Sem sair de casa: nada de deslocamento ou horário de estúdio</li>
+            <li><svg><use href="#i-check"/></svg>Sem comprar roupas nem gastar horas com produção e sessão de fotos</li>
+            <li><svg><use href="#i-check"/></svg>Investimento bem menor que um ensaio fotográfico tradicional</li>
+            <li><svg><use href="#i-check"/></svg>Imagens realistas, prontas para site, Instagram e LinkedIn</li>
+          </ul>
           <a class="btn btn-ghost" data-wa="ensaio" href="#">Quero meu ensaio <svg><use href="#i-arrow"/></svg></a>
+          <p class="fineprint">Outras configurações, como quantidade de imagens, cenários e formatos personalizados, sob consulta.</p>
         </article>
       </div>
       <div class="pricing-foot reveal">
