@@ -273,6 +273,9 @@
   .card.feature p { color: var(--on-dark-muted); }
   .card.feature .tag { color: var(--lilac); border-color: rgba(191, 166, 242, 0.35); }
   .card.feature .num { color: var(--lilac); }
+  .bigger.addon { border-style: solid; border-color: var(--line); background: var(--paper); }
+  .bigger.addon .tag { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet); border: 1px solid rgba(106, 61, 191, 0.3); border-radius: 999px; padding: 5px 11px; margin-bottom: 12px; }
+  .bigger.addon small { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); font-weight: 400; }
   .bigger {
     margin-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     border: 1px dashed rgba(106, 61, 191, 0.4); border-radius: 22px; padding: 28px clamp(24px, 3.4vw, 44px);
@@ -835,11 +838,15 @@
           <div class="card-foot"><a class="link-arrow" href="#investimento">Ver investimento <svg width="14" height="14"><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="card reveal">
-          <span class="tag">Diferencial</span>
+          <span class="tag">Complemento opcional</span>
           <h3>Ensaio profissional com IA</h3>
-          <p>Imagens realistas e alinhadas à sua marca para o site e as redes sociais, sem precisar de ensaio fotográfico.</p>
+          <p>Imagens realistas e alinhadas à sua marca para o site e as redes sociais, sem precisar de ensaio fotográfico. Não está incluso no site: você contrata se quiser.</p>
           <div class="card-foot"><a class="link-arrow" href="#ensaios">Ver exemplos <svg width="14" height="14"><use href="#i-arrow"/></svg></a></div>
         </article>
+      </div>
+      <div class="bigger addon reveal">
+        <p><span class="tag">Complemento opcional</span><strong>Perfil da Empresa no Google <small>(antigo Google Meu Negócio)</small></strong><span>Implantação, otimização e manutenção do seu perfil para aparecer melhor nas buscas e no Google Maps da sua região.</span></p>
+        <a class="btn btn-ghost" data-wa="gmn" href="#">Consultar <svg><use href="#i-arrow"/></svg></a>
       </div>
       <div class="bigger reveal">
         <p><strong>Precisa de algo maior?</strong><span>Precisa de um site institucional completo, com várias páginas (serviços, blog, sobre)? Solicite um orçamento personalizado.</span></p>
@@ -1167,6 +1174,7 @@
     previa: 'Olá, Natália! Vim pelo seu site e quero solicitar uma prévia gratuita do meu site.',
     orcamento: 'Olá, Natália! Vim pelo seu site e gostaria de um orçamento para um site com várias páginas.',
     ensaio: 'Olá, Natália! Vim pelo seu site e quero saber mais sobre o ensaio profissional com IA.',
+    gmn: 'Olá, Natália! Vim pelo seu site e quero saber sobre a otimização do Perfil da Empresa no Google.',
     duvida: 'Olá, Natália! Vim pelo seu site e tenho uma dúvida.',
     area: 'Olá, Natália! Vim pelo seu site e queria saber se você cria site para a minha área: '
   };
