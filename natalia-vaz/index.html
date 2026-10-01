@@ -273,9 +273,21 @@
   .card.feature p { color: var(--on-dark-muted); }
   .card.feature .tag { color: var(--lilac); border-color: rgba(191, 166, 242, 0.35); }
   .card.feature .num { color: var(--lilac); }
-  .bigger.addon { border-style: solid; border-color: var(--line); background: var(--paper); }
-  .bigger.addon .tag { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet); border: 1px solid rgba(106, 61, 191, 0.3); border-radius: 999px; padding: 5px 11px; margin-bottom: 12px; }
-  .bigger.addon small { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+  .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; align-items: start; }
+  .extra { border: 1px solid var(--line); border-radius: 16px; background: transparent; transition: background 0.3s, border-color 0.3s; }
+  .extra[open] { background: var(--paper); border-color: rgba(106, 61, 191, 0.3); }
+  .extra summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; }
+  .extra summary::-webkit-details-marker { display: none; }
+  .extra summary span { font-family: var(--serif); font-size: 1.12rem; line-height: 1.25; }
+  .extra summary small { display: block; font-family: var(--sans); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--violet); margin-bottom: 4px; }
+  .extra summary i { position: relative; width: 30px; height: 30px; flex: none; border-radius: 50%; border: 1px solid var(--line); }
+  .extra summary i::before, .extra summary i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 1.5px; background: var(--text); transform: translate(-50%, -50%); transition: transform 0.35s var(--ease); }
+  .extra summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .extra[open] summary i::after { transform: translate(-50%, -50%) rotate(0); }
+  .extra-body { padding: 0 22px 20px; }
+  .extra-body p { color: var(--muted); font-size: 0.93rem; }
+  .extra-body .link-arrow { margin-top: 12px; color: var(--violet); }
+  @media (max-width: 760px) { .extras { grid-template-columns: 1fr; } }
   .bigger {
     margin-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     border: 1px dashed rgba(106, 61, 191, 0.4); border-radius: 22px; padding: 28px clamp(24px, 3.4vw, 44px);
@@ -844,13 +856,21 @@
           <div class="card-foot"><a class="link-arrow" href="#ensaios">Ver exemplos <svg width="14" height="14"><use href="#i-arrow"/></svg></a></div>
         </article>
       </div>
-      <div class="bigger addon reveal">
-        <p><span class="tag">Complemento opcional</span><strong>Perfil da Empresa no Google <small>(antigo Google Meu Negócio)</small></strong><span>Implantação, otimização e manutenção do seu perfil para aparecer melhor nas buscas e no Google Maps da sua região.</span></p>
-        <a class="btn btn-ghost" data-wa="gmn" href="#">Consultar <svg><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="bigger reveal">
-        <p><strong>Precisa de algo maior?</strong><span>Precisa de um site institucional completo, com várias páginas (serviços, blog, sobre)? Solicite um orçamento personalizado.</span></p>
-        <a class="btn btn-ghost" data-wa="orcamento" href="#">Solicitar orçamento <svg><use href="#i-arrow"/></svg></a>
+      <div class="extras reveal">
+        <details class="extra">
+          <summary><span><small>Complemento opcional</small>Perfil da Empresa no Google</span><i aria-hidden="true"></i></summary>
+          <div class="extra-body">
+            <p>Implantação, otimização e manutenção do seu perfil (antigo Google Meu Negócio) para aparecer melhor nas buscas e no Google Maps da sua região.</p>
+            <a class="link-arrow" data-wa="gmn" href="#">Consultar <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
+          </div>
+        </details>
+        <details class="extra">
+          <summary><span><small>Sob orçamento</small>Precisa de algo maior?</span><i aria-hidden="true"></i></summary>
+          <div class="extra-body">
+            <p>Precisa de um site institucional completo, com várias páginas (serviços, blog, sobre)? Solicite um orçamento personalizado.</p>
+            <a class="link-arrow" data-wa="orcamento" href="#">Solicitar orçamento <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
+          </div>
+        </details>
       </div>
     </div>
   </section>
