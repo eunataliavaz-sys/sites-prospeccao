@@ -283,18 +283,20 @@
   /* Portfólio: notebook 3D */
   .showcase { position: relative; height: 300vh; background: var(--ink); color: var(--on-dark); }
   .showcase-sticky { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
-  .showcase-head { padding-top: clamp(96px, 13vh, 130px); text-align: center; position: relative; z-index: 2; }
+  .showcase-intro { background: var(--ink); color: var(--on-dark); padding: clamp(96px, 12vw, 150px) 0 0; }
+  .showcase-head { text-align: center; position: relative; z-index: 2; }
   .showcase-info { position: relative; z-index: 2; }
   .showcase-head .eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
   .showcase-head .h2 { font-size: clamp(1.9rem, 4vw, 3.1rem); margin-top: 16px; }
   .stage { flex: 1; padding-top: 28px; display: flex; align-items: center; justify-content: center; perspective: 2200px; perspective-origin: 50% 30%; min-height: 0; }
   .laptop {
-    --w: min(600px, 82vw, calc((100svh - 500px) * 1.02)); --h: calc(var(--w) * 0.64); --d: calc(var(--w) * 0.62); --t: calc(var(--w) * 0.022);
+    --w: min(600px, 82vw, calc((100svh - 330px) * 1.02)); --h: calc(var(--w) * 0.64); --d: calc(var(--w) * 0.62); --t: calc(var(--w) * 0.022);
     position: relative; width: var(--w); height: var(--h);
     transform-style: preserve-3d; will-change: transform;
-    transform: translateY(calc(var(--h) * -0.2)) rotateX(-16deg) rotateY(-150deg) scale(0.86);
+    transform: translateY(calc(var(--h) * var(--lift, -0.2))) rotateX(-16deg) rotateY(-150deg) scale(0.86);
   }
   .laptop * { transform-style: preserve-3d; }
+  @media (min-width: 1021px) { .laptop { --lift: -0.1; --d: calc(var(--w) * 0.46); --w: min(720px, 64vw, calc((100svh - 400px) * 1.18)); } .showcase-sticky { padding-top: 84px; } .project-meta .num { display: none !important; } .showcase-info { padding-top: 56px !important; } }
   .laptop, .laptop * { pointer-events: none; }
   .laptop .screen a.active { pointer-events: auto; }
   .lid { position: absolute; inset: 0; transform-origin: 50% 100%; transform: rotateX(-90deg); }
@@ -365,7 +367,7 @@
   .reviews-head h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.1; margin-top: 16px; }
   .reviews-head h3 em { color: var(--lilac); }
   .reviews-head .link-arrow { color: var(--lilac); font-size: 0.88rem; }
-  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; align-items: start; }
+  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; align-items: stretch; }
   .review {
     margin: 0; padding: 28px 28px 24px; border-radius: 22px; display: flex; flex-direction: column; gap: 20px;
     background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.015) 100%);
@@ -373,7 +375,7 @@
   }
   .review .stars { color: var(--lilac); font-size: 0.95rem; letter-spacing: 0.18em; margin-bottom: -6px; }
   .review blockquote { font-size: 0.98rem; line-height: 1.65; color: var(--on-dark); }
-  .review figcaption { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line-dark); }
+  .review figcaption { margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line-dark); }
   .review figcaption strong { display: block; font-weight: 600; font-size: 0.92rem; }
   .review figcaption span { display: block; font-size: 0.78rem; color: var(--on-dark-muted); }
   .review .g { width: 22px; height: 22px; flex: none; }
@@ -668,7 +670,7 @@
     <nav class="nav" id="nav" aria-label="Menu principal">
       <a href="#para-quem">Para quem</a>
       <a href="#servicos">Serviços</a>
-      <a href="#portfolio">Portfólio</a>
+      <a href="#projetos">Portfólio</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#ensaios">Ensaios com IA</a>
       <a href="#sobre">Sobre mim</a>
@@ -690,7 +692,7 @@
         <p class="lead">Uma presença digital estratégica para transmitir confiança, valorizar o seu trabalho e transformar visitas em oportunidades.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-wa="previa" href="#">Solicitar prévia gratuita <svg><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-ghost" href="#portfolio">Ver projetos</a>
+          <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
         </div>
         <ul class="hero-proof">
           <li><svg><use href="#i-check"/></svg>Você só paga se aprovar a prévia</li>
@@ -839,12 +841,14 @@
   </div>
 
   <!-- PORTFÓLIO -->
+  <div class="showcase-intro dark" id="projetos">
+    <div class="showcase-head wrap reveal">
+      <span class="eyebrow">Portfólio</span>
+      <h2 class="h2">Projetos reais. <em>Negócios reais.</em></h2>
+    </div>
+  </div>
   <section class="showcase dark" id="portfolio" aria-label="Portfólio">
     <div class="showcase-sticky">
-      <div class="showcase-head wrap">
-        <span class="eyebrow">Portfólio</span>
-        <h2 class="h2">Projetos reais. <em>Negócios reais.</em></h2>
-      </div>
       <div class="stage">
         <div class="laptop" id="laptop">
           <div class="floor-shadow"></div>
@@ -1121,7 +1125,7 @@
           <a class="pill pill-lg magnetic" href="https://www.instagram.com/eunataliavaz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg>@eunataliavaz</a>
         </div>
         <div class="cine-row">
-          <a class="pill pill-sm magnetic" href="#portfolio">Portfólio</a>
+          <a class="pill pill-sm magnetic" href="#projetos">Portfólio</a>
           <a class="pill pill-sm magnetic" href="#ensaios">Ensaios com IA</a>
           <a class="pill pill-sm magnetic" href="#investimento">Investimento</a>
           <a class="pill pill-sm magnetic" href="#duvidas">Dúvidas</a>
@@ -1314,7 +1318,7 @@
       const ry = -150 * (1 - o) + drift;
       const lidAngle = -90 + 102 * o; // -90 fechado, 12 aberto
       const scale = (0.86 + 0.14 * o) * (1 - shrink);
-      laptop.style.transform = `translateY(calc(var(--h) * -0.2)) rotateX(-16deg) rotateY(${ry}deg) scale(${scale})`;
+      laptop.style.transform = `translateY(calc(var(--h) * var(--lift, -0.2))) rotateX(-16deg) rotateY(${ry}deg) scale(${scale})`;
       lid.style.transform = `rotateX(${lidAngle}deg)`;
       off.style.opacity = clamp(1 - (o - 0.6) / 0.35, 0, 1);
     }
