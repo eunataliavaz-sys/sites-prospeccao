@@ -131,6 +131,9 @@
   .logo { white-space: nowrap; }
   .nav a:hover { color: var(--on-dark); }
   .header .btn { min-height: 44px; padding: 0 22px; font-size: 0.84rem; }
+  .nav-cta { display: none !important; }
+  .menu-open .nav .nav-cta { display: inline-flex !important; margin-top: 28px; border: 0; padding: 0 30px; background: var(--lilac); font-family: var(--sans); font-size: 0.92rem; font-weight: 600; color: var(--ink); justify-content: center; }
+  .menu-open .nav .nav-cta::after { content: none; }
   .menu-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; }
   .menu-toggle span { display: block; width: 22px; height: 1px; background: currentColor; position: relative; transition: background 0.3s; }
   .menu-toggle span::before, .menu-toggle span::after { content: ""; position: absolute; left: 0; width: 22px; height: 1px; background: currentColor; transition: transform 0.3s var(--ease); }
@@ -568,6 +571,7 @@
   .cine-top svg { width: 20px; height: 20px; transition: transform 0.3s var(--ease); }
   .cine-top:hover svg { transform: translateY(-5px); }
   .whats-float.hide { opacity: 0; pointer-events: none; transform: scale(0.8); }
+  .menu-open .whats-float { opacity: 0; pointer-events: none; }
 
   /* WhatsApp flutuante */
   .whats-float {
@@ -603,12 +607,19 @@
     .nav { display: none; }
     .menu-toggle { display: inline-flex; }
     .header .btn { display: none; }
+    /* Menu aberto: painel opaco em tela cheia (sem desfoque no cabeçalho, que "encolhia" o painel após rolar) */
+    .menu-open .header { background: var(--ink); backdrop-filter: none; -webkit-backdrop-filter: none; border-color: var(--line-dark); }
     .menu-open .nav {
-      display: flex; flex-direction: column; align-items: flex-start; gap: 22px;
-      position: fixed; inset: 76px 0 0 0; background: var(--ink); padding: 40px var(--gutter);
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: fixed; top: 76px; left: 0; right: 0; height: calc(100svh - 76px); overflow-y: auto;
+      background: var(--ink); padding: 12px var(--gutter) 32px;
     }
-    .menu-open .nav a { font-family: var(--serif); font-size: 1.7rem; color: var(--on-dark); }
-    .menu-open .header { background: var(--ink); }
+    .menu-open .nav a {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--on-dark);
+      padding: 15px 0; border-bottom: 1px solid var(--line-dark);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .menu-open .nav a::after { content: "↗"; font-family: var(--sans); font-size: 0.85rem; color: var(--lilac); opacity: 0.7; }
   }
   @media (max-width: 1020px) {
     .steps { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line); gap: 34px; margin-left: 4px; }
@@ -669,7 +680,7 @@
   @media (max-width: 760px) {
     .h1, .h2, .cine-title, .price strong, .stats strong { font-variation-settings: "opsz" 16 !important; font-weight: 500 !important; }
     h3, .num, summary, .aud-title, .hero-tag strong, .bigger strong, .aud-foot strong, .pricing-foot strong,
-    .project-meta h3, .showcase-cta h3, .ticker-track span:not(.plain), .price-card > p.tagline, .logo, .menu-open .nav a {
+    .project-meta h3, .showcase-cta h3, .ticker-track span:not(.plain), .price-card > p.tagline, .logo {
       font-variation-settings: "opsz" 9 !important; font-weight: 600 !important;
     }
   }
@@ -700,6 +711,7 @@
       <a href="#ensaios">Ensaios com IA</a>
       <a href="#sobre">Sobre mim</a>
       <a href="#duvidas">Dúvidas</a>
+      <a class="btn btn-primary nav-cta" data-wa="previa" href="#">Solicitar prévia gratuita</a>
     </nav>
     <a class="btn btn-primary" data-wa="previa" href="#" style="background:var(--lilac);color:var(--ink)">Solicitar prévia</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
