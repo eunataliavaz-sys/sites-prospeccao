@@ -1303,7 +1303,9 @@
       const el = document.getElementById(id);
       if (!el) return;
       e.preventDefault();
-      let y = 0, n = el;
+      // Seções presas nas transições (.stack) informam a posição "presa": usa o início do bloco, que é a posição real
+      const base = el.parentElement && el.parentElement.classList.contains('stack') && el === el.parentElement.firstElementChild ? el.parentElement : el;
+      let y = 0, n = base;
       while (n) { y += n.offsetTop; n = n.offsetParent; }
       window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       history.replaceState(null, '', '#' + id);
