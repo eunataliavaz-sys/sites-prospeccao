@@ -12,6 +12,11 @@
 <meta property="og:title" content="Natália Vaz | Sites que transmitem autoridade">
 <meta property="og:description" content="Prévia gratuita do seu site. Entrega em até 5 dias úteis, domínio e hospedagem gratuitos por 1 ano. Você só paga se aprovar.">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://natalia-vaz.vercel.app/">
+<meta property="og:image" content="https://natalia-vaz.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Natália Vaz: sites para profissionais liberais e prestadores de serviços">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C0A0F'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23BFA6F2'%3ENV%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,6 +152,7 @@
     font-family: var(--serif); font-weight: 400; letter-spacing: -0.025em;
     font-size: clamp(2.5rem, 4.6vw, 4.3rem); line-height: 1.02; margin-top: 26px;
   }
+  .h1 em { display: block; }
   .hero .lead { max-width: 500px; margin-top: 28px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
   .hero-proof { display: flex; flex-wrap: wrap; gap: 10px 32px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line-dark); max-width: 560px; }
@@ -159,6 +165,7 @@
   }
   /* Computador/tablet: a foto ocupa a altura do conteúdo (cabeça alinhada ao início do texto, base dissolvendo no fundo) */
   @media (min-width: 761px) {
+    .hero { align-items: center; }
     .hero .wrap { align-items: stretch; }
     .hero-photo { align-self: stretch; max-width: 520px; }
     .hero-photo img { position: absolute; right: 0; bottom: 0; width: auto; height: 100%; max-width: 100%; max-height: none; object-fit: contain; object-position: bottom right; }
@@ -233,6 +240,8 @@
   .aud-inner { overflow: hidden; }
   .aud-content { padding: 0 22px 24px; opacity: 0; transform: translateY(-6px); transition: opacity 0.4s, transform 0.5s var(--ease); }
   .aud-card.open .aud-content { opacity: 1; transform: none; transition-delay: 0.1s; }
+  .aud-more { margin-top: 28px; font-size: 0.95rem; color: var(--on-dark-muted); }
+  .aud-more a { display: inline-flex; align-items: center; gap: 6px; margin-left: 6px; color: var(--lilac); font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
   .aud-content > p { font-size: 0.94rem; color: var(--on-dark-muted); padding-top: 18px; border-top: 1px solid var(--line-dark); }
   .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .chips li { font-size: 0.8rem; padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(191,166,242,0.28); background: rgba(191,166,242,0.07); color: var(--on-dark); }
@@ -249,7 +258,7 @@
   .services { background: var(--paper-2); }
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; }
   .section-head .lead { margin-top: 0; max-width: 420px; }
-  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 64px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 64px; }
   .card {
     position: relative; background: var(--paper); border-radius: 22px; padding: clamp(28px, 3.4vw, 44px);
     display: flex; flex-direction: column; gap: 14px; min-height: 290px;
@@ -280,7 +289,7 @@
   .showcase-head .h2 { font-size: clamp(1.9rem, 4vw, 3.1rem); margin-top: 16px; }
   .stage { flex: 1; padding-top: 28px; display: flex; align-items: center; justify-content: center; perspective: 2200px; perspective-origin: 50% 30%; min-height: 0; }
   .laptop {
-    --w: min(620px, 82vw, calc((100svh - 430px) * 1.02)); --h: calc(var(--w) * 0.64); --d: calc(var(--w) * 0.62); --t: calc(var(--w) * 0.022);
+    --w: min(600px, 82vw, calc((100svh - 500px) * 1.02)); --h: calc(var(--w) * 0.64); --d: calc(var(--w) * 0.62); --t: calc(var(--w) * 0.022);
     position: relative; width: var(--w); height: var(--h);
     transform-style: preserve-3d; will-change: transform;
     transform: translateY(calc(var(--h) * -0.2)) rotateX(-16deg) rotateY(-150deg) scale(0.86);
@@ -338,6 +347,7 @@
   .project-meta .num { display: block; font-size: 0.95rem; }
   .project-meta h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 2.6vw, 2rem); margin-top: 4px; }
   .project-meta p { color: var(--on-dark-muted); font-size: 0.92rem; margin-top: 2px; }
+  .project-meta .pm-desc { max-width: 520px; margin: 10px auto 0; font-size: 0.9rem; line-height: 1.55; color: var(--on-dark); opacity: 0.82; }
   .project-meta .link-arrow { margin-top: 12px; color: var(--lilac); font-size: 0.86rem; }
   .dots { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
   .dots button { width: 34px; height: 20px; position: relative; }
@@ -655,8 +665,8 @@
   <section class="hero dark" id="inicio">
     <div class="wrap">
       <div class="hero-text">
-        <span class="eyebrow">Sites institucionais e landing pages</span>
-        <h1 class="h1">O site que faz o seu negócio parecer <em>tão profissional quanto ele é.</em></h1>
+        <span class="eyebrow">Para profissionais liberais e prestadores de serviços</span>
+        <h1 class="h1">Seu negócio é profissional. <em>Seu site precisa mostrar isso.</em></h1>
         <p class="lead">Uma presença digital estratégica para transmitir confiança, valorizar o seu trabalho e transformar visitas em oportunidades.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-wa="previa" href="#">Solicitar prévia gratuita <svg><use href="#i-arrow"/></svg></a>
@@ -714,7 +724,7 @@
           <span class="eyebrow">Para quem eu crio</span>
           <h2 class="h2">Sites para quem<br> <em>vende confiança.</em></h2>
         </div>
-        <p class="lead">Sou especializada em profissionais da saúde, da beleza e do direito: áreas em que a percepção de confiança pesa na decisão de contratar, e o site precisa respeitar as regras do seu conselho.</p>
+        <p class="lead">Crio sites para profissionais liberais e prestadores de serviços: negócios em que a percepção de confiança pesa na decisão de contratar. Estes são alguns dos nichos que mais atendo.</p>
       </div>
       <div class="aud-grid">
         <article class="aud-card reveal">
@@ -765,6 +775,7 @@
           </div>
         </article>
       </div>
+      <p class="aud-more reveal">Outros nichos sob consulta. <a data-wa="area" href="#">Fale comigo <svg width="13" height="13"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
@@ -796,12 +807,6 @@
           <h3>Ensaio profissional com IA</h3>
           <p>Imagens realistas e alinhadas à sua marca para o site e as redes sociais, sem precisar de ensaio fotográfico.</p>
           <div class="card-foot"><a class="link-arrow" href="#ensaios">Ver exemplos <svg width="14" height="14"><use href="#i-arrow"/></svg></a></div>
-        </article>
-        <article class="card reveal">
-          <span class="tag">Incluso</span>
-          <h3>SEO básico</h3>
-          <p>Estrutura, textos e configurações essenciais para o Google entender melhor o seu site e o seu negócio.</p>
-          <div class="card-foot"><a class="link-arrow" href="#como-funciona">Como funciona <svg width="14" height="14"><use href="#i-arrow"/></svg></a></div>
         </article>
       </div>
       <div class="bigger reveal">
@@ -858,6 +863,7 @@
           <span class="num" id="pmNum">01</span>
           <h3 id="pmName">Tatiane Morente Advocacia</h3>
           <p id="pmArea">Direito da Saúde, Família e PCD</p>
+          <p class="pm-desc" id="pmDesc">Temas jurídicos complexos explicados em linguagem clara, com conteúdo informativo e comunicação de acordo com as regras da OAB.</p>
           <a class="link-arrow" id="pmLink" href="https://tatianemorenteadvocacia.lovable.app/" target="_blank" rel="noopener">Visitar site <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
         </div>
         <div class="dots" id="dots">
@@ -904,14 +910,7 @@
         <h2 class="h2">Ensaios profissionais <em style="white-space:nowrap">com IA.</em></h2>
       </div>
       <div class="reveal">
-        <p class="lead" style="margin-top:0">Sua imagem também comunica o valor do seu trabalho. Crio ensaios personalizados com IA que transmitem autoridade, confiança e profissionalismo, ideais para o site, as redes sociais e materiais de divulgação.</p>
-        <ul class="checks">
-          <li><svg><use href="#i-check"/></svg>Imagens realistas e exclusivas</li>
-          <li><svg><use href="#i-check"/></svg>Estilo alinhado à sua marca</li>
-          <li><svg><use href="#i-check"/></svg>Perfeitas para site e redes sociais</li>
-          <li><svg><use href="#i-check"/></svg>Sem precisar de ensaio fotográfico</li>
-        </ul>
-        <p style="margin-top:28px;font-size:0.94rem;color:var(--muted)">Pode ser contratado junto com o site ou à parte.</p>
+        <p class="lead" style="margin-top:0">Sua imagem também comunica o valor do seu trabalho. Crio ensaios personalizados com IA para que a sua imagem esteja à altura do que você entrega, no site, nas redes sociais e nos materiais de divulgação.</p>
       </div>
     </div>
     <div class="gallery-rows reveal" id="gallery" aria-label="Exemplos de ensaios com IA"></div>
@@ -930,7 +929,7 @@
         <img src="assets/natalia/sobre-mim.webp" width="819" height="1024" alt="Natália Vaz sentada em estúdio, usando blazer claro" loading="lazy">
       </figure>
       <div class="about-text reveal">
-        <p>Sou a Natália Vaz. Crio sites institucionais e landing pages para profissionais e pequenos negócios que querem transformar a qualidade do seu trabalho em uma presença digital à altura. Cada projeto nasce de uma conversa sobre o que você faz, para quem faz e o que espera do seu site.</p>
+        <p>Sou a Natália Vaz. Crio sites institucionais e landing pages para profissionais liberais e prestadores de serviços que querem transformar a qualidade do seu trabalho em uma presença digital à altura. Cada projeto nasce de uma conversa sobre o que você faz, para quem faz e o que espera do seu site.</p>
         <p>Não trabalho com modelos prontos para encaixar o seu negócio. Cada projeto parte do que você já construiu e transforma isso em um site claro, estratégico e visualmente consistente.</p>
         <div class="stats">
           <div><strong>5 dias</strong><span>úteis para entrega</span></div>
@@ -964,7 +963,7 @@
           <span class="label">Site institucional ou landing page</span>
           <h3>Seu site pronto, no ar e com endereço próprio.</h3>
           <div class="price"><small>R$</small><strong>497</strong></div>
-          <p class="price-sub">à vista com desconto ou em até 12x de R$&nbsp;49,60</p>
+          <p class="price-sub">à vista ou em 12x de R$&nbsp;49,60 no cartão</p>
           <ul class="incl">
             <li><svg><use href="#i-check"/></svg>Site personalizado, feito do zero</li>
             <li><svg><use href="#i-check"/></svg>Domínio e hospedagem gratuitos por 1 ano</li>
@@ -1084,7 +1083,7 @@
 
     <div class="cine-bottom">
       <span class="cine-copy">© 2026 Natália Vaz</span>
-      <span class="pill cine-badge">Feito com <span class="heart">♥</span> por <strong>Natália Vaz</strong></span>
+      <span class="pill cine-badge"><strong>Natália Vaz</strong> · Sites para quem vende confiança</span>
       <button class="pill cine-top magnetic" id="toTop" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10l7-7 7 7M12 3v18"/></svg></button>
     </div>
   </footer>
@@ -1101,7 +1100,8 @@
     previa: 'Olá, Natália! Vim pelo seu site e quero solicitar uma prévia gratuita do meu site.',
     orcamento: 'Olá, Natália! Vim pelo seu site e gostaria de um orçamento para um site com várias páginas.',
     ensaio: 'Olá, Natália! Vim pelo seu site e quero saber mais sobre o ensaio profissional com IA.',
-    duvida: 'Olá, Natália! Vim pelo seu site e tenho uma dúvida.'
+    duvida: 'Olá, Natália! Vim pelo seu site e tenho uma dúvida.',
+    area: 'Olá, Natália! Vim pelo seu site e queria saber se você cria site para a minha área: '
   };
   document.querySelectorAll('[data-wa]').forEach(a => {
     a.href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(MSGS[a.dataset.wa] || MSGS.previa);
@@ -1226,9 +1226,9 @@
   /* Portfólio: notebook 3D que abre e gira conforme a rolagem */
   (function showcase() {
     const PROJECTS = [
-      { name: 'Tatiane Morente Advocacia', area: 'Direito da Saúde, Família e PCD', url: 'https://tatianemorenteadvocacia.lovable.app/' },
-      { name: 'Letícia Gama', area: 'Nutrição clínica e esportiva', url: 'https://leticia-gama.vercel.app/' },
-      { name: 'Grasiela Oliveira', area: 'Massoterapia e estética', url: 'https://grasielaoliveira.com.br/' }
+      { name: 'Tatiane Morente Advocacia', area: 'Direito da Saúde, Família e PCD', desc: 'Temas jurídicos complexos explicados em linguagem clara, com conteúdo informativo e comunicação de acordo com as regras da OAB.', url: 'https://tatianemorenteadvocacia.lovable.app/' },
+      { name: 'Letícia Gama', area: 'Nutrição clínica e esportiva', desc: 'Uma página acolhedora que apresenta os atendimentos, explica o passo a passo do acompanhamento e leva direto ao agendamento.', url: 'https://leticia-gama.vercel.app/' },
+      { name: 'Grasiela Oliveira', area: 'Massoterapia e estética', desc: 'Especialidades, pacotes de SPA Day e atendimento para noivas organizados para facilitar a escolha e o agendamento pelo WhatsApp.', url: 'https://grasielaoliveira.com.br/' }
     ];
     const section = document.getElementById('portfolio');
     const laptop = document.getElementById('laptop');
@@ -1255,6 +1255,7 @@
         document.getElementById('pmNum').textContent = String(i + 1).padStart(2, '0');
         document.getElementById('pmName').textContent = p.name;
         document.getElementById('pmArea').textContent = p.area;
+        document.getElementById('pmDesc').textContent = p.desc;
         document.getElementById('pmLink').href = p.url;
         meta.style.opacity = 1;
       }, meta.dataset.ready ? 200 : 0);
