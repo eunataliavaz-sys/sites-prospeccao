@@ -156,6 +156,7 @@
   .hero .lead { max-width: 500px; margin-top: 28px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
   .hero-proof { display: flex; flex-wrap: wrap; gap: 10px 32px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line-dark); max-width: 560px; }
+  @media (min-width: 761px) { .hero-proof { max-width: min(560px, calc(100% - 72px)); } }
   .hero-proof li { list-style: none; display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--on-dark-muted); }
   .hero-proof svg { width: 16px; height: 16px; color: var(--lilac); flex: none; }
   .hero-photo { position: relative; align-self: end; justify-self: end; width: 100%; max-width: 470px; }
