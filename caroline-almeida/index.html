@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Dra. Caroline Almeida | Advogada de Família em Santo André</title>
-<meta name="description" content="Advocacia em Direito de Família, Civil, do Consumidor e do Trabalho. Atendimento em Santo André - SP e on-line em todo o Brasil.">
+<meta name="description" content="Advocacia com atuação dedicada ao Direito de Família. Unidades em Santo André e Bragança Paulista - SP e atendimento on-line em todo o Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ a{color:inherit}
 .brand{text-decoration:none;color:#fff;line-height:1.15}
 .brand b{font-family:var(--serif);font-weight:400;font-size:22px;display:block}
 .brand small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper-soft)}
-.nav ul{display:flex;gap:30px;list-style:none;font-size:14px}
+.nav ul{display:flex;gap:24px;list-style:none;font-size:14px}
 .nav ul a{text-decoration:none;color:#d9d6d0}
 .nav ul a:hover{color:var(--copper-soft)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:6px;background:var(--copper);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;transition:background .25s,transform .25s}
@@ -56,7 +56,7 @@ a{color:inherit}
 .nav.open .burger span{background:transparent}
 .nav.open .burger span::before{transform:translateY(6px) rotate(45deg)}
 .nav.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
-@media (max-width:980px){
+@media (max-width:1120px){
   .burger{display:grid}
   .nav ul{position:fixed;top:70px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);padding:8px 16px 24px;border-bottom:1px solid rgba(255,255,255,.08);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s}
   .nav ul a{display:block;padding:14px 4px;font-size:17px;border-bottom:1px solid rgba(255,255,255,.07)}
@@ -96,20 +96,35 @@ a{color:inherit}
 .head p{color:var(--muted);margin-top:14px}
 
 /* áreas */
-.areas{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:auto;gap:18px}
+.areas{display:grid;grid-template-columns:1fr 1.45fr;gap:18px;align-items:stretch}
+.areas-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .area{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:32px 28px;transition:transform .3s,box-shadow .3s}
+.areas-list .area{padding:20px 22px}
+.areas-list .area h3{font-size:21px;margin:0 0 4px}
+.areas-list .area p{font-size:14px;line-height:1.55}
 .area:hover{transform:translateY(-5px);box-shadow:0 22px 40px -28px rgba(20,22,29,.45)}
 .area .n{font-family:var(--serif);color:var(--copper);font-size:20px}
 .area h3{font-family:var(--serif);font-weight:400;color:var(--navy);font-size:26px;margin:10px 0 8px;line-height:1.2}
 .area p{color:var(--muted);font-size:15px}
-.area.main{grid-row:span 2;background:var(--navy);border:0;color:#cfd3df;display:flex;flex-direction:column;justify-content:space-between}
+.area.main{background:var(--navy);border:0;color:#cfd3df;display:flex;flex-direction:column;justify-content:space-between}
 .area.main h3{color:#fff;font-size:34px}
 .area.main p{color:#c3c8d6;font-size:16px}
 .area.main ul{list-style:none;margin:20px 0 26px;display:grid;gap:8px;font-size:15px}
 .area.main li::before{content:"— ";color:var(--copper)}
 .area.main .btn{align-self:flex-start}
-@media (max-width:900px){.areas{grid-template-columns:1fr 1fr}.area.main{grid-column:span 2;grid-row:auto}}
-@media (max-width:560px){.areas{grid-template-columns:1fr}.area.main{grid-column:auto}}
+@media (max-width:900px){.areas{grid-template-columns:1fr}}
+@media (max-width:520px){.areas-list{grid-template-columns:1fr}}
+
+/* apoio à mulher */
+.women{background:#efe3d3;border-radius:14px;padding:56px 52px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.women h2{font-family:var(--serif);font-weight:400;color:var(--navy);font-size:clamp(30px,4vw,42px);line-height:1.12;margin:10px 0 18px}
+.women p{color:#4d4f59;margin-bottom:24px}
+.women ul{list-style:none;display:grid;gap:14px}
+.women li{background:var(--paper);border-radius:10px;padding:18px 20px;font-size:15px;color:var(--text)}
+.women li b{display:block;font-family:var(--serif);font-weight:400;color:var(--navy);font-size:19px;margin-bottom:2px}
+.women .sos{margin-top:22px;font-size:13.5px;color:#5c5e68}
+.women .sos b{color:var(--navy)}
+@media (max-width:860px){.women{grid-template-columns:1fr;padding:40px 24px;gap:32px}}
 
 /* sobre */
 .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
@@ -126,7 +141,10 @@ a{color:inherit}
 .podcast h2 i{color:var(--copper-soft)}
 .podcast p{color:#aeaba5;margin-bottom:28px;max-width:30em}
 .podcast .tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
-.podcast .tags span{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 14px;font-size:13px;color:#d8d4cd}
+.podcast .tags a{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 14px;font-size:13px;color:#d8d4cd;text-decoration:none;transition:border-color .2s,color .2s}
+.podcast .tags a:hover{border-color:var(--copper);color:#fff}
+.podcast .tags-label{font-size:13px;color:#8f8c86;margin-bottom:10px}
+.podcast .ctas svg{width:20px;height:20px;fill:currentColor}
 .podcast img{width:100%;max-width:420px;justify-self:center;aspect-ratio:540/660;object-fit:cover;border-radius:10px;filter:saturate(1.05)}
 @media (max-width:860px){.podcast .wrap{grid-template-columns:1fr;gap:40px}.podcast img{max-width:340px}}
 
@@ -189,6 +207,7 @@ a{color:inherit}
       <li><a href="#inicio">Início</a></li>
       <li><a href="#areas">Áreas de atuação</a></li>
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#mulheres">Apoio à mulher</a></li>
       <li><a href="#podcast">Podcast</a></li>
       <li><a href="#avaliacoes">Avaliações</a></li>
       <li><a href="#contato">Contato</a></li>
@@ -203,17 +222,17 @@ a{color:inherit}
 <header class="hero" id="inicio">
   <div class="wrap">
     <div class="hero-text reveal">
-      <span class="kicker">Advogada de Família · Santo André</span>
+      <span class="kicker">Advogada de Família · Santo André e Bragança Paulista</span>
       <h1>Seus direitos explicados de forma <i>simples</i> e humana.</h1>
-      <p>Atendimento em Direito de Família, Civil, do Consumidor e do Trabalho, com escuta atenta e orientação clara em cada etapa. Presencial em Santo André e on-line em todo o Brasil.</p>
+      <p>Mais de 10 anos de advocacia, com atuação dedicada ao Direito de Família e um escritório multidisciplinar. Técnica jurídica, sensibilidade e orientação clara em cada etapa, presencialmente ou on-line em todo o Brasil.</p>
       <div class="ctas">
         <a class="btn" href="https://wa.me/5511942775554?text=Ol%C3%A1%2C%20Dra.%20Caroline!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Agendar atendimento</a>
         <a class="btn ghost" href="#areas">Áreas de atuação</a>
       </div>
       <div class="facts">
         <div><b>5,0 <span>★</span></b>no Google</div>
-        <div><b>On-line</b>em todo o Brasil</div>
-        <div><b>Podcast</b>Descomplicando o Direito</div>
+        <div><b>+10 anos</b>de advocacia</div>
+        <div><b>2 unidades</b>+ atendimento on-line</div>
       </div>
     </div>
     <div class="hero-photo reveal">
@@ -231,37 +250,28 @@ a{color:inherit}
     <div class="areas">
       <article class="area main reveal">
         <div>
-          <span class="n">01</span>
+          <span class="kicker">Atuação principal</span>
           <h3>Direito de Família</h3>
-          <p>O foco principal do escritório. Questões delicadas tratadas com sigilo, respeito e cuidado com cada pessoa da família.</p>
+          <p>Questões que envolvem relações familiares, filhos, patrimônio e conflitos que exigem não apenas técnica jurídica, mas sensibilidade e estratégia.</p>
           <ul>
-            <li>Divórcio e dissolução de união estável</li>
+            <li>Divórcio e união estável</li>
             <li>Pensão alimentícia</li>
             <li>Guarda e convivência</li>
+            <li>Partilha de bens</li>
           </ul>
         </div>
         <a class="btn" href="https://wa.me/5511942775554?text=Ol%C3%A1%2C%20Dra.%20Caroline!%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20em%20Direito%20de%20Fam%C3%ADlia." target="_blank" rel="noopener">Falar sobre o meu caso</a>
       </article>
-      <article class="area reveal">
-        <span class="n">02</span>
-        <h3>Direito Civil</h3>
-        <p>Contratos, responsabilidade civil e demais questões do dia a dia entre pessoas e empresas.</p>
-      </article>
-      <article class="area reveal">
-        <span class="n">03</span>
-        <h3>Direito do Consumidor</h3>
-        <p>Orientação em problemas com compras, serviços, cobranças e relações de consumo.</p>
-      </article>
-      <article class="area reveal">
-        <span class="n">04</span>
-        <h3>Direito do Trabalho</h3>
-        <p>Esclarecimento de direitos e deveres na relação de trabalho.</p>
-      </article>
-      <article class="area reveal">
-        <span class="n">05</span>
-        <h3>Atendimento on-line</h3>
-        <p>Consultas por videochamada para quem está fora de Santo André, em qualquer lugar do Brasil.</p>
-      </article>
+      <div class="areas-list">
+        <article class="area reveal"><h3>Penal</h3><p>Acompanhamento jurídico em processos criminais.</p></article>
+        <article class="area reveal"><h3>Previdenciário</h3><p>Aposentadorias e benefícios do INSS.</p></article>
+        <article class="area reveal"><h3>Trabalhista</h3><p>Direitos e deveres na relação de trabalho.</p></article>
+        <article class="area reveal"><h3>Civil</h3><p>Questões do dia a dia entre pessoas e empresas.</p></article>
+        <article class="area reveal"><h3>Contratos</h3><p>Elaboração e análise de contratos.</p></article>
+        <article class="area reveal"><h3>Consumidor</h3><p>Problemas com compras, serviços e cobranças.</p></article>
+        <article class="area reveal"><h3>Bancário</h3><p>Questões com bancos, empréstimos e financiamentos.</p></article>
+        <article class="area reveal"><h3>Empresarial</h3><p>Apoio jurídico para empresas e empreendedores.</p></article>
+      </div>
     </div>
   </div>
 </section>
@@ -272,10 +282,30 @@ a{color:inherit}
     <div class="reveal">
       <span class="kicker">Sobre</span>
       <h2>Prazer, Caroline Almeida</h2>
-      <p>Sou advogada com atuação voltada ao Direito de Família. Acredito que entender os próprios direitos traz segurança para tomar boas decisões, por isso explico cada passo do processo em linguagem simples.</p>
-      <p>Junto com a minha equipe, acompanho cada cliente de perto, com atendimento próximo e humano, do primeiro contato ao encerramento do caso.</p>
-      <blockquote>“É um prazer cuidar da sua família.”</blockquote>
+      <p>Sou Caroline Almeida Martins, advogada há mais de 10 anos, com atuação dedicada ao Direito de Família e fundadora do meu próprio escritório, com unidades em Santo André e Bragança Paulista/SP e atendimento on-line a clientes de diversos estados do Brasil.</p>
+      <p>Minha atuação nasceu do Direito, mas cresceu junto com um propósito maior: usar conhecimento, informação e acolhimento para ajudar pessoas em momentos decisivos da vida.</p>
+      <p>Sou esposa, mãe de três, mulher de fé e apaixonada por música. A família e a fé são parte fundamental de tudo o que construo.</p>
+      <blockquote>“Minha missão é transformar conhecimento em orientação, Direito em proteção e experiência em propósito.”</blockquote>
       <a class="btn" href="https://wa.me/5511942775554?text=Ol%C3%A1%2C%20Dra.%20Caroline!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Conversar com a Dra. Caroline</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="mulheres" style="padding-top:0">
+  <div class="wrap">
+    <div class="women reveal">
+      <div>
+        <span class="kicker">Atuação social</span>
+        <h2>Apoio à mulher vítima de violência doméstica</h2>
+        <p>Muitas mulheres chegam ao escritório em um dos momentos mais difíceis da sua história. Para elas, a Dra. Caroline oferece orientação e atendimento jurídico com acolhimento, sigilo e respeito ao tempo de cada uma.</p>
+        <a class="btn" href="https://wa.me/5511942775554?text=Ol%C3%A1%2C%20Dra.%20Caroline.%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir orientação com sigilo</a>
+        <p class="sos">Em situação de risco, ligue <b>190</b> (Polícia Militar) ou <b>180</b> (Central de Atendimento à Mulher, gratuita e 24 horas).</p>
+      </div>
+      <ul>
+        <li><b>Orientação jurídica</b>Informação clara sobre seus direitos e os caminhos possíveis.</li>
+        <li><b>Acolhimento e sigilo</b>Atendimento humano, presencial ou on-line, no seu tempo.</li>
+        <li><b>Informação que protege</b>Episódios do podcast sobre violência doméstica e relações abusivas.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -285,9 +315,20 @@ a{color:inherit}
     <div class="reveal">
       <span class="kicker">Podcast</span>
       <h2>Descomplicando <i>o Direito</i></h2>
-      <p>No podcast, a Dra. Caroline recebe convidados para conversar sobre temas que afetam a vida das famílias, sempre com informação de qualidade e linguagem acessível.</p>
-      <div class="tags"><span>Relações abusivas</span><span>Narcisismo</span><span>Saúde emocional</span><span>Seus direitos</span></div>
-      <a class="btn ghost" href="https://www.instagram.com/carolinealmeida.adv_/" target="_blank" rel="noopener">Assistir no Instagram</a>
+      <p>Um projeto para aproximar o Direito da vida real. Em entrevistas e conversas com convidados, a Dra. Caroline mostra que conhecimento jurídico não deve ficar restrito aos tribunais: ele ajuda as pessoas a reconhecerem seus direitos e a tomarem decisões mais conscientes.</p>
+      <p class="tags-label">Assista por tema:</p>
+      <div class="tags">
+        <a href="https://www.youtube.com/playlist?list=PLNXuofU5G96c" target="_blank" rel="noopener">Direito de Família</a>
+        <a href="https://www.youtube.com/playlist?list=PLVutBVRoqu8o" target="_blank" rel="noopener">Violência doméstica</a>
+        <a href="https://www.youtube.com/playlist?list=PLsRlgBjVL88ZtKGaaMjwzSBvzo55XcoCj" target="_blank" rel="noopener">Narcisismo</a>
+        <a href="https://www.youtube.com/playlist?list=PLHZcTVwfTtoc" target="_blank" rel="noopener">Psicologia e processo judicial</a>
+        <a href="https://www.youtube.com/playlist?list=PLsRlgBjVL88agZF1R1HTqtOG5LpPuOVHy" target="_blank" rel="noopener">Previdenciário</a>
+        <a href="https://www.youtube.com/playlist?list=PLGDQwp9JQ6ok" target="_blank" rel="noopener">Direito de Imagem</a>
+      </div>
+      <div class="ctas">
+        <a class="btn" href="https://www.youtube.com/@Dra.CarolineAlmeida" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>Canal no YouTube</a>
+        <a class="btn ghost" href="https://www.instagram.com/carolinealmeida.adv_/" target="_blank" rel="noopener">Cortes no Instagram</a>
+      </div>
     </div>
     <img class="reveal" src="assets/podcast.jpg" alt="Dra. Caroline Almeida no estúdio do podcast Descomplicando o Direito" loading="lazy">
   </div>
@@ -352,8 +393,10 @@ a{color:inherit}
         <h3>Dra. Caroline Almeida</h3>
         <dl>
           <div><dt>WhatsApp</dt><dd><a href="https://wa.me/5511942775554" target="_blank" rel="noopener">(11) 94277-5554</a></dd></div>
-          <div><dt>Endereço</dt><dd>R. Dr. Messuti, 162 · Sala 02 · Vila Bastos<br>Santo André - SP · 09041-160</dd></div>
-          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/carolinealmeida.adv_/" target="_blank" rel="noopener">@carolinealmeida.adv_</a></dd></div>
+          <div><dt>Unidade Santo André</dt><dd>R. Dr. Messuti, 162 · Sala 02 · Vila Bastos<br>Santo André - SP · 09041-160</dd></div>
+          <div><dt>Unidade Bragança Paulista</dt><dd>Bragança Paulista - SP<br>Consulte o endereço pelo WhatsApp</dd></div>
+          <div><dt>On-line</dt><dd>Atendimento por videochamada em todo o Brasil</dd></div>
+          <div><dt>Redes</dt><dd><a href="https://www.instagram.com/carolinealmeida.adv_/" target="_blank" rel="noopener">Instagram @carolinealmeida.adv_</a><br><a href="https://www.youtube.com/@Dra.CarolineAlmeida" target="_blank" rel="noopener">YouTube @Dra.CarolineAlmeida</a></dd></div>
         </dl>
         <a class="btn" href="https://wa.me/5511942775554?text=Ol%C3%A1%2C%20Dra.%20Caroline!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
       </div>
