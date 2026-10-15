@@ -178,6 +178,13 @@ a{color:inherit}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* sobre: no celular = título, foto, texto */
+.about{grid-template-areas:"img head" "img body";row-gap:0}
+.about>img{grid-area:img;align-self:center}
+.about-head{grid-area:head;align-self:end}
+.about-body{grid-area:body;align-self:start}
+@media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
 </style>
 </head>
 <body>
@@ -266,9 +273,11 @@ a{color:inherit}
 <section class="section dark" id="sobre">
   <div class="wrap about">
     <img class="reveal" src="assets/priscila.jpg" alt="Priscila Gentil, assessora de casamentos e eventos">
-    <div class="reveal">
+    <div class="about-head reveal">
       <span class="kicker">Quem cuida do seu evento</span>
       <h2>Prazer, sou a <em>Pri</em></h2>
+    </div>
+    <div class="about-body reveal">
       <p>À frente da Priscila Gentil Assessoria, acompanho cada evento de perto, junto com uma equipe dedicada, para que o seu dia aconteça exatamente como foi sonhado.</p>
       <ul class="diffs">
         <li><span><b>Sistema próprio de organização:</b> você acompanha o andamento do cronograma durante todo o planejamento.</span></li>

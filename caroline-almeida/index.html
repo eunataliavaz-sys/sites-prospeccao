@@ -133,7 +133,7 @@ a{color:inherit}
 
 /* sobre */
 .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
-.about img{width:100%;max-width:440px;aspect-ratio:540/580;object-fit:cover;border-radius:10px;box-shadow:24px 24px 0 -1px var(--copper-soft)}
+.about img{width:100%;max-width:440px;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:10px;box-shadow:24px 24px 0 -1px var(--copper-soft)}
 .about h2{font-family:var(--serif);font-weight:400;color:var(--navy);font-size:clamp(32px,4.4vw,46px);line-height:1.12;margin:10px 0 20px}
 .about p{color:var(--muted);margin-bottom:16px}
 .about blockquote{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--navy);border-left:2px solid var(--copper);padding-left:20px;margin:28px 0}
@@ -208,6 +208,13 @@ a{color:inherit}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* sobre: no celular = título, foto, texto */
+.about{grid-template-areas:"img head" "img body";row-gap:0}
+.about>img{grid-area:img;align-self:center}
+.about-head{grid-area:head;align-self:end}
+.about-body{grid-area:body;align-self:start}
+@media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
 </style>
 </head>
 <body>
@@ -308,10 +315,12 @@ a{color:inherit}
 
 <section class="section" id="sobre" style="padding-top:0">
   <div class="wrap about">
-    <img class="reveal" src="assets/sobre.jpg" alt="Dra. Caroline Almeida conversando no estúdio do podcast">
-    <div class="reveal">
+    <img class="reveal" src="assets/sobre.jpg" alt="Retrato da Dra. Caroline Almeida">
+    <div class="about-head reveal">
       <span class="kicker">Sobre</span>
       <h2>Prazer, Caroline Almeida</h2>
+    </div>
+    <div class="about-body reveal">
       <p>Sou Caroline Almeida Martins, advogada há mais de 10 anos, com atuação dedicada ao Direito de Família e fundadora do meu próprio escritório, com unidades em Santo André e Bragança Paulista/SP e atendimento on-line a clientes de diversos estados do Brasil.</p>
       <p>Minha atuação nasceu do Direito, mas cresceu junto com um propósito maior: usar conhecimento, informação e acolhimento para ajudar pessoas em momentos decisivos da vida.</p>
       <p>Sou esposa, mãe de três, mulher de fé e apaixonada por música. A família e a fé são parte fundamental de tudo o que construo.</p>
