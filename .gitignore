@@ -3,3 +3,6 @@
 **/*.pdf
 .DS_Store
 Thumbs.db
+
+# prints/originais das prévias (não publicar)
+**/_originais/
