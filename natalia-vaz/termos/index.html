@@ -55,7 +55,7 @@
 <header>
   <div class="wrap">
     <a class="logo" href="/">Natália <em>Vaz</em></a>
-    <a class="back" href="/">← Voltar ao site</a>
+    <a class="back" id="voltar" href="/">← Voltar ao site</a>
   </div>
 </header>
 
@@ -72,7 +72,7 @@
     <h2>Resumo</h2>
     <ul>
       <li>Você vê uma <strong>prévia gratuita</strong> antes de contratar.</li>
-      <li>Você tem <strong>até 5 dias</strong> para enviar o briefing; a entrega é em <strong>até 5 dias úteis</strong> depois do briefing completo.</li>
+      <li>Depois da confirmação do pagamento, você tem <strong>até 5 dias</strong> para enviar o briefing; a entrega é em <strong>até 5 dias úteis</strong> depois do briefing completo.</li>
       <li><strong>2 rodadas de ajustes</strong> incluídas depois da entrega.</li>
       <li>Domínio <strong>.com.br</strong> e hospedagem <strong>inclusos no 1º ano</strong>.</li>
       <li>Desistência em até 7 dias: <strong>devolução integral</strong>.</li>
@@ -117,8 +117,8 @@
       <ol style="padding-left:20px">
         <li>Você recebe uma prévia gratuita e sem compromisso.</li>
         <li>Se aprovar e quiser contratar, você confirma a contratação e aceita estes termos no formulário de confirmação. Logo depois, recebe os dados de pagamento.</li>
-        <li>Você paga a entrada (ou o valor total no cartão).</li>
-        <li>Você tem <strong>até 5 dias</strong>, a partir do aceite, para enviar o briefing completo com os materiais (fotos, logo e informações).</li>
+        <li>Você paga a entrada (ou o valor total no cartão) e me envia o comprovante pelo WhatsApp.</li>
+        <li>Quando eu confirmo o pagamento, você recebe o link do briefing por e-mail e tem <strong>até 5 dias</strong> para enviá-lo completo, com os materiais (fotos, logo e informações).</li>
         <li>Eu entrego o site em <strong>até 5 dias úteis</strong>, contados a partir do recebimento do briefing completo e do pagamento da entrada.</li>
         <li>Você revisa e pede os ajustes (até 2 rodadas).</li>
         <li>Com o pagamento total, o site é publicado no domínio definitivo.</li>
@@ -142,7 +142,7 @@
 
     <section>
       <h2 class="t"><span>07</span>Projeto parado</h2>
-      <p>Para manter os prazos de todos os clientes, se o briefing completo não for enviado em <strong>5 dias</strong> depois do aceite, o projeto fica <strong>pausado</strong> (você recebe um lembrete no 3º dia e um aviso no 5º). O prazo de entrega começa a contar quando eu receber tudo.</p>
+      <p>Para manter os prazos de todos os clientes, se o briefing completo não for enviado em <strong>5 dias</strong> depois da confirmação do pagamento, o projeto fica <strong>pausado</strong> (você recebe um lembrete no 3º dia e um aviso no 5º). O prazo de entrega começa a contar quando eu receber tudo.</p>
       <p>Se não houver retorno por <strong>30 dias</strong>, depois de pelo menos <strong>3 tentativas de contato</strong> (WhatsApp e/ou e-mail), sendo a última um aviso de encerramento, o projeto é considerado <strong>finalizado</strong>. Os valores pagos não são devolvidos, porque remuneram o trabalho já iniciado e a reserva da agenda. Para retomar depois disso, é necessária uma nova contratação.</p>
     </section>
 
@@ -186,7 +186,7 @@
 
     <section>
       <h2 class="t"><span>13</span>Aceite</h2>
-      <p>O aceite é feito no <strong>formulário de confirmação de contratação</strong>, antes do pagamento. Ao enviá-lo, você recebe por e-mail o registro do aceite (data, hora, seus dados, número do registro e versão destes termos), os dados de pagamento e o link do briefing.</p>
+      <p>O aceite é feito no <strong>formulário de confirmação de contratação</strong>, antes do pagamento. Ao enviá-lo, você recebe por e-mail o registro do aceite (data, hora, seus dados, número do registro e versão destes termos) e os dados de pagamento. O link do briefing chega depois da confirmação do pagamento.</p>
       <p>Pagar a entrada (ou o valor total) também confirma que você leu e concorda com estes termos.</p>
       <p class="nota">Versão de 16 de outubro de 2026. Se quiser estes termos em contrato assinado, é só pedir.</p>
     </section>
@@ -196,5 +196,21 @@
 <footer>
   <div class="wrap">© 2026 Natália Vaz · <a href="/">natalia-vaz.vercel.app</a></div>
 </footer>
+<script>
+  // veio do formulário de contratação? o botão volta para ele sem recarregar (mantém o que já foi preenchido)
+  (function () {
+    var veio = /docs\.google\.com\/forms|forms\.gle|tinyurl\.com/.test(document.referrer) || /[?&]de=form/.test(location.search);
+    if (!veio || history.length < 2) return;
+    var a = document.getElementById('voltar');
+    a.textContent = '← Voltar ao formulário';
+    a.addEventListener('click', function (e) { e.preventDefault(); history.back(); });
+    var b = document.createElement('a');
+    b.href = '#'; b.textContent = '← Voltar ao formulário';
+    b.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;text-align:center;background:#6A3DBF;color:#fff;padding:14px;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:9';
+    b.addEventListener('click', function (e) { e.preventDefault(); history.back(); });
+    document.body.appendChild(b);
+    document.body.style.paddingBottom = '80px';
+  })();
+</script>
 </body>
 </html>
