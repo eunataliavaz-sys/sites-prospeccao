@@ -199,7 +199,7 @@
 <script>
   // veio do formulário de contratação? o botão volta para ele sem recarregar (mantém o que já foi preenchido)
   (function () {
-    var veio = /docs\.google\.com\/forms|forms\.gle|tinyurl\.com/.test(document.referrer) || /[?&]de=form/.test(location.search);
+    var veio = /google\.com|forms\.gle|tinyurl\.com/.test(document.referrer) || /[?&]de=form/.test(location.search);
     if (!veio || history.length < 2) return;
     var a = document.getElementById('voltar');
     a.textContent = '← Voltar ao formulário';
