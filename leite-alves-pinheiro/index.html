@@ -29,15 +29,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
---dark:#0e1520;
-  --brand:#22324a;
-  --accent:#86acdc;
-  --accent-soft:#c2d6f1;
-  --bg:#f2f4f7;
+--dark:#0c0b09;
+  --brand:#1c1a16;
+  --accent:#c9a45c;
+  --accent-soft:#e6d2a3;
+  --bg:#f5f3ef;
   --surface:#ffffff;
-  --text:#1e2530;
-  --muted:#5e6878;
-  --line:rgba(34,50,74,.13);
+  --text:#23211d;
+  --muted:#67625a;
+  --line:rgba(28,26,22,.13);
   --serif:'Sora',system-ui,sans-serif;
   --sans:'Inter',system-ui,sans-serif;
   --wa:#25d366;
@@ -92,21 +92,22 @@ a{color:inherit}
 @media (max-width:420px){.nav-right .btn.sm{display:none}}
 
 /* hero (TYPOGRAPHIC assimétrico: texto + painel numerado das áreas) */
-.hero{position:relative;background:var(--dark);color:#d9e0ea;overflow:hidden;padding:168px 0 104px}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(134,172,220,.16),transparent 45%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/100% 64px;pointer-events:none}
+.hero{position:relative;background:linear-gradient(90deg,rgba(12,11,9,.95) 0%,rgba(12,11,9,.86) 50%,rgba(12,11,9,.6) 100%),url(assets/hero.jpg) center/cover var(--dark);color:#e6e1d8;overflow:hidden;padding:168px 0 104px}
+.hero>.ilustr{left:auto;right:16px;bottom:16px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(201,164,92,.16),transparent 45%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/100% 64px;pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:72px;align-items:center}
 .hero h1{font-family:var(--serif);font-weight:600;color:#fff;font-size:clamp(38px,5vw,62px);line-height:1.08;margin:18px 0 22px;letter-spacing:-.025em}
 .hero h1 i{font-style:normal;color:var(--accent)}
-.hero p{color:#a9b5c6;max-width:32em;margin-bottom:34px}
+.hero p{color:#b8b2a6;max-width:32em;margin-bottom:34px}
 .ctas{display:flex;flex-wrap:wrap;gap:14px}
-.facts{display:flex;flex-wrap:wrap;gap:34px;margin-top:46px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:14px;color:#a9b5c6}
+.facts{display:flex;flex-wrap:wrap;gap:34px;margin-top:46px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:14px;color:#b8b2a6}
 .facts b{display:block;font-family:var(--serif);font-weight:600;font-size:28px;color:#fff;line-height:1.1}
 .facts b span{color:var(--accent)}
-.areas{list-style:none;border:1px solid rgba(134,172,220,.25);border-radius:14px;background:rgba(255,255,255,.03);backdrop-filter:blur(4px)}
-.areas li{display:flex;align-items:baseline;gap:18px;padding:22px 28px;border-bottom:1px solid rgba(134,172,220,.15);font-family:var(--serif);font-size:26px;color:#fff;font-weight:300}
+.areas{list-style:none;border:1px solid rgba(201,164,92,.25);border-radius:14px;background:rgba(255,255,255,.03);backdrop-filter:blur(4px)}
+.areas li{display:flex;align-items:baseline;gap:18px;padding:22px 28px;border-bottom:1px solid rgba(201,164,92,.15);font-family:var(--serif);font-size:26px;color:#fff;font-weight:300}
 .areas li:last-child{border-bottom:0}
 .areas li span{font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:600}
-.areas .foot-note{font-family:var(--sans);font-size:13.5px;color:#a9b5c6;font-weight:400;display:block}
+.areas .foot-note{font-family:var(--sans);font-size:13.5px;color:#b8b2a6;font-weight:400;display:block}
 @media (max-width:860px){
   .hero{padding:140px 0 72px}
   .hero .wrap{grid-template-columns:1fr;gap:48px}
@@ -145,11 +146,12 @@ a{color:inherit}
 .score small{color:var(--muted);font-size:14px}
 .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px}
 .track::-webkit-scrollbar{display:none}
-.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:10px;padding:30px 28px;border:1px solid var(--line);display:flex;flex-direction:column}
-.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:12px}
-.review p{font-size:15.5px;flex:1}
-.review footer{margin-top:18px;font-size:14px;color:var(--brand);font-weight:600}
+.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:16px;padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:-4px}
+.review p{font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden} /* segurança: texto longo vira "…" */
+.review footer{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--brand);font-weight:600;line-height:1.3}
 .review footer small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.review .g{width:22px;height:22px;flex:none}
 .car-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
 .car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer}
 .car-btn:hover{background:var(--brand);color:#fff}
@@ -178,8 +180,13 @@ a{color:inherit}
 .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,color .2s}
 .social a:hover{background:var(--accent);border-color:var(--accent);color:var(--dark)}
 .social .ic{width:20px;height:20px}
-.map{border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line)}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+/* mapa: imagem estática (ferramentas/mapa.py), carrega na hora; o clique abre o Google Maps */
+.map{position:relative;display:block;border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#eceae6}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.map:hover img{transform:scale(1.03)}
+.map-btn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.map-btn .ic{width:18px;height:18px}
+.map small{position:absolute;right:6px;bottom:4px;font-size:10px;color:#555;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:3px}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* rodapé */
@@ -207,7 +214,7 @@ a{color:inherit}
 .head h2,.about h2,.card h3,.info h3,.foot b,.score strong{font-weight:600;letter-spacing:-.02em}
 .partners{display:grid;gap:16px;max-width:440px}
 .partner{display:flex;gap:18px;align-items:center;background:var(--brand);color:#cfd8e6;border-radius:12px;padding:26px 26px}
-.partner .ico{background:rgba(134,172,220,.16);color:var(--accent);width:52px;height:52px;border-radius:50%}
+.partner .ico{background:rgba(201,164,92,.16);color:var(--accent);width:52px;height:52px;border-radius:50%}
 .partner b{display:block;font-family:var(--serif);font-weight:600;color:#fff;font-size:21px;letter-spacing:-.01em}
 .partner small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft)}
 .partners .tagline{border:1px dashed var(--line);border-radius:12px;padding:18px 24px;color:var(--muted);font-size:15px}
@@ -298,6 +305,7 @@ a{color:inherit}
       <li><span>04</span><div>Previdenciário<small class="foot-note">e consultoria jurídica</small></div></li>
     </ul>
   </div>
+  <span class="ilustr">Imagem ilustrativa</span>
 </header>
 
 <section class="section" id="servicos">
@@ -376,53 +384,28 @@ a{color:inherit}
       <div class="track" id="track">
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Minha experiência com este escritório foi impecável. A equipe demonstrou um conhecimento profundo da área e me manteve sempre informado sobre o andamento do meu caso. O atendimento é humanizado e a dedicação deles é visível. Agradeço a todo o time pelo suporte. Nota 10!</p>
-          <footer>Diogo S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
           <p>Dr. Augusto tem a excelente habilidade em explicar casos complexos de forma clara e concisa. E sempre dá informação sobre o andamento do processo. Apenas gratidão a todos!</p>
-          <footer>Maíra V.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Maíra V.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Dr. Augusto tem sido um profissional muito importante na minha luta por garantir meus direitos. Sempre se posicionou de forma disponível a esclarecer dúvidas e propor ações e medidas que fortalecem meus direitos e interesses de forma coerente.</p>
-          <footer>Lincoln S.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Lincoln S.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Atendimento muito bom, profissional extremamente comprometido e responsável. Ágil e de boa comunicação, sempre preocupado com a satisfação do cliente.</p>
-          <footer>Giovanna S.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Giovanna S.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Doutor Augusto me ajudou nos dois casos do meu filho e foi muito rápido sou muito grata a ele.</p>
-          <footer>Werica M.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Werica M.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Dr.Augusto advogado excelente,obrigado pelo seu serviço feito com dedicação total ao caso</p>
-          <footer>Regiane O.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Escritório super confiável e que faz um trabalho excelente. Super recomendo.</p>
-          <footer>Wesley M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Um ótimo profissional, atencioso, competente. Super indico seu trabalho.</p>
-          <footer>Grazieli C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Advogado de confiança e trabalho excelente!</p>
-          <footer>Sthefany C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Muito competente.Bom profissional</p>
-          <footer>Milton I.<small>Avaliação no Google</small></footer>
+          <p>Excelente profissional, não nos deixa dúvidas e oferece todo o suporte pros clientes.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Aléxia S.<small>Avaliação no Google</small></div></footer>
         </figure>
       </div>
       <div class="car-ctrl">
@@ -454,9 +437,11 @@ a{color:inherit}
         </dl>
         <a class="btn" href="https://wa.me/5511987317562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Leite%20Alves%20Pinheiro%20Advocacia%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com o escritório</a>
       </div>
-      <div class="map reveal">
-        <iframe title="Mapa: Leite Alves Pinheiro" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Leite+Alves+Pinheiro+Advocacia%2C+Alameda+Martins+Fontes%2C+146+-+Santa+Terezinha%2C+Santo+Andr%C3%A9+-+SP&output=embed"></iframe>
-      </div>
+      <a class="map reveal" href="https://www.google.com/maps/search/?api=1&query=Leite+Alves+Pinheiro+Advocacia%2C+Alameda+Martins+Fontes%2C+146+-+Santa+Terezinha%2C+Santo+Andr%C3%A9+-+SP" target="_blank" rel="noopener" aria-label="Abrir Leite Alves Pinheiro no Google Maps">
+        <img src="assets/mapa.jpg" alt="Mapa com a localização de Leite Alves Pinheiro" loading="lazy">
+        <span class="map-btn"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Abrir no Google Maps</span>
+        <small>© OpenStreetMap</small>
+      </a>
     </div>
   </div>
 </section>

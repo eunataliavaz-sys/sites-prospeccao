@@ -29,15 +29,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
---dark:#0c1f36;
-  --brand:#14365c;
-  --accent:#e0a43a;
-  --accent-soft:#f3cf8a;
-  --bg:#f3f5f8;
+--dark:#240707;
+  --brand:#5b0d0f;
+  --accent:#d3a54f;
+  --accent-soft:#ecd29a;
+  --bg:#f7f3ef;
   --surface:#ffffff;
-  --text:#1f2733;
-  --muted:#5f6977;
-  --line:rgba(20,54,92,.14);
+  --text:#2b2224;
+  --muted:#6d6063;
+  --line:rgba(91,13,15,.14);
   --serif:'Source Serif 4',Georgia,serif;
   --sans:'Plus Jakarta Sans',system-ui,sans-serif;
   --wa:#25d366;
@@ -92,24 +92,24 @@ a{color:inherit}
 @media (max-width:420px){.nav-right .btn.sm{display:none}}
 
 /* hero (IMMERSIVE: foto sangrando à direita com degradê) */
-.hero{position:relative;background:var(--dark);color:#dde4ee;overflow:hidden;min-height:min(92vh,860px);display:flex;align-items:center;padding:150px 0 90px}
+.hero{position:relative;background:var(--dark);color:#efe3e1;overflow:hidden;min-height:min(92vh,860px);display:flex;align-items:center;padding:150px 0 90px}
 .hero-bg{position:absolute;top:0;right:0;bottom:0;width:56%}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,rgba(12,31,54,.75) 22%,rgba(12,31,54,.15) 60%,rgba(12,31,54,0) 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,rgba(36,7,7,.75) 22%,rgba(36,7,7,.15) 60%,rgba(36,7,7,0) 100%)}
 .hero-bg .ilustr{left:auto;right:16px;bottom:16px;z-index:2}
 .hero .wrap{position:relative;z-index:1}
 .hero-text{max-width:600px}
 .hero h1{font-family:var(--serif);font-weight:600;color:#fff;font-size:clamp(40px,5.2vw,64px);line-height:1.06;margin:18px 0 22px;letter-spacing:-.015em}
 .hero h1 i{color:var(--accent-soft);font-weight:500}
-.hero p{color:#b7c2d1;max-width:31em;margin-bottom:34px}
+.hero p{color:#cdb9b6;max-width:31em;margin-bottom:34px}
 .ctas{display:flex;flex-wrap:wrap;gap:14px}
-.facts{display:flex;flex-wrap:wrap;gap:30px;margin-top:46px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:#b7c2d1}
+.facts{display:flex;flex-wrap:wrap;gap:30px;margin-top:46px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:#cdb9b6}
 .facts b{display:block;font-family:var(--serif);font-weight:600;font-size:28px;color:#fff;line-height:1.1}
 .facts b span{color:var(--accent)}
 @media (max-width:860px){
   .hero{display:block;min-height:0;padding:0 0 64px}
   .hero-bg{position:relative;width:100%;height:400px;margin-top:112px}
-  .hero-bg::after{background:linear-gradient(180deg,rgba(12,31,54,0) 0%,rgba(12,31,54,0) 60%,var(--dark) 100%)}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(36,7,7,0) 0%,rgba(36,7,7,0) 60%,var(--dark) 100%)}
   .hero-bg .ilustr{right:auto;left:16px;bottom:auto;top:14px}
   .hero .wrap{margin-top:-60px}
 }
@@ -146,11 +146,12 @@ a{color:inherit}
 .score small{color:var(--muted);font-size:14px}
 .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px}
 .track::-webkit-scrollbar{display:none}
-.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:10px;padding:30px 28px;border:1px solid var(--line);display:flex;flex-direction:column}
-.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:12px}
-.review p{font-size:15.5px;flex:1}
-.review footer{margin-top:18px;font-size:14px;color:var(--brand);font-weight:600}
+.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:16px;padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:-4px}
+.review p{font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden} /* segurança: texto longo vira "…" */
+.review footer{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--brand);font-weight:600;line-height:1.3}
 .review footer small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.review .g{width:22px;height:22px;flex:none}
 .car-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
 .car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer}
 .car-btn:hover{background:var(--brand);color:#fff}
@@ -179,8 +180,13 @@ a{color:inherit}
 .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,color .2s}
 .social a:hover{background:var(--accent);border-color:var(--accent);color:var(--dark)}
 .social .ic{width:20px;height:20px}
-.map{border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line)}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+/* mapa: imagem estática (ferramentas/mapa.py), carrega na hora; o clique abre o Google Maps */
+.map{position:relative;display:block;border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#eceae6}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.map:hover img{transform:scale(1.03)}
+.map-btn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.map-btn .ic{width:18px;height:18px}
+.map small{position:absolute;right:6px;bottom:4px;font-size:10px;color:#555;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:3px}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* rodapé */
@@ -366,108 +372,28 @@ a{color:inherit}
       <div class="track" id="track">
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Gostaria de expressar minha total satisfação com o excelente serviço prestado pelo escritório Alisson Oliveira Advocacia. Desde o primeiro contato, fui atendido com extrema competência e profissionalismo. O advogado Alisson Oliveira demonstrou um vasto conhecimento em direito previdenciário, especialmente no que diz respeito aos processos de aposentadoria e INSS, sempre me orientando de forma clara e eficiente. A equipe foi atenciosa, prestativa e realmente se preocupou com o meu caso, garantindo que eu me sentisse seguro em cada etapa do processo. Recomendo com total confiança o trabalho desse escritório para quem precisar de um atendimento jurídico de alta qualidade. Muito obrigado pela dedicação e excelente trabalho!</p>
-          <footer>Dnodanillo S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dr. Allison é extremamente atencioso, profissional e educado.  Super competente, sempre atualizado com as demandas.  Estou super satisfeita com suas orientações, e todo apoio.  Além disso, ele não demora para responder as dúvidas.  Super indico, podem ficar super  tranquilos.  Muito obrigada por tudo Dr. Allison, e a toda a sua equipe.</p>
-          <footer>Regina S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Faço absoluta questão em deixar registrada minha total satisfação com o trabalho, o cuidado, a empatia, a competência, a transparência, o conhecimento, o zelo [...] Ao pessoal do grande ABC e região, aos que tiverem causa previdenciária, procurem o Dr. Alisson Oliveira, vocês serão recebidos em um ambiente acolhedor, muito bem localizado, de fácil acesso e com estacionamento.</p>
-          <footer>Luciano R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Desde o primeiro contato, o Dr. Alisson e toda a sua equipe foram incríveis! Sempre muito atenciosos, prestativos e profissionais, explicando tudo com clareza e acompanhando cada etapa de perto. Fui tratada com muito respeito e empatia. Recomendo de coração!</p>
-          <footer>Alê B.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>O serviço foi excelente, com informações claras, mostrando um alto nível de conhecimento sobre todas as questões relacionadas à aposentadoria no meu caso específico como estrangeiro com visto permanente. O atendimento foi muito ágil e competente, permitindo-me selecionat o melhor plano de aposentadoria a seguir.</p>
-          <footer>Robert M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Minha experiência foi excelente desde o primeiro contato, prestativos, com excelente conhecimento do assunto previdenciário, sabem ouvir o outro lado e dispostos a procurar soluções para todas as possíveis solicitações, só tenho que agradecer muito a ajuda e apoio do escritório.</p>
-          <footer>Paulo F.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Profissional competente e comprometido do início ao fim do processo. Ajudou toda minha família. Precisava de um cálculo para aposentadoria e fui atendida rapidamente e minhas dúvidas retiradas com excelência.</p>
-          <footer>Carmem B.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Minha experiência foi ótima com o excelente trabalho realizado, Estou muito satisfeita com o modo que tudo foi tratado com profissionalismo, conhecimento e confiança, as tratativas foram claras e objetivas. Só tenho muito que agradecer</p>
-          <footer>Rosana C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente Dr. Alisson, foi claro [...] Explicou td forma simples e clara, deu retorno rápido e passou mta confiança do início ao fim. Atendimento nota 10</p>
-          <footer>Neide B.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente advogado. Demonstra atenção, preocupação e proatividade com o cliente. Atendeu muito bem as minhas necessidades e da minha família!</p>
-          <footer>Pedro D.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
           <p>Dr Alisson extremamente atencioso, prontamente me respondeu, tirou todas as minhas dúvidas referente ao meu caso. Estou extremamente satisfeito com o trabalho prestado.</p>
-          <footer>Danilo R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Escritório excelente, bem localizado. Profissionais de qualidade e muito responsáveis, fui muito bem atendido, com uma conversa muito produtiva e esclarecedora. Tive uma ótima experiência.</p>
-          <footer>Rodrigo A.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Minha experiência tem sido muito positiva. O dr. alisson é um excelente profissional, eficiente e responde prontamente minhas questões. Estou muito satisfeito!</p>
-          <footer>Danilo N.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Muito antenciosos e empenhados, recebi e recebo total atenção em todas as minhas dúvidas e prestam a profissão com alegria.</p>
-          <footer>Robson M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Recebi tratamento com excelência,  respeito e profissionalismo. Com certeza  indicarei para outros amigos. Muito obrigada!</p>
-          <footer>Margareth C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Profissional excelente! Competente, atencioso e muito dedicado.Sempre disponível para qualquer esclarecimento. Super indico.</p>
-          <footer>Claudia C.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Danilo R.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Excelente profissional!! Dedicado e atencioso, além de dominar as temáticas sobre Direito Previdenciário. Recomendo demais os serviços do Dr. Alisson!!</p>
-          <footer>Gabriel M.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Gabriel M.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Espetacular o trabalho do Dr Alisson!! Impressionante! Um profissional realmente muito preparado, correto e extremamente eficaz. Recomendo muito!</p>
-          <footer>Sandro A.<small>Avaliação no Google</small></footer>
+          <p>Escritório excelente, bem localizado. Profissionais de qualidade e muito responsáveis, fui muito bem atendido, com uma conversa muito produtiva e esclarecedora. Tive uma ótima experiência.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Rodrigo A.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Seriedade, dedicação, comprometimento são sobrenomes do Dr Alisson. Muito grata por tudo!</p>
-          <footer>Glaucia O.<small>Avaliação no Google</small></footer>
+          <p>Excelente advogado. Demonstra atenção, preocupação e proatividade com o cliente. Atendeu muito bem as minhas necessidades e da minha família!</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Pedro D.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Excelente atendimento. Agilidade, fácil comunicação, profissionalismo nota 10.</p>
-          <footer>Mariana M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dr. Alisson é muito prestativo, responde rapidamente, é objetivo, me ajudou bastante em todo processo do divórcio, é um excelente profissional, recomendo.</p>
-          <footer>Paula A.<small>Avaliação no Google</small></footer>
+          <p>Minha experiência tem sido muito positiva. O dr. alisson é um excelente profissional, eficiente e responde prontamente minhas questões. Estou muito satisfeito!</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Danilo N.<small>Avaliação no Google</small></div></footer>
         </figure>
       </div>
       <div class="car-ctrl">
@@ -499,9 +425,11 @@ a{color:inherit}
         </dl>
         <a class="btn" href="https://wa.me/5511972237271?text=Ol%C3%A1%2C%20Dr.%20Alisson%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20sobre%20aposentadoria/INSS." target="_blank" rel="noopener">Falar sobre o meu caso</a>
       </div>
-      <div class="map reveal">
-        <iframe title="Mapa: Alisson Oliveira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Alisson+Oliveira+Advocacia%2C+R.+Dona+Elisa+Fl%C3%A1quer%2C+70+-+Centro%2C+Santo+Andr%C3%A9+-+SP&output=embed"></iframe>
-      </div>
+      <a class="map reveal" href="https://www.google.com/maps/search/?api=1&query=Alisson+Oliveira+Advocacia%2C+R.+Dona+Elisa+Fl%C3%A1quer%2C+70+-+Centro%2C+Santo+Andr%C3%A9+-+SP" target="_blank" rel="noopener" aria-label="Abrir Alisson Oliveira no Google Maps">
+        <img src="assets/mapa.jpg" alt="Mapa com a localização de Alisson Oliveira" loading="lazy">
+        <span class="map-btn"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Abrir no Google Maps</span>
+        <small>© OpenStreetMap</small>
+      </a>
     </div>
   </div>
 </section>

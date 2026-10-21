@@ -29,15 +29,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
---dark:#24121b;
-  --brand:#5b2038;
-  --accent:#c9a27a;
-  --accent-soft:#ead3b8;
-  --bg:#f7f2ee;
+--dark:#161d23;
+  --brand:#2b3a45;
+  --accent:#d2a68c;
+  --accent-soft:#ecd3c2;
+  --bg:#f6f2ee;
   --surface:#ffffff;
-  --text:#2a2226;
-  --muted:#6e6268;
-  --line:rgba(91,32,56,.14);
+  --text:#22282d;
+  --muted:#646a70;
+  --line:rgba(43,58,69,.14);
   --serif:'Bodoni Moda',Georgia,serif;
   --sans:'Figtree',system-ui,sans-serif;
   --wa:#25d366;
@@ -92,20 +92,20 @@ a{color:inherit}
 @media (max-width:420px){.nav-right .btn.sm{display:none}}
 
 /* hero (TYPOGRAPHIC centralizado, sem foto) */
-.hero{position:relative;background:var(--dark);color:#e9dfe3;overflow:hidden;padding:190px 0 110px;text-align:center}
-.hero::before{content:"L";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:min(78vw,820px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(201,162,122,.14);pointer-events:none}
+.hero{position:relative;background:var(--dark);color:#e3e7ea;overflow:hidden;padding:190px 0 110px;text-align:center}
+.hero::before{content:"L";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:min(78vw,820px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(210,166,140,.14);pointer-events:none}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5}
 .hero .wrap{position:relative;z-index:1}
 .hero-text{max-width:860px;margin-inline:auto}
 .hero h1{font-family:var(--serif);font-weight:500;color:#fff;font-size:clamp(40px,6.4vw,82px);line-height:1.04;margin:22px 0 26px;letter-spacing:-.01em}
 .hero h1 i{color:var(--accent-soft)}
-.hero p{color:#c4b5bc;max-width:36em;margin:0 auto 36px;font-size:17.5px}
+.hero p{color:#b9c2c9;max-width:36em;margin:0 auto 36px;font-size:17.5px}
 .ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:56px;margin-top:64px;font-size:14px;color:#c4b5bc}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:56px;margin-top:64px;font-size:14px;color:#b9c2c9}
 .facts b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;color:#fff;line-height:1.1}
 .facts b span{color:var(--accent)}
 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 0 30px;list-style:none}
-.tags li{border:1px solid rgba(201,162,122,.4);color:var(--accent-soft);border-radius:30px;padding:6px 16px;font-size:13px;letter-spacing:.04em}
+.tags li{border:1px solid rgba(210,166,140,.4);color:var(--accent-soft);border-radius:30px;padding:6px 16px;font-size:13px;letter-spacing:.04em}
 @media (max-width:860px){
   .hero{padding:150px 0 76px}
   .facts{gap:28px;margin-top:48px}
@@ -143,11 +143,12 @@ a{color:inherit}
 .score small{color:var(--muted);font-size:14px}
 .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px}
 .track::-webkit-scrollbar{display:none}
-.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:10px;padding:30px 28px;border:1px solid var(--line);display:flex;flex-direction:column}
-.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:12px}
-.review p{font-size:15.5px;flex:1}
-.review footer{margin-top:18px;font-size:14px;color:var(--brand);font-weight:600}
+.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:16px;padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:-4px}
+.review p{font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden} /* segurança: texto longo vira "…" */
+.review footer{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--brand);font-weight:600;line-height:1.3}
 .review footer small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.review .g{width:22px;height:22px;flex:none}
 .car-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
 .car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer}
 .car-btn:hover{background:var(--brand);color:#fff}
@@ -176,8 +177,13 @@ a{color:inherit}
 .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,color .2s}
 .social a:hover{background:var(--accent);border-color:var(--accent);color:var(--dark)}
 .social .ic{width:20px;height:20px}
-.map{border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line)}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+/* mapa: imagem estática (ferramentas/mapa.py), carrega na hora; o clique abre o Google Maps */
+.map{position:relative;display:block;border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#eceae6}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.map:hover img{transform:scale(1.03)}
+.map-btn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.map-btn .ic{width:18px;height:18px}
+.map small{position:absolute;right:6px;bottom:4px;font-size:10px;color:#555;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:3px}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* rodapé */
@@ -379,108 +385,28 @@ a{color:inherit}
       <div class="track" id="track">
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Tivemos uma experiência excelente com o escritório. Desde o início fomos atendidos com muita atenção, profissionalismo e transparência. Em um momento que poderia ter sido bastante desgastante, nos sentimos seguros e bem orientados em cada etapa do processo. Recomendo o escritório com total confiança para quem busca um trabalho sério, eficiente e comprometido com os interesses do cliente. Muito obrigada por toda a dedicação!</p>
-          <footer>Sarah G.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Tive problemas com uma imobiliária na devolução de chaves, ocasião em que foram feitas cobranças abusivas quanto à pintura do imóvel, entre outras exigências. Como as cobranças não cessavam, contratei os serviços da Dra. Priscila, que soube imediatamente a melhor maneira de agir nessa situação. Agradeço muito a Dra. Priscila pela eficiência do serviço prestado!</p>
-          <footer>Thales M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Entrei em contato em um momento de muita incerteza na compra do meu imóvel. Fui muito bem atendida, foram tiradas todas as minhas dúvidas, o atendimento foi rápido e muito esclarecedor. PS: Pra quem estiver comprando um imóvel, antes de assinar o contrato ou pagar qualquer valor, façam uma análise do contrato com o escritório.</p>
-          <footer>Camila<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
           <p>Priscila fez todo o acompanhamento no processo de forma excelente, me passando todos os pontos que iam acontecendo e explicando cada uma das etapas. Foi sempre sincera e pé no chão. Recomendo demais!</p>
-          <footer>Raphael D.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Conheci o consultório em pesquisa no Google com ótima avaliação quando precisava de advogado imobiliário para intermediar e executar um distrato de compra de imóvel. [...] Isso motivou um segundo trabalho de compra de imóvel com devido processo de avaliação de documentos do imóvel e proprietários, assim como a formatação do contrato de compra e venda.</p>
-          <footer>Paulo V.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Tive o prazer de contar com o auxílio da Dra. Priscila para solucionar um problema que tive com a imobiliária e a inquilina. Desde o início, a Dra. Priscila demonstrou ser extremamente transparente, prestativa e ágil, sempre disponível para esclarecer todas as minhas dúvidas e explicar cada passo do processo de forma clara e objetiva.</p>
-          <footer>Aline M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Gostaria de agradecê-los grandemente tanto pela atenção, quanto pela rapidez e agilidade nas respostas, tiraram muito das minhas dúvidas, o atendimento a distância é extremamente prático, posso disser que entre os escritórios de direito imobiliário esse foi o que mais me agradou, fica aqui minha indicação</p>
-          <footer>Fabio S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Contratei os serviços da Dra. Priscila e não poderia estar mais satisfeita! Desde o inicio, ela foi super atenciosa e profissional; sempre disponível para esclarecer as minhas duvidas e me orientar na melhor forma possível. Recomendo de olhos fechados para quem buscar um trabalho com qualidade!</p>
-          <footer>Fernanda N.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Fui atendida pela Dra. Priscila e fiquei extremamente satisfeita com o serviço prestado. Ela foi muito atenciosa, profissional e eficiente. Explicou todos os detalhes do meu caso com clareza e me manteve informada durante todo o processo. Recomendo fortemente seus serviços!</p>
-          <footer>Gisela R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Me ajudaram bastante com as revisões do contrato de compra do meu apartamento, inclusive no último momento precisava de uma última revisão rápida, e fizeram a revisão em menos de 2 horas pra mim. Estou muito satisfeito!</p>
-          <footer>Thiago D.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Raphael D.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Precisei de contrato de aluguel e a Lednik me ajudou muito no processo todo de locação do meu imóvel, fiquei muito feliz com o serviço e recomendo.</p>
-          <footer>Gleidson S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Bom dia! Excelente serviço. Conseguiu me instruir com clareza as medidas que iriamos tomar para meu negócio não ser prejudicado. Muito grato!</p>
-          <footer>Luiz E.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Profissionais aptos e capacitados que operaram com assertividade e atenção aos detalhes, foram essenciais na mediação do conflito. Guardo com carinho o contato e recomendo com orgulho a meus amigos em São Paulo.</p>
-          <footer>Joel O.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Atendimento excelente e de muita confiança! A Dra. Priscila é super dedicada, explica tudo de forma clara e está sempre pronta para ajudar e resolver as questões com muita competência. Recomendo demais!</p>
-          <footer>Beatriz T.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Gleidson S.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Dra Priscila é uma advogada extremamente competente, ética e atenciosa. Resolveu meu caso com profissionalismo e dedicação, sempre mantendo uma comunicação clara. Recomendo!</p>
-          <footer>Michelle C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente atendimento da Dra. Priscila! Demonstra muito conhecimento jurídico, além de ser atenciosa e extremamente profissional. Se está buscando uma advogada comprometida, eu a recomendo fortemente.</p>
-          <footer>Karine B.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente experiência, Dra Priscila prontamente me atendeu e esclareceu tudo nos detalhes demonstrando sempre muita segurança e conhecimento. Ótimo atendimento.</p>
-          <footer>Sandro C.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Michelle C.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Atendimento personalizado, explicações claras e diretas. Advogada Priscila super competente, disposta e coerente.</p>
-          <footer>Giovanna R.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Giovanna R.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Foi excelente! Fiz uma consulta. Fui orientada. Pedi à Dra Priscila que tomasse as medidas cabíveis e em pouquissimo tempo o problema estava resolvido.  Tudo foi por conversa telefonica.  Achei muita eficiência e profissional que passa muita confiança. Muito obrigada Dra.</p>
-          <footer>Sueli A.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Me auxiliaram em tudo e mantiveram contato o tempo todo. Resolveram o problema de forma educada e bastante atenciosa. Muito obrigada!</p>
-          <footer>Heloisa F.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Simplesmente perfeito, profissional incrível, precisei de ajuda imediata que me ajudaram na hora. Além de ótimos profissionais são humilde e trabalham por amor a profissão.</p>
-          <footer>Kerolay K.<small>Avaliação no Google</small></footer>
+          <p>Excelente experiência, Dra Priscila prontamente me atendeu e esclareceu tudo nos detalhes demonstrando sempre muita segurança e conhecimento. Ótimo atendimento.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Sandro C.<small>Avaliação no Google</small></div></footer>
         </figure>
       </div>
       <div class="car-ctrl">
@@ -527,9 +453,11 @@ a{color:inherit}
         </dl>
         <a class="btn" href="https://wa.me/5511964734692?text=Ol%C3%A1%21%20Vi%20o%20site%20do%20Lednik%20Advogados%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com a Dra. Priscila</a>
       </div>
-      <div class="map reveal">
-        <iframe title="Mapa: Lednik Advogados" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Lednik+Advogados%2C+Av.+Dr.+Erasmo%2C+450+-+Vila+Assun%C3%A7%C3%A3o%2C+Santo+Andr%C3%A9+-+SP&output=embed"></iframe>
-      </div>
+      <a class="map reveal" href="https://www.google.com/maps/search/?api=1&query=Lednik+Advogados%2C+Av.+Dr.+Erasmo%2C+450+-+Vila+Assun%C3%A7%C3%A3o%2C+Santo+Andr%C3%A9+-+SP" target="_blank" rel="noopener" aria-label="Abrir Lednik Advogados no Google Maps">
+        <img src="assets/mapa.jpg" alt="Mapa com a localização de Lednik Advogados" loading="lazy">
+        <span class="map-btn"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Abrir no Google Maps</span>
+        <small>© OpenStreetMap</small>
+      </a>
     </div>
   </div>
 </section>

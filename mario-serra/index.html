@@ -29,15 +29,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
---dark:#132520;
-  --brand:#1d3a32;
-  --accent:#b8893e;
-  --accent-soft:#e3c48f;
-  --bg:#f5f2eb;
+--dark:#0f2140;
+  --brand:#1f4776;
+  --accent:#e9b949;
+  --accent-soft:#f5d98c;
+  --bg:#f3f5f8;
   --surface:#ffffff;
-  --text:#23282a;
-  --muted:#646b68;
-  --line:rgba(184,137,62,.28);
+  --text:#1e2633;
+  --muted:#5d6878;
+  --line:rgba(31,71,118,.14);
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Work Sans',system-ui,sans-serif;
   --wa:#25d366;
@@ -148,11 +148,12 @@ a{color:inherit}
 .score small{color:var(--muted);font-size:14px}
 .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px}
 .track::-webkit-scrollbar{display:none}
-.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:10px;padding:30px 28px;border:1px solid var(--line);display:flex;flex-direction:column}
-.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:12px}
-.review p{font-size:15.5px;flex:1}
-.review footer{margin-top:18px;font-size:14px;color:var(--brand);font-weight:600}
+.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:16px;padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:-4px}
+.review p{font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden} /* segurança: texto longo vira "…" */
+.review footer{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--brand);font-weight:600;line-height:1.3}
 .review footer small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.review .g{width:22px;height:22px;flex:none}
 .car-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
 .car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer}
 .car-btn:hover{background:var(--brand);color:#fff}
@@ -181,8 +182,13 @@ a{color:inherit}
 .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,color .2s}
 .social a:hover{background:var(--accent);border-color:var(--accent);color:var(--dark)}
 .social .ic{width:20px;height:20px}
-.map{border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line)}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+/* mapa: imagem estática (ferramentas/mapa.py), carrega na hora; o clique abre o Google Maps */
+.map{position:relative;display:block;border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#eceae6}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.map:hover img{transform:scale(1.03)}
+.map-btn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.map-btn .ic{width:18px;height:18px}
+.map small{position:absolute;right:6px;bottom:4px;font-size:10px;color:#555;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:3px}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* rodapé */
@@ -384,118 +390,28 @@ a{color:inherit}
       <div class="track" id="track">
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Tenho 30 anos e esta foi a primeira vez que consultei um advogado. Uma única consulta me livrou de problemas pelos próximos 5, talvez até 10 anos! A profissionalidade do Senhor Mario, sua vasta experiência e seu caráter exemplar me impressionaram profundamente! Em apenas 10 minutos, ele desvendou toda a situação, identificou os pontos cruciais e me explicou cada um deles detalhadamente, apresentou os fatos, avaliou os riscos e deu orientações precisas. Recomendo fortemente este excelente advogado, competente, paciente, sincero e dedicado!</p>
-          <footer>Xingrong X.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Gostaria de deixar registrado nosso agradecimento ao Dr. Mario, excelente advogado imobiliário, foi profissional e explanou todas nossas dúvidas na assessoria de um contrato, muito educado e competente e nos auxiliou em tudo que precisamos, concerteza indicamos tranquilamente.</p>
-          <footer>Thais A.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Foi indicação de um amigo. Graças a Deus encontramos ele, no pior momento das nossas vidas, na perda do meu pai. Profissional qualificado, honesto e de um coração enorme e humano e muito ágil.</p>
-          <footer>Rafa C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Deixo aqui registrado o meu agradecimento ao dr. Mário Serra. Durante nossa conversa, ele se mostrou muito profissional, atencioso e paciente. Sanou todas as minhas dúvidas e me orientou da melhor forma. Recomendo.</p>
-          <footer>Mônica S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Profissional rápido, prestativo e claro em suas explicações, precisava de uma solução rápida e fui atendida de imediato!</p>
-          <footer>Luana R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Conduziu meu processo de divórcio, pensão alimentícia e guarda dos meus filhos com sensibilidade e firmeza!</p>
-          <footer>Isis C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Pessoal muito justo, concedendo orientações básicas, muito claras, para você se situar do que acontece, antes mesmo de se tornar cliente. Conduta profissional muito bacana.</p>
-          <footer>Victor M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Profissional honesto, claro, objetivo e principalmente humano. O localizei pelo Google mesmo e fui surpreendida pelo profissionalismo em seu atendimento! Recomendo a todos. Novamente, obrigado até aqui!</p>
-          <footer>Nathalia<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente advogado! Muito profissional, prestativo, atencioso, humilde, empático, e eficiente. Sanou todas as minhas dúvidas com relação a um processo e respondeu super rápido ao meu pedido de consultoria, extremamente transparente! Super indico!</p>
-          <footer>Juliana M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Gente recomendo o dr Mário, depois de 30 anos me esclareceu o que ninguém tinha me mostrado em relação ao meu imóvel, super gentil e interessado no caso, recomendo.</p>
-          <footer>Sandra S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Ser humano integro e profissional!! Nos ajudou orientando e nos dando todo o suporte a respeito do nosso caso. Estava com muita dúvida e receio até conseguir encontrar seu perfil e entrar em contato contigo, somos gratos por suas orientações, por ouvir de verdade o nosso problema, algo quase impossível hoje em dia, realmente obrigado por tudo Mario! 🙏</p>
-          <footer>Gabriel O.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dr. Mário é um excelente profissional. Tivemos a oportunidade de conhecer seu trabalho tanto em assuntos pessoais como de nossa empresa, em que tudo foi tratado sempre com muita propriedade, agilidade e indiscutível competência.</p>
-          <footer>Vilson R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Boa tarde, Advogado super atencioso, onde tirou todas minhas dúvidas, sendo bem sincero também , nas chances prós e contras , e quais atitudes devo ou não tomar . Gratidão 🙏🏻 😊 Super indico</p>
-          <footer>Ana P.<small>Avaliação no Google</small></footer>
+          <p>Precisei de uma orientação a respeito de condomínio e fui muito bem apoiado pelo Dr. Mário. Me orientou da melhor forma possível, com todos os detalhes e conhecimento. Um ótimo profissional.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Ricardo F.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Excelente profissional! Esclareceu todas as minhas dúvidas e me orientou na compra de um imóvel. Super recomendo!</p>
-          <footer>Priscila K.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Precisei de uma orientação a respeito de condomínio e fui muito bem apoiado pelo Dr. Mário. Me orientou da melhor forma possível, com todos os detalhes e conhecimento. Um ótimo profissional.</p>
-          <footer>Ricardo F.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dr. Mário é um excelente profissional. Com uma comunicação transparente e objetiva, sempre me orientou das melhores maneiras. Ele atua em área trabalhista, civil, imobiliário... Super recomendo seus serviços!</p>
-          <footer>Lais C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dr Mário é um excelente profissional, atencioso, pontual, sempre retornando nossas ligações e resolvendo nossas demandas com agilidade. Recomendo!</p>
-          <footer>Regiane S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente Profissional.  Entende o cliente e tem conhecimento técnico e sabedoria para resolver as situações da melhor forma possível.</p>
-          <footer>Daniel M.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Priscila K.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Contatei o dr. Mario para explicar minha situação e ele pacientemente leu os documentos que enviei e me orientou em como melhor agir na situação. Muito agradecido!</p>
-          <footer>Oswaldo J.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Oswaldo J.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Dr Mário excelente advogado, nós ouviu pacientemente, leu todos meus papéis  e foi tirando todas minhas duvidas, e me orientou o que fazer</p>
-          <footer>Andreia S.<small>Avaliação no Google</small></footer>
+          <p>Deixo aqui registrado o meu agradecimento ao dr. Mário Serra. Durante nossa conversa, ele se mostrou muito profissional, atencioso e paciente. Sanou todas as minhas dúvidas e me orientou da melhor forma. Recomendo.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Mônica S.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Utilizamos o serviço do escritório do Dr. Mario, e fomos atendidos de uma forma excelente com muita ética e profissionalismo. Excelente profissional. Recomendo sempre.</p>
-          <footer>Eliana M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Liguei para tirar algumas dúvidas sobre a venda do meu imóvel, muito atencioso e bem claro nas informações. Muito obrigado 👍 …</p>
-          <footer>Eduardo S.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelente. Me atendeu rapidamente e tirou todas as minhas dúvidas, me aconselhando da melhor forma possível. Obrigada Mario! Muito sucesso para você sempre.</p>
-          <footer>Cinthia O.<small>Avaliação no Google</small></footer>
+          <p>Profissional honesto, claro, objetivo e principalmente humano. O localizei pelo Google mesmo e fui surpreendida pelo profissionalismo em seu atendimento! Recomendo a todos.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Nathalia<small>Avaliação no Google</small></div></footer>
         </figure>
       </div>
       <div class="car-ctrl">
@@ -528,9 +444,11 @@ a{color:inherit}
         </dl>
         <a class="btn" href="https://wa.me/5511947516562?text=Ol%C3%A1%2C%20Dr.%20Mario%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20sobre%20uma%20quest%C3%A3o%20imobili%C3%A1ria." target="_blank" rel="noopener">Agendar uma conversa</a>
       </div>
-      <div class="map reveal">
-        <iframe title="Mapa: Mario Serra" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Advogado+Imobili%C3%A1rio+-+Mario+Serra%2C+R.+Bol%C3%ADvia%2C+212+-+Parque+das+Na%C3%A7%C3%B5es%2C+Santo+Andr%C3%A9+-+SP&output=embed"></iframe>
-      </div>
+      <a class="map reveal" href="https://www.google.com/maps/search/?api=1&query=Advogado+Imobili%C3%A1rio+-+Mario+Serra%2C+R.+Bol%C3%ADvia%2C+212+-+Parque+das+Na%C3%A7%C3%B5es%2C+Santo+Andr%C3%A9+-+SP" target="_blank" rel="noopener" aria-label="Abrir Mario Serra no Google Maps">
+        <img src="assets/mapa.jpg" alt="Mapa com a localização de Mario Serra" loading="lazy">
+        <span class="map-btn"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Abrir no Google Maps</span>
+        <small>© OpenStreetMap</small>
+      </a>
     </div>
   </div>
 </section>

@@ -29,15 +29,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
---dark:#141416;
-  --brand:#2a2a31;
-  --accent:#d9705f;
-  --accent-soft:#f2b9aa;
-  --bg:#f4f2f0;
+--dark:#1a1213;
+  --brand:#5e1820;
+  --accent:#c23a47;
+  --accent-soft:#efb7b0;
+  --bg:#f6f1ec;
   --surface:#ffffff;
-  --text:#24242a;
-  --muted:#66656c;
-  --line:rgba(42,42,49,.13);
+  --text:#2a2224;
+  --muted:#6b6062;
+  --line:rgba(94,24,32,.14);
   --serif:'Gloock',Georgia,serif;
   --sans:'Inter Tight',system-ui,sans-serif;
   --wa:#25d366;
@@ -144,11 +144,12 @@ a{color:inherit}
 .score small{color:var(--muted);font-size:14px}
 .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px}
 .track::-webkit-scrollbar{display:none}
-.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:10px;padding:30px 28px;border:1px solid var(--line);display:flex;flex-direction:column}
-.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:12px}
-.review p{font-size:15.5px;flex:1}
-.review footer{margin-top:18px;font-size:14px;color:var(--brand);font-weight:600}
+.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:16px;padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:-4px}
+.review p{font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden} /* segurança: texto longo vira "…" */
+.review footer{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--brand);font-weight:600;line-height:1.3}
 .review footer small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.review .g{width:22px;height:22px;flex:none}
 .car-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
 .car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer}
 .car-btn:hover{background:var(--brand);color:#fff}
@@ -177,8 +178,13 @@ a{color:inherit}
 .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,color .2s}
 .social a:hover{background:var(--accent);border-color:var(--accent);color:var(--dark)}
 .social .ic{width:20px;height:20px}
-.map{border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line)}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+/* mapa: imagem estática (ferramentas/mapa.py), carrega na hora; o clique abre o Google Maps */
+.map{position:relative;display:block;border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#eceae6}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.map:hover img{transform:scale(1.03)}
+.map-btn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.map-btn .ic{width:18px;height:18px}
+.map small{position:absolute;right:6px;bottom:4px;font-size:10px;color:#555;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:3px}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* rodapé */
@@ -203,10 +209,11 @@ a{color:inherit}
 .about-head{grid-area:head;align-self:end}
 .about-body{grid-area:body;align-self:start}
 @media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
-.h24{display:inline-flex;align-items:center;gap:8px;background:rgba(217,112,95,.14);color:var(--accent-soft);border:1px solid rgba(217,112,95,.35);border-radius:30px;padding:6px 14px;font-size:13px;font-weight:500;margin-bottom:6px}
-.h24 i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(217,112,95,.25)}
+.btn:not(.ghost){color:#fff}
+.h24{display:inline-flex;align-items:center;gap:8px;background:rgba(194,58,71,.14);color:var(--accent-soft);border:1px solid rgba(194,58,71,.35);border-radius:30px;padding:6px 14px;font-size:13px;font-weight:500;margin-bottom:6px}
+.h24 i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(194,58,71,.25)}
 .hero h1{font-size:clamp(40px,5.2vw,62px)}
-.hero-photo img{border:1px solid rgba(217,112,95,.45);border-bottom:0;padding:10px 10px 0;background:linear-gradient(180deg,rgba(217,112,95,.18),transparent 70%)}
+.hero-photo img{border:1px solid rgba(194,58,71,.45);border-bottom:0;padding:10px 10px 0;background:linear-gradient(180deg,rgba(194,58,71,.18),transparent 70%)}
 </style>
 </head>
 <body>
@@ -367,93 +374,28 @@ a{color:inherit}
       <div class="track" id="track">
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>A Dra. Cláudia é uma excelente profissional. Atua com clareza, honestidade e muita competência. Lembro-me de quando precisei acioná-la em um momento de grande desespero. Fui atendido com cordialidade, transparência e uma recepção exemplar, o que me trouxe a tranquilidade que eu tanto precisava. Até hoje, tenho a Dra. Cláudia e toda a sua equipe como um verdadeiro suporte para seguir com os processos em andamento. Sou muito grata pelo profissionalismo, pela dedicação e pelo caráter exemplar demonstrados em cada etapa. Muito obrigado(a) por todo o apoio!</p>
-          <footer>Valquiria O.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Não tenho palavras suficientes para expressar minha gratidão à Dra. Cláudia. Uma profissional extremamente inteligente, dedicada e focada, que me acompanhou em um dos momentos mais difíceis da minha vida com sensibilidade e competência. Mais do que uma advogada, ela foi um verdadeiro amparo: acolhedora, atenta e sempre preocupada com meu bem-estar. Me senti protegida, segura e respeitada em todas as etapas do processo.</p>
-          <footer>Fabiane R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>A Dra. Cláudia é uma profissional excelente. Muito atenciosa, prestativa e clara nas explicações. Diferente de muitos, realmente corre atrás da solução e não fica enrolando. No meu caso, foi essencial para resolver tudo da melhor forma possível. Recomendo sem dúvidas.</p>
-          <footer>Cristo D.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Só tenho elogios a Drª Claudia e a Drª Silmara, excelentes profissionais, atenciosas, prestativas, extremamente profissionais! Tive a oportunidade de ter a prestação de serviços de ambas em situações diversas e as duas sempre me auxiliaram em tudo, em todos os momentos. Só tenho gratidão !!</p>
-          <footer>Caroline T.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Venho agradecer imensamente pela atenção, em especial no caso do meu irmão, pelo profissionalismo da Dra. Cláudia e Dra. Julia, agradeço de coração pelo carinho e dedicação de ambas, por me ajudar em um momento tão delicado de nossas vidas.</p>
-          <footer>Dionizia R.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
           <p>Dra. Cláudia foi extremamente pontual e precisa em tudo que precisei. Além do mais, sempre muito atenciosa e humana no tratamento. Super indico! Sempre agradecida!</p>
-          <footer>Elaine V.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Elaine V.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Atendimento excelente profissionais, muito acolhedoras e muito atenciosas , alem de resolver tudo com agilidade e muita competência... eu recomendo .</p>
-          <footer>Eliane C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelência e competência é o que à define. Sou muito grata pelo pessoa maravilhosa, e uma advogada excepcional a Doutora Cláudia. Desejo sucesso e tudo o que há de bom.</p>
-          <footer>Miguel I.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dra Claudia, excelente no atendimento e desempenho na causa! Só agradecimento pela atenção e orientação recebida!</p>
-          <footer>Angelica T.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Eliane C.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Atendimento rápido e muito dedicado a deixar bem resolvida qualquer dúvida. Pessoas educadas, bem informadas e atenciosas. Indico com certeza.</p>
-          <footer>Gilmar T.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Gilmar T.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
-          <p>Uma ótima profissional, não a conheço pessoalmente mas ela está cuidando do caso do meu irmão e sei que está em ótimas mãos.</p>
-          <footer>Janaina A.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Boa tarde,me senti seguro com a DR.CLáudia bem transparente nas palavras espero confirmar minha solicitação em breve,super indico seus trabalhos.</p>
-          <footer>Wilson M.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Localização excelente,profissionais de alta confiança,experiência e muita disciplina eu pessoalmente fasso uso de seus serviços e super recomendo</p>
-          <footer>Meire X.<small>Avaliação no Google</small></footer>
+          <p>Dra Claudia, excelente no atendimento e desempenho na causa! Só agradecimento pela atenção e orientação recebida!</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Angelica T.<small>Avaliação no Google</small></div></footer>
         </figure>
         <figure class="review">
           <div class="stars">★★★★★</div>
           <p>Parabéns pelo seu trabalho impecável! Sua competência, dedicação e comprometimento fazem de você uma advogada excelente, digna de toda admiração e respeito.</p>
-          <footer>Valeria C.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Excelentes!!! Sinceramente eu NUNCA tinha presenciado profissionais HUMANOS como essas doutoras. Peço que Deus sempre abençoe e que derrame chuva de bênçãos extraordinariamente na vida de ambas. PARABENS!!!! DEUS NOS ABENÇOE!!</p>
-          <footer>Sérgio B.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Uma ótima advogada, honesta e que realmente quer ajudar no problema.</p>
-          <footer>Dusilei P.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Advogada excelente, atenciosa, muito profissional.</p>
-          <footer>Matheus J.<small>Avaliação no Google</small></footer>
-        </figure>
-        <figure class="review">
-          <div class="stars">★★★★★</div>
-          <p>Dra.cláudia, excelente e muito competente em seu trabalho, super atenciosa e simpática.</p>
-          <footer>Luane S.<small>Avaliação no Google</small></footer>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Valeria C.<small>Avaliação no Google</small></div></footer>
         </figure>
       </div>
       <div class="car-ctrl">
@@ -486,9 +428,11 @@ a{color:inherit}
         </dl>
         <a class="btn" href="https://wa.me/5511946651736?text=Ol%C3%A1%2C%20Dra.%20Cl%C3%A1udia%21%20Vi%20o%20seu%20site%20e%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com a Dra. Cláudia</a>
       </div>
-      <div class="map reveal">
-        <iframe title="Mapa: Cláudia Durães" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.+Primeiro+de+Maio%2C+202+-+Centro%2C+Santo+Andr%C3%A9+-+SP%2C+09015-040&output=embed"></iframe>
-      </div>
+      <a class="map reveal" href="https://www.google.com/maps/search/?api=1&query=R.+Primeiro+de+Maio%2C+202+-+Centro%2C+Santo+Andr%C3%A9+-+SP%2C+09015-040" target="_blank" rel="noopener" aria-label="Abrir Cláudia Durães no Google Maps">
+        <img src="assets/mapa.jpg" alt="Mapa com a localização de Cláudia Durães" loading="lazy">
+        <span class="map-btn"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Abrir no Google Maps</span>
+        <small>© OpenStreetMap</small>
+      </a>
     </div>
   </div>
 </section>
