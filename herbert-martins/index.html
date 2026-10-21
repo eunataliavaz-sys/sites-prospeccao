@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!--
+  MODELO BASE DAS PRÉVIAS
+  - Trocar todos os {{...}}. Apagar blocos marcados com "OPCIONAL" quando não houver dado.
+  - Cores e fontes: só no :root e no <link> do Google Fonts.
+  - Ícones: sprite logo abaixo do <body>; usar <svg class="ic"><use href="#i-NOME"/></svg>.
+    Se faltar um ícone, criar outro <symbol> no mesmo estilo (traço Lucide, viewBox 0 0 24 24).
+  - Hero padrão = SPLIT com foto em arco. Para variar, trocar só o bloco .hero (ver SKILL.md).
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dr. Herbert Martins | Advocacia trabalhista e previdenciária em Santo André</title>
+<meta name="description" content="Dr. Herbert Martins, advogado trabalhista e previdenciário em Santo André e São Bernardo: rescisão, assédio, acidente de trabalho e INSS. 5,0 no Google.">
+<!-- Prévia do link no WhatsApp/redes: assets/og.jpg gerado por ferramentas/vitrine.py -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Dr. Herbert Martins | Advocacia trabalhista e previdenciária em Santo André">
+<meta property="og:description" content="Dr. Herbert Martins, advogado trabalhista e previdenciário em Santo André e São Bernardo: rescisão, assédio, acidente de trabalho e INSS. 5,0 no Google.">
+<meta property="og:url" content="https://eunataliavaz-sys.github.io/sites-prospeccao/herbert-martins/">
+<meta property="og:image" content="https://eunataliavaz-sys.github.io/sites-prospeccao/herbert-martins/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--dark:#1c1d20;
+  --brand:#2a2c31;
+  --accent:#f2c230;
+  --accent-soft:#f7da7f;
+  --bg:#f5f4f1;
+  --surface:#ffffff;
+  --text:#24252a;
+  --muted:#64656c;
+  --line:rgba(42,44,49,.13);
+  --serif:'Spectral',Georgia,serif;
+  --sans:'Barlow',system-ui,sans-serif;
+  --wa:#25d366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.7;font-size:16.5px}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+.kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.ic{width:22px;height:22px;flex:none}
+.ico{flex:none;display:inline-grid;place-items:center;width:44px;height:44px;border-radius:10px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:6px;background:var(--accent);color:var(--dark);text-decoration:none;font-weight:600;font-size:15px;transition:filter .25s,transform .25s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.btn.sm{padding:9px 18px;font-size:14px}
+.btn .ic{width:20px;height:20px}
+
+/* faixa de prévia (transparência: não é o site oficial) */
+.demo-bar{background:#000;color:#cfcac2;font-size:12px;line-height:1.3;text-align:center;padding:7px 16px}
+.demo-bar a{color:#fff}
+/* selo nas fotos que não são da pessoa */
+.ilustr{position:absolute;left:12px;bottom:12px;z-index:1;background:rgba(0,0,0,.6);color:#fff;font-size:11px;line-height:1;letter-spacing:.04em;padding:6px 10px;border-radius:20px}
+
+/* menu */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s;border-bottom:1px solid transparent}
+.nav.solid,.nav.open{background:var(--dark);border-color:rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.brand{text-decoration:none;color:#fff;line-height:1.15;white-space:nowrap;flex-shrink:0}
+.brand b{font-family:var(--serif);font-weight:400;font-size:22px;display:block}
+.brand small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft)}
+.nav ul{display:flex;gap:24px;list-style:none;font-size:14px}
+.nav ul a{text-decoration:none;color:#d9d6d0}
+.nav ul a:hover{color:var(--accent-soft)}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav .btn{white-space:nowrap}
+.burger{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.25);border-radius:6px;background:transparent;cursor:pointer;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:#fff;position:relative;transition:transform .25s,background .25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:1060px){
+  .burger{display:grid}
+  .nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--dark);padding:8px 16px 24px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s}
+  .nav ul a{display:block;padding:14px 4px;font-size:17px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .nav.open ul{opacity:1;transform:none;visibility:visible}
+}
+@media (max-width:420px){.nav-right .btn.sm{display:none}}
+
+/* hero (SPLIT com arco) */
+.hero{position:relative;background:var(--dark);color:#e7e3dc;overflow:hidden;padding:148px 0 0}
+.hero::after{content:"";position:absolute;right:-10%;top:-20%;width:60%;height:140%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 20%,transparent),transparent 60%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end}
+.hero-text{padding-bottom:96px}
+.hero h1{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(40px,5.6vw,66px);line-height:1.06;margin:18px 0 22px}
+.hero h1 i{color:var(--accent-soft)}
+.hero p{color:#b9b6b0;max-width:32em;margin-bottom:34px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.1);font-size:14px;color:#b9b6b0}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;color:#fff;line-height:1.1}
+.facts b span{color:var(--accent)}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:200px 200px 0 0}
+@media (max-width:860px){
+  .hero{padding-top:128px}
+  .hero .wrap{grid-template-columns:1fr;gap:8px}
+  .hero-text{padding-bottom:40px}
+  .hero-photo{max-width:360px;margin-inline:auto;width:100%}
+}
+
+/* seções */
+/* espaço entre seções: UM valor só (--gap-secao). Seções seguidas com o mesmo fundo não somam o espaço;
+   seção com fundo próprio (.dark ou outra cor) mantém o espaço por dentro, em cima e embaixo. Não usar padding-top inline. */
+html{--gap-secao:clamp(64px,8vw,96px)}
+.section{padding:var(--gap-secao) 0}
+.section:not(.dark)+.section:not(.dark){padding-top:0}
+.head{max-width:640px;margin-bottom:52px}
+.head.center{text-align:center;margin-inline:auto}
+.head h2,.about h2{font-family:var(--serif);font-weight:400;color:var(--brand);font-size:clamp(32px,4.4vw,46px);line-height:1.12;margin-top:10px}
+.head p{color:var(--muted);margin-top:14px}
+.dark{background:var(--dark);color:#d8d4cd}
+.dark .head h2{color:#fff}
+
+/* serviços */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:980px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.services{grid-template-columns:1fr}}
+/* card de chamada no fim da grade (montar.py): ocupa as colunas que sobram, para não ficar buraco. d = colunas no computador, t = no tablet */
+.card.card-cta{background:var(--brand);border-color:transparent;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.card.card-cta h3{color:#fff;margin:0 0 6px}
+.card.card-cta p{color:rgba(255,255,255,.72)}
+.card-cta .btn{align-self:flex-start}
+@media (min-width:981px){
+  .card-cta.d2{grid-column:span 2}.card-cta.d3{grid-column:span 3}
+  .card-cta.d2,.card-cta.d3{flex-direction:row;align-items:center;justify-content:space-between;gap:28px}
+  .card-cta.d2 .btn,.card-cta.d3 .btn{align-self:center;flex-shrink:0}
+}
+@media (min-width:601px) and (max-width:980px){.card-cta.t2{grid-column:span 2}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px 26px;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 22px 40px -28px rgba(20,22,29,.45)}
+.card h3{font-family:var(--serif);font-weight:400;color:var(--brand);font-size:24px;margin:14px 0 6px;line-height:1.2}
+.card p{color:var(--muted);font-size:15px}
+
+/* sobre */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.about-img{position:relative;width:100%;max-width:440px}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;box-shadow:24px 24px 0 -1px var(--accent-soft)}
+.about h2{margin:10px 0 20px}
+.about p{color:var(--muted);margin-bottom:16px}
+.about blockquote{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--brand);border-left:2px solid var(--accent);padding-left:20px;margin:28px 0}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:44px}.about-img{max-width:360px;margin-inline:auto}}
+
+/* avaliações (carrossel) */
+.score{display:flex;align-items:center;justify-content:center;gap:16px;margin:-24px 0 44px;color:var(--brand)}
+.score strong{font-family:var(--serif);font-weight:400;font-size:54px;line-height:1}
+.score .stars{color:var(--accent);font-size:20px;letter-spacing:3px;display:block}
+.score small{color:var(--muted);font-size:14px}
+.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px}
+.track::-webkit-scrollbar{display:none}
+.review{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;background:var(--surface);border-radius:16px;padding:26px 26px 22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.review .stars{color:var(--accent);letter-spacing:2px;font-size:14px;margin-bottom:-4px}
+.review p{font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden} /* segurança: texto longo vira "…" */
+.review footer{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--brand);font-weight:600;line-height:1.3}
+.review footer small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.review .g{width:22px;height:22px;flex:none}
+.car-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer}
+.car-btn:hover{background:var(--brand);color:#fff}
+.dots{display:flex;gap:8px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:color-mix(in srgb,var(--brand) 22%,transparent);cursor:pointer;transition:width .2s}
+.dots button.on{background:var(--accent);width:22px;border-radius:5px}
+.dots.count{font-size:14px;color:var(--muted);min-width:64px;justify-content:center;font-variant-numeric:tabular-nums}
+@media (max-width:900px){.review{flex-basis:calc((100% - 20px)/2)}}
+@media (max-width:600px){.review{flex-basis:86%}}
+
+/* galeria: colagem (bento) com fotos REAIS do Google, sem pessoas. Classe .n3/.n4/.n5 = nº de fotos */
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(44px,5.6vw,74px)}
+.mosaic figure{position:relative;margin:0;border-radius:12px;overflow:hidden;border:6px solid var(--bg);box-shadow:0 22px 44px -22px rgba(0,0,0,.45);background:var(--surface)}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:701px){
+  .mosaic figure:nth-child(1){grid-column:1/8;grid-row:1/8;z-index:1}
+  .mosaic figure:nth-child(2){grid-column:7/13;grid-row:1/5;z-index:2}
+  .mosaic figure:nth-child(3){grid-column:8/11;grid-row:4/9;z-index:3}
+  .mosaic figure:nth-child(4){grid-column:10/13;grid-row:5/10;z-index:4}
+  .mosaic figure:nth-child(5){grid-column:3/8;grid-row:7/10;z-index:2}
+  .mosaic.n3 figure:nth-child(3){grid-column:8/13;grid-row:4/8}
+  .mosaic.n4 figure:nth-child(3){grid-column:7/10;grid-row:5/9}
+  .mosaic.n4 figure:nth-child(4){grid-column:9/13;grid-row:4/8}
+}
+.mosaic-fonte{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
+@media (max-width:700px){
+  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:0}
+  .mosaic figure:nth-child(1){grid-column:1/3;grid-row:span 2}
+  .mosaic figure:nth-child(2){margin:-28px -10px 0 0;z-index:2}
+  .mosaic figure:nth-child(3){margin:6px 0 -22px -10px;z-index:3}
+  .mosaic.n4 figure:nth-child(4){grid-column:1/3}
+}
+
+/* contato */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:36px}
+.info{background:var(--brand);color:#cfd3df;border-radius:10px;padding:40px 34px}
+.info h3{font-family:var(--serif);font-weight:400;color:#fff;font-size:30px;margin-bottom:24px}
+.info dl{display:grid;gap:18px;margin-bottom:30px}
+.info dl>div{display:flex;gap:14px;align-items:flex-start}
+.info .ico{background:rgba(255,255,255,.07);color:var(--accent-soft);width:40px;height:40px}
+.info dt{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.info dd a{text-decoration:none;color:#fff}
+.social{display:flex;gap:10px;margin-top:6px}
+.social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,color .2s}
+.social a:hover{background:var(--accent);border-color:var(--accent);color:var(--dark)}
+.social .ic{width:20px;height:20px}
+/* mapa: imagem estática (ferramentas/mapa.py), carrega na hora; o clique abre o Google Maps */
+.map{position:relative;display:block;border-radius:10px;overflow:hidden;min-height:380px;border:1px solid var(--line);background:#eceae6}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.map:hover img{transform:scale(1.03)}
+.map-btn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.map-btn .ic{width:18px;height:18px}
+.map small{position:absolute;right:6px;bottom:4px;font-size:10px;color:#555;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:3px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+/* rodapé */
+.foot{background:var(--dark);color:#8f8c86;padding:52px 0 96px;font-size:13.5px;text-align:center}
+.foot b{font-family:var(--serif);font-weight:400;color:#fff;font-size:24px;display:block;margin-bottom:6px}
+.foot .social{justify-content:center;margin:18px 0 0}
+.foot .legal{max-width:620px;margin:18px auto 0;font-size:12px;line-height:1.6;opacity:.85}
+.foot a{color:var(--accent-soft)}
+.credit{margin-top:18px;font-size:12px;opacity:.7}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.3);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float .ic{width:30px;height:30px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* sobre: no celular = título, foto, texto */
+.about{grid-template-areas:"img head" "img body";row-gap:0}
+.about>.about-img{grid-area:img;align-self:center}
+.about-head{grid-area:head;align-self:end}
+.about-body{grid-area:body;align-self:start}
+@media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
+.hero h1,.head h2,.about h2{font-weight:600;letter-spacing:-.015em}
+.hero h1 i{font-weight:500}
+@media (min-width:861px){.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end}.hero .wrap{align-items:stretch}.hero-text{align-self:center;padding-bottom:48px}.hero-photo img{aspect-ratio:auto;height:calc(100vh - 150px);min-height:560px}}
+@media (max-width:860px){.hero::after{display:none}}
+.hero-photo .ilustr{bottom:16px}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- redes e contato (preenchidos) -->
+  <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9A11 11 0 0 0 2.5 17.6L1 23l5.5-1.4A11 11 0 1 0 12 .9zm0 20.1a9 9 0 0 1-4.6-1.3l-.3-.2-3.3.9.9-3.2-.2-.3A9.1 9.1 0 1 1 12 21zm5-6.8c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.4.8-1.4.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1a23 23 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.2h2.8V22h3.4z"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.2a6.2 6.2 0 1 0 5.3 6.2V8.6a7.7 7.7 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.7z"/></symbol>
+  <!-- traço (estilo Lucide) -->
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+  <!-- serviços: escolher os que servem; criar outros no mesmo estilo se precisar -->
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></symbol>
+  <symbol id="i-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v6a5 5 0 0 0 10 0V2"/><path d="M10 13v3a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></symbol>
+  <symbol id="i-dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5v11M17.5 6.5v11M3 9v6M21 9v6M6.5 12h11"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+  <symbol id="i-cake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20M7 8v3M12 8v3M17 8v3"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-gavel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8"/><path d="m16 16 6-6M8 8l6-6M9 7l8 8M21 11l-8-8"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-umbrella" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12a10 10 0 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0M12 2v1"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="demo-bar">Prévia demonstrativa criada por <a href="https://eunataliavaz-sys.github.io/sites-prospeccao/natalia-vaz/" target="_blank" rel="noopener">Natália Vaz</a> · não é o site oficial de Dr. Herbert Martins</div>
+  <div class="wrap">
+    <a href="#inicio" class="brand"><b>Dr. Herbert Martins</b><small>Trabalhista e previdenciário</small></a>
+    <!-- Menu: um link para CADA seção que existir na página -->
+    <ul id="menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#servicos">Atuação</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn sm" href="https://wa.me/5511932295877?text=Ol%C3%A1%2C%20Dr.%20Herbert%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-text reveal">
+      <span class="kicker">Advocacia trabalhista e previdenciária · Santo André</span>
+      <h1>Seus direitos no <i>trabalho</i> e no INSS, bem defendidos</h1>
+      <p>Atendimento humanizado e explicações claras e realistas sobre o seu caso. Unidades em Santo André e São Bernardo do Campo.</p>
+      <div class="ctas">
+        <a class="btn" href="https://wa.me/5511932295877?text=Ol%C3%A1%2C%20Dr.%20Herbert%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com o Dr. Herbert</a>
+        <a class="btn ghost" href="#servicos">Ver atuação</a>
+      </div>
+      <div class="facts">
+        <div><b>5,0 <span>★</span></b>no Google</div>
+        <div><b>37</b>avaliações</div>
+        <div><b>2</b>unidades no ABC</div>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <img src="assets/hero.jpg" alt="Advogado (imagem ilustrativa)">
+      <span class="ilustr">Imagem ilustrativa</span>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Serviços</span>
+      <h2>Como posso ajudar</h2>
+      <p>Atuação dedicada aos direitos dos trabalhadores e dos segurados do INSS.</p>
+    </div>
+    <div class="services">
+      <article class="card reveal">
+        <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+        <h3>Rescisão e verbas trabalhistas</h3>
+        <p>Demissão, verbas rescisórias, FGTS não depositado e rescisão indireta.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
+        <h3>Jornada e adicionais</h3>
+        <p>Horas extras, adicional noturno, escala 12x36, insalubridade e salário substituição.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></span>
+        <h3>Assédio e saúde no trabalho</h3>
+        <p>Assédio moral, cobranças abusivas, burnout e dispensa discriminatória.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <h3>Acidente e doença ocupacional</h3>
+        <p>Acidentes de trabalho, LER/DORT e doenças causadas pelo trabalho.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg></span>
+        <h3>Vínculo de emprego</h3>
+        <p>Pejotização e outras situações em que o vínculo de emprego não foi reconhecido.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-umbrella"/></svg></span>
+        <h3>Benefícios do INSS</h3>
+        <p>Auxílio-acidente, aposentadorias e demais benefícios dos segurados do INSS.</p>
+      </article>
+      <article class="card card-cta d3 t2 reveal">
+        <div><h3>Não encontrou o seu caso?</h3><p>Conte a sua situação pelo WhatsApp e receba uma orientação sobre o melhor caminho.</p></div>
+        <a class="btn" href="https://wa.me/5511932295877?text=Ol%C3%A1%2C%20Dr.%20Herbert%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com o Dr. Herbert</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="wrap about">
+    <div class="about-img reveal">
+      <img src="assets/sobre.jpg" alt="Advogado (imagem ilustrativa)" loading="lazy">
+      <span class="ilustr">Imagem ilustrativa</span>
+    </div>
+    <div class="about-head reveal">
+      <span class="kicker">Sobre</span>
+      <h2>Atendimento humanizado, orientação realista</h2>
+    </div>
+    <div class="about-body reveal">
+      <p>Herbert Martins é advogado trabalhista e previdenciário, mentor e palestrante, à frente da Moraes Martins Advocacia, com unidades em Santo André e São Bernardo do Campo.</p>
+      <p>O atendimento é humanizado: ouvir com paciência, explicar de forma clara e realista e orientar sobre o melhor caminho. No Instagram, ele traduz os direitos do trabalhador em conteúdos simples, do burnout ao acidente de trabalho.</p>
+      <blockquote>“Excelência jurídica ao seu alcance.”</blockquote>
+      <a class="btn" href="https://wa.me/5511932295877?text=Ol%C3%A1%2C%20Dr.%20Herbert%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com o Dr. Herbert</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="avaliacoes">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="kicker">Avaliações</span>
+      <h2>O que dizem os clientes</h2>
+    </div>
+    <div class="score reveal">
+      <strong>5,0</strong>
+      <div><span class="stars">★★★★★</span><small>37 avaliações no Google</small></div>
+    </div>
+    <div class="carousel reveal" aria-roledescription="carrossel" aria-label="Avaliações no Google">
+      <div class="track" id="track">
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Profissional muito atencioso e honesto, explica bem, de forma clara e realista, extremamente recomendado</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Matheus B.<small>Avaliação no Google</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Excelente advogado! Super recomendo! Tira todas as dúvidas, explica de forma fácil de entender e de extrema confiança!</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Pollyanna L.<small>Avaliação no Google</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Profissional excelente! Calmo,teve paciência para ouvir e explicar como resolver a situação.super indico!!</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Rita R.<small>Avaliação no Google</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Profissional dedicado com atendimento humanizado. Super indico.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Marcos S.<small>Avaliação no Google</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Profissional excelente, atendimento impecável, tem conhecimento no que diz e faz. Podem confiar, eu indico de olhos fechados: profissional que corre atrás dos nossos direitos.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Deise B.<small>Avaliação no Google</small></div></footer>
+        </figure>
+      </div>
+      <div class="car-ctrl">
+        <button class="car-btn" id="prev" aria-label="Avaliação anterior">‹</button>
+        <div class="dots" id="dots"></div>
+        <button class="car-btn" id="next" aria-label="Próxima avaliação">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="kicker">Contato</span>
+      <h2>Fale sobre o seu caso</h2>
+    </div>
+    <div class="contact">
+      <div class="info reveal">
+        <h3>Dr. Herbert Martins</h3>
+        <dl>
+          <div><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></span><div><dt>WhatsApp</dt><dd><a href="https://wa.me/5511932295877" target="_blank" rel="noopener">(11) 93229-5877</a></dd></div></div>
+          <div><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><div><dt>E-mail</dt><dd><a href="mailto:juridicommadvogado@gmail.com">juridicommadvogado@gmail.com</a></dd></div></div>
+          <div><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span><div><dt>Endereço</dt><dd>R. das Esmeraldas, 395 · 12º andar · Sala 122<br>Jardim · Santo André · SP · 09090-770</dd></div></div>
+          <div><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span><div><dt>Horário</dt><dd>Segunda a sexta, das 9h às 18h<br>Unidades em Santo André e São Bernardo do Campo</dd></div></div>
+          <div><div><dt>Redes sociais</dt><dd><div class="social">
+            <a href="https://www.instagram.com/herbertmartinsadv/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            <a href="https://wa.me/5511932295877" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+          </div></dd></div></div>
+        </dl>
+        <a class="btn" href="https://wa.me/5511932295877?text=Ol%C3%A1%2C%20Dr.%20Herbert%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com o Dr. Herbert</a>
+      </div>
+      <a class="map reveal" href="https://www.google.com/maps/search/?api=1&query=R.+das+Esmeraldas%2C+395+-+Jardim%2C+Santo+Andr%C3%A9+-+SP%2C+09090-770" target="_blank" rel="noopener" aria-label="Abrir Dr. Herbert Martins no Google Maps">
+        <img src="assets/mapa.jpg" alt="Mapa com a localização de Dr. Herbert Martins" loading="lazy">
+        <span class="map-btn"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Abrir no Google Maps</span>
+        <small>© OpenStreetMap</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <b>Dr. Herbert Martins</b>
+    Advocacia trabalhista e previdenciária · Santo André
+    <div class="social">
+      <a href="https://www.instagram.com/herbertmartinsadv/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+      <a href="https://wa.me/5511932295877" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+    </div>
+    <!-- OPCIONAL (advocacia): -->
+    <p class="legal">Advogado regularmente inscrito na OAB. Este site tem caráter meramente informativo, em observância ao Código de Ética e Disciplina e ao Provimento nº 205/2021 do Conselho Federal da OAB.</p>
+    <p class="credit">Prévia criada por <a href="https://eunataliavaz-sys.github.io/sites-prospeccao/natalia-vaz/" target="_blank" rel="noopener">Natália Vaz</a></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511932295877?text=Ol%C3%A1%2C%20Dr.%20Herbert%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+
+<script>
+const nav=document.getElementById('nav'),burger=document.getElementById('burger');
+const onScroll=()=>nav.classList.toggle('solid',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
+const setMenu=open=>{nav.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')};
+burger.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+(()=>{ // carrossel de avaliações
+  const track=document.getElementById('track');if(!track)return;
+  const cards=[...track.children],dots=document.getElementById('dots');
+  if(cards.length<2){document.querySelector('.car-ctrl').remove();return}
+  const step=()=>cards[1].offsetLeft-cards[0].offsetLeft;
+  const pages=()=>cards.length-Math.max(1,Math.round(track.clientWidth/step()))+1;
+  const cur=()=>Math.round(track.scrollLeft/step());
+  const go=i=>{const n=pages();track.scrollTo({left:((i%n)+n)%n*step()})};
+  const draw=()=>{const n=pages();
+    if(n>8){dots.classList.add('count');dots.textContent=(Math.min(cur(),n-1)+1)+' / '+n;return} // muitas avaliações: contador no lugar dos pontinhos
+    dots.classList.remove('count');if(dots.children.length!==n||!dots.firstElementChild){dots.innerHTML='';for(let i=0;i<n;i++){const b=document.createElement('button');b.setAttribute('aria-label','Ir para avaliação '+(i+1));b.onclick=()=>go(i);dots.appendChild(b)}}
+    [...dots.children].forEach((b,i)=>b.classList.toggle('on',i===Math.min(cur(),n-1)))};
+  document.getElementById('prev').onclick=()=>go(cur()-1);
+  document.getElementById('next').onclick=()=>go(cur()+1);
+  track.addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});
+  addEventListener('resize',draw);draw();
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let paused=false;const car=track.parentElement;
+    ['mouseenter','touchstart','focusin'].forEach(e=>car.addEventListener(e,()=>paused=true,{passive:true}));
+    car.addEventListener('mouseleave',()=>paused=false);
+    setInterval(()=>{if(!paused&&!document.hidden)go(cur()+1)},6000);
+  }
+})();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
