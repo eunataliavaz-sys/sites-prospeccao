@@ -124,7 +124,20 @@ a{color:inherit}
 .dark .head h2{color:#fff}
 
 /* serviços */
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:980px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.services{grid-template-columns:1fr}}
+/* card de chamada no fim da grade (montar.py): ocupa as colunas que sobram, para não ficar buraco. d = colunas no computador, t = no tablet */
+.card.card-cta{background:var(--brand);border-color:transparent;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.card.card-cta h3{color:#fff;margin:0 0 6px}
+.card.card-cta p{color:rgba(255,255,255,.72)}
+.card-cta .btn{align-self:flex-start}
+@media (min-width:981px){
+  .card-cta.d2{grid-column:span 2}.card-cta.d3{grid-column:span 3}
+  .card-cta.d2,.card-cta.d3{flex-direction:row;align-items:center;justify-content:space-between;gap:28px}
+  .card-cta.d2 .btn,.card-cta.d3 .btn{align-self:center;flex-shrink:0}
+}
+@media (min-width:601px) and (max-width:980px){.card-cta.t2{grid-column:span 2}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px 26px;transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-5px);box-shadow:0 22px 40px -28px rgba(20,22,29,.45)}
 .card h3{font-family:var(--serif);font-weight:400;color:var(--brand);font-size:24px;margin:14px 0 6px;line-height:1.2}
@@ -365,16 +378,19 @@ a{color:inherit}
         <h3>Atendimento online</h3>
         <p>Atendimento presencial no escritório ou a distância, como for melhor para você.</p>
       </article>
+      <article class="card card-cta d3 t2 reveal">
+        <div><h3>Não encontrou o seu caso?</h3><p>Conte a sua situação pelo WhatsApp e receba uma orientação sobre o melhor caminho.</p></div>
+        <a class="btn" href="https://wa.me/5511987317562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Leite%20Alves%20Pinheiro%20Advocacia%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com o escritório</a>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="section" id="sobre" style="padding-top:0">
   <div class="wrap about">
-    <div class="about-img partners reveal">
-      <div class="partner"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span><div><b>Dr. Augusto Leite</b><small>Sócio fundador</small></div></div>
-      <div class="partner"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span><div><b>Dr. Willian Alves</b><small>Sócio fundador</small></div></div>
-      <div class="tagline">Atendimento presencial em Santa Terezinha, Santo André, e online.</div>
+    <div class="about-img reveal">
+      <img src="assets/sobre.jpg" alt="Dois advogados lado a lado (imagem ilustrativa)" loading="lazy">
+      <span class="ilustr">Imagem ilustrativa</span>
     </div>
     <div class="about-head reveal">
       <span class="kicker">Sobre</span>

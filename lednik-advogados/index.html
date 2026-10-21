@@ -121,7 +121,20 @@ a{color:inherit}
 .dark .head h2{color:#fff}
 
 /* serviços */
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:980px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.services{grid-template-columns:1fr}}
+/* card de chamada no fim da grade (montar.py): ocupa as colunas que sobram, para não ficar buraco. d = colunas no computador, t = no tablet */
+.card.card-cta{background:var(--brand);border-color:transparent;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.card.card-cta h3{color:#fff;margin:0 0 6px}
+.card.card-cta p{color:rgba(255,255,255,.72)}
+.card-cta .btn{align-self:flex-start}
+@media (min-width:981px){
+  .card-cta.d2{grid-column:span 2}.card-cta.d3{grid-column:span 3}
+  .card-cta.d2,.card-cta.d3{flex-direction:row;align-items:center;justify-content:space-between;gap:28px}
+  .card-cta.d2 .btn,.card-cta.d3 .btn{align-self:center;flex-shrink:0}
+}
+@media (min-width:601px) and (max-width:980px){.card-cta.t2{grid-column:span 2}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px 26px;transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-5px);box-shadow:0 22px 40px -28px rgba(20,22,29,.45)}
 .card h3{font-family:var(--serif);font-weight:400;color:var(--brand);font-size:24px;margin:14px 0 6px;line-height:1.2}
@@ -366,6 +379,10 @@ a{color:inherit}
         <span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
         <h3>Negociações</h3>
         <p>Acordos, notificações extrajudiciais e confissões de dívida para resolver conflitos com diálogo.</p>
+      </article>
+      <article class="card card-cta d1 t2 reveal">
+        <div><h3>Não encontrou o seu caso?</h3><p>Conte a sua situação pelo WhatsApp e receba uma orientação sobre o melhor caminho.</p></div>
+        <a class="btn" href="https://wa.me/5511964734692?text=Ol%C3%A1%21%20Vi%20o%20site%20do%20Lednik%20Advogados%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com a Dra. Priscila</a>
       </article>
     </div>
   </div>
