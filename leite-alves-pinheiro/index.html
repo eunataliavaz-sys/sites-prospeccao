@@ -69,13 +69,14 @@ a{color:inherit}
 .nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s;border-bottom:1px solid transparent}
 .nav.solid,.nav.open{background:var(--dark);border-color:rgba(255,255,255,.06)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
-.brand{text-decoration:none;color:#fff;line-height:1.15}
+.brand{text-decoration:none;color:#fff;line-height:1.15;white-space:nowrap;flex-shrink:0}
 .brand b{font-family:var(--serif);font-weight:400;font-size:22px;display:block}
 .brand small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft)}
 .nav ul{display:flex;gap:24px;list-style:none;font-size:14px}
 .nav ul a{text-decoration:none;color:#d9d6d0}
 .nav ul a:hover{color:var(--accent-soft)}
-.nav-right{display:flex;align-items:center;gap:14px}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav .btn{white-space:nowrap}
 .burger{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.25);border-radius:6px;background:transparent;cursor:pointer;place-items:center}
 .burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:#fff;position:relative;transition:transform .25s,background .25s}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0}
@@ -91,9 +92,9 @@ a{color:inherit}
 }
 @media (max-width:420px){.nav-right .btn.sm{display:none}}
 
-/* hero (TYPOGRAPHIC assimétrico: texto + painel numerado das áreas) */
-.hero{position:relative;background:linear-gradient(90deg,rgba(12,11,9,.95) 0%,rgba(12,11,9,.86) 50%,rgba(12,11,9,.6) 100%),url(assets/hero.jpg) center/cover var(--dark);color:#e6e1d8;overflow:hidden;padding:168px 0 104px}
-.hero>.ilustr{left:auto;right:16px;bottom:16px}
+/* hero (TYPOGRAPHIC: texto à esquerda sobre foto de escritório escurecida) */
+.hero{position:relative;background:linear-gradient(90deg,rgba(12,11,9,.95) 0%,rgba(12,11,9,.86) 50%,rgba(12,11,9,.6) 100%),url(assets/hero.jpg) center/cover var(--dark);color:#e6e1d8;overflow:hidden;padding:168px 0 104px;min-height:100vh;display:flex;align-items:center}
+.hero>.ilustr{left:16px;bottom:16px}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(201,164,92,.16),transparent 45%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/100% 64px;pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:72px;align-items:center}
 .hero h1{font-family:var(--serif);font-weight:600;color:#fff;font-size:clamp(38px,5vw,62px);line-height:1.08;margin:18px 0 22px;letter-spacing:-.025em}
@@ -319,7 +320,7 @@ a{color:inherit}
     <div class="hero-text reveal">
       <span class="kicker">Advocacia &amp; consultoria jurídica · Santo André</span>
       <h1>Estratégia, ética e <i>defesa</i> dos seus direitos</h1>
-      <p>Advocacia estratégica e combativa nas áreas criminal, trabalhista, cível e previdenciária. Atendimento presencial e online, 24 horas.</p>
+      <p>Advocacia estratégica e combativa, comprometida com os seus direitos e com a ética. Atendimento presencial e online, 24 horas.</p>
       <div class="ctas">
         <a class="btn" href="https://wa.me/5511987317562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Leite%20Alves%20Pinheiro%20Advocacia%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com o escritório</a>
         <a class="btn ghost" href="#servicos">Ver áreas</a>
@@ -330,12 +331,6 @@ a{color:inherit}
         <div><b>24h</b>presencial e online</div>
       </div>
     </div>
-    <ul class="areas reveal" aria-label="Áreas de atuação">
-      <li><span>01</span>Criminal</li>
-      <li><span>02</span>Trabalhista</li>
-      <li><span>03</span>Cível</li>
-      <li><span>04</span><div>Previdenciário<small class="foot-note">e consultoria jurídica</small></div></li>
-    </ul>
   </div>
   <span class="ilustr">Imagem ilustrativa</span>
 </header>

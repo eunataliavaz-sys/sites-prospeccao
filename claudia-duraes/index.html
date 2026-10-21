@@ -69,13 +69,14 @@ a{color:inherit}
 .nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s;border-bottom:1px solid transparent}
 .nav.solid,.nav.open{background:var(--dark);border-color:rgba(255,255,255,.06)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
-.brand{text-decoration:none;color:#fff;line-height:1.15}
+.brand{text-decoration:none;color:#fff;line-height:1.15;white-space:nowrap;flex-shrink:0}
 .brand b{font-family:var(--serif);font-weight:400;font-size:22px;display:block}
 .brand small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft)}
 .nav ul{display:flex;gap:24px;list-style:none;font-size:14px}
 .nav ul a{text-decoration:none;color:#d9d6d0}
 .nav ul a:hover{color:var(--accent-soft)}
-.nav-right{display:flex;align-items:center;gap:14px}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav .btn{white-space:nowrap}
 .burger{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.25);border-radius:6px;background:transparent;cursor:pointer;place-items:center}
 .burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:#fff;position:relative;transition:transform .25s,background .25s}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0}
@@ -314,7 +315,7 @@ a{color:inherit}
       <span class="h24"><i></i>Atendimento 24 horas</span><br>
       <span class="kicker">Advocacia criminal · Santo André</span>
       <h1>Defesa criminal com <i>presença</i> quando você mais precisa</h1>
-      <p>Atuação em Direito Criminal e de Família, com atendimento humano, explicações claras e acompanhamento em cada etapa, a qualquer hora.</p>
+      <p>Atendimento humano, explicações claras e acompanhamento em cada etapa, a qualquer hora.</p>
       <div class="ctas">
         <a class="btn" href="https://wa.me/5511946651736?text=Ol%C3%A1%2C%20Dra.%20Cl%C3%A1udia%21%20Vi%20o%20seu%20site%20e%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com a Dra. Cláudia</a>
         <a class="btn ghost" href="#servicos">Ver atuação</a>
