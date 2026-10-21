@@ -113,7 +113,11 @@ a{color:inherit}
 }
 
 /* seções */
-.section{padding:96px 0}
+/* espaço entre seções: UM valor só (--gap-secao). Seções seguidas com o mesmo fundo não somam o espaço;
+   seção com fundo próprio (.dark ou outra cor) mantém o espaço por dentro, em cima e embaixo. Não usar padding-top inline. */
+html{--gap-secao:clamp(64px,8vw,96px)}
+.section{padding:var(--gap-secao) 0}
+.section:not(.dark)+.section:not(.dark){padding-top:0}
 .head{max-width:640px;margin-bottom:52px}
 .head.center{text-align:center;margin-inline:auto}
 .head h2,.about h2{font-family:var(--serif);font-weight:400;color:var(--brand);font-size:clamp(32px,4.4vw,46px);line-height:1.12;margin-top:10px}
@@ -242,6 +246,7 @@ a{color:inherit}
 @media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
 .faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
 .faq details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:12px}
+.faq details:last-child{margin-bottom:0}
 .faq summary{cursor:pointer;font-family:var(--serif);font-size:20px;color:var(--brand);list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";color:var(--accent);font-family:var(--sans);font-size:24px;line-height:1;transition:transform .25s}
@@ -388,7 +393,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="section" id="sobre" style="padding-top:0">
+<section class="section" id="sobre">
   <div class="wrap about">
     <div class="about-img reveal">
       <img src="assets/sobre.jpg" alt="Advogada em escritório (imagem ilustrativa)" loading="lazy">
@@ -454,7 +459,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="section" id="duvidas" style="padding-top:0">
+<section class="section" id="duvidas">
   <div class="wrap faq-wrap">
     <div class="head reveal">
       <span class="kicker">Dúvidas frequentes</span>
@@ -469,7 +474,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="section" id="contato" style="padding-top:0">
+<section class="section" id="contato">
   <div class="wrap">
     <div class="head center reveal">
       <span class="kicker">Contato</span>

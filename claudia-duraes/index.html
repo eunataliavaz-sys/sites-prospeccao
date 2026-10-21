@@ -114,7 +114,11 @@ a{color:inherit}
 }
 
 /* seções */
-.section{padding:96px 0}
+/* espaço entre seções: UM valor só (--gap-secao). Seções seguidas com o mesmo fundo não somam o espaço;
+   seção com fundo próprio (.dark ou outra cor) mantém o espaço por dentro, em cima e embaixo. Não usar padding-top inline. */
+html{--gap-secao:clamp(64px,8vw,96px)}
+.section{padding:var(--gap-secao) 0}
+.section:not(.dark)+.section:not(.dark){padding-top:0}
 .head{max-width:640px;margin-bottom:52px}
 .head.center{text-align:center;margin-inline:auto}
 .head h2,.about h2{font-family:var(--serif);font-weight:400;color:var(--brand);font-size:clamp(32px,4.4vw,46px);line-height:1.12;margin-top:10px}
@@ -379,7 +383,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="section" id="sobre" style="padding-top:0">
+<section class="section" id="sobre">
   <div class="wrap about">
     <div class="about-img reveal">
       <img src="assets/sobre.jpg" alt="Advogada (imagem ilustrativa)" loading="lazy">
@@ -398,7 +402,7 @@ a{color:inherit}
 </section>
 
 <!-- OPCIONAL: só com fotos reais (perfil do Google/Instagram, SEM pessoas na abordagem direta). Montado pelo montar.py a partir de cfg['galeria'] -->
-<section class="section" id="galeria" style="padding-top:0">
+<section class="section" id="galeria">
   <div class="wrap">
     <div class="head center reveal">
       <span class="kicker">O espaço</span>
@@ -462,7 +466,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="section" id="contato" style="padding-top:0">
+<section class="section" id="contato">
   <div class="wrap">
     <div class="head center reveal">
       <span class="kicker">Contato</span>
