@@ -91,11 +91,11 @@ a{color:inherit}
 }
 @media (max-width:420px){.nav-right .btn.sm{display:none}}
 
-/* hero (TYPOGRAPHIC centralizado, sem foto) */
-.hero{position:relative;background:var(--dark);color:#e3e7ea;overflow:hidden;padding:190px 0 110px;text-align:center}
-.hero::before{content:"L";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:min(78vw,820px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(210,166,140,.14);pointer-events:none}
+/* hero (TYPOGRAPHIC centralizado sobre foto de escritório do kit, escurecida na cor da ID) */
+.hero{position:relative;background:linear-gradient(180deg,rgba(22,29,35,.93) 0%,rgba(22,29,35,.8) 55%,rgba(22,29,35,.95) 100%),url(assets/hero.jpg) center/cover var(--dark);color:#e3e7ea;overflow:hidden;padding:190px 0 110px;text-align:center}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5}
 .hero .wrap{position:relative;z-index:1}
+.hero>.ilustr{left:16px;bottom:16px;z-index:2}
 .hero-text{max-width:860px;margin-inline:auto}
 .hero h1{font-family:var(--serif);font-weight:500;color:#fff;font-size:clamp(40px,6.4vw,82px);line-height:1.04;margin:22px 0 26px;letter-spacing:-.01em}
 .hero h1 i{color:var(--accent-soft)}
@@ -159,10 +159,28 @@ a{color:inherit}
 @media (max-width:900px){.review{flex-basis:calc((100% - 20px)/2)}}
 @media (max-width:600px){.review{flex-basis:86%}}
 
-/* galeria */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px}
-@media (max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
+/* galeria: colagem (bento) com fotos REAIS do Google, sem pessoas. Classe .n3/.n4/.n5 = nº de fotos */
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(44px,5.6vw,74px)}
+.mosaic figure{position:relative;margin:0;border-radius:12px;overflow:hidden;border:6px solid var(--bg);box-shadow:0 22px 44px -22px rgba(0,0,0,.45);background:var(--surface)}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:701px){
+  .mosaic figure:nth-child(1){grid-column:1/8;grid-row:1/8;z-index:1}
+  .mosaic figure:nth-child(2){grid-column:7/13;grid-row:1/5;z-index:2}
+  .mosaic figure:nth-child(3){grid-column:8/11;grid-row:4/9;z-index:3}
+  .mosaic figure:nth-child(4){grid-column:10/13;grid-row:5/10;z-index:4}
+  .mosaic figure:nth-child(5){grid-column:3/8;grid-row:7/10;z-index:2}
+  .mosaic.n3 figure:nth-child(3){grid-column:8/13;grid-row:4/8}
+  .mosaic.n4 figure:nth-child(3){grid-column:7/10;grid-row:5/9}
+  .mosaic.n4 figure:nth-child(4){grid-column:9/13;grid-row:4/8}
+}
+.mosaic-fonte{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
+@media (max-width:700px){
+  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:0}
+  .mosaic figure:nth-child(1){grid-column:1/3;grid-row:span 2}
+  .mosaic figure:nth-child(2){margin:-28px -10px 0 0;z-index:2}
+  .mosaic figure:nth-child(3){margin:6px 0 -22px -10px;z-index:3}
+  .mosaic.n4 figure:nth-child(4){grid-column:1/3}
+}
 
 /* contato */
 .contact{display:grid;grid-template-columns:1fr 1.1fr;gap:36px}
@@ -298,6 +316,7 @@ a{color:inherit}
       </div>
     </div>
   </div>
+  <span class="ilustr">Imagem ilustrativa</span>
 </header>
 
 <section class="section" id="servicos">
