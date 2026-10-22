@@ -90,7 +90,7 @@ a{color:inherit}
   .nav ul a{display:block;padding:14px 4px;font-size:18px;border-bottom:1px solid rgba(255,255,255,.07)}
   .nav.open ul{opacity:1;transform:none;visibility:visible}
 }
-@media (max-width:420px){.nav-right .btn.sm{display:none}}
+@media (max-width:560px){.nav-right .btn.sm{display:none}.brand b{font-size:clamp(17px,5.4vw,24px)}.brand small{letter-spacing:.12em}}
 
 /* hero (IMMERSIVE: foto sangrando à direita com degradê) */
 .hero{position:relative;background:var(--dark);color:#e6e2da;overflow:hidden;min-height:100vh;display:flex;align-items:center;padding:150px 0 90px}
@@ -250,7 +250,8 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 .about-body{grid-area:body;align-self:start}
 @media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
 .head h2,.about h2{letter-spacing:.01em}
-.brand b{font-size:21px}
+@media (min-width:561px){.brand b{font-size:21px}}
+@media (max-width:400px){.brand b{font-size:16px;letter-spacing:0}}
 @media (max-width:860px){.brand small{letter-spacing:.14em}}
 </style>
 </head>
