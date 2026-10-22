@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
 --dark:#1d2430;
@@ -246,6 +246,9 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 .about-head{grid-area:head;align-self:end}
 .about-body{grid-area:body;align-self:start}
 @media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
+/* Bodoni Moda: traço fino some no fundo claro -> títulos em 600 */
+.hero h1,.head h2,.about h2,.card h3,.info h3{font-weight:600}
+.hero h1 i{font-weight:500}
 .hero{min-height:100vh;display:flex;align-items:flex-end}
 @media (min-width:861px){.hero .wrap{grid-template-columns:.85fr 1.15fr}.hero-photo{order:-1}.hero-text{padding-left:24px}}
 .hero-photo img{object-position:50% 18%}
