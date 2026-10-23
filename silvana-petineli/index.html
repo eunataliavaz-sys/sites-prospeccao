@@ -250,6 +250,8 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 .hero h1,.head h2,.about h2,.card h3,.info h3{font-weight:600}
 .hero h1 i{font-weight:500}
 .hero{min-height:100vh;display:flex;align-items:flex-end}
+.h24{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:30px;padding:6px 14px;font-size:14px;font-weight:500;margin-bottom:6px}
+.h24 i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent)}
 .hero-photo{padding:0 0 0 22px}
 .hero-photo::before{content:"";position:absolute;left:0;top:22px;right:22px;bottom:-1px;border:1px solid color-mix(in srgb,var(--accent) 70%,transparent);border-bottom:0}
 .hero-photo img{position:relative;border-radius:2px;aspect-ratio:4/5;object-position:50% 15%}
@@ -311,7 +313,7 @@ html{--gap-secao:clamp(64px,8vw,96px)}
       <li><a href="#contato">Contato</a></li>
     </ul>
     <div class="nav-right">
-      <a class="btn sm" href="https://wa.me/5511965890244?text=Ol%C3%A1%2C%20Dra.%20Silvana%21%20Vi%20o%20seu%20site%20e%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn sm" href="https://wa.me/5511965890244?text=Ol%C3%A1%2C%20Dra.%20Silvana%21%20Vi%20o%20seu%20site%20e%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">WhatsApp 24h</a>
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     </div>
   </div>
@@ -320,6 +322,7 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 <header class="hero" id="inicio">
   <div class="wrap">
     <div class="hero-text reveal">
+      <span class="h24"><i></i>Atendimento 24 horas</span><br>
       <span class="kicker">Advocacia criminal · Santo André</span>
       <h1>Defesa firme, com <i>atenção humana</i> a você e à sua família</h1>
       <p>Explicação clara de cada fase do processo e atuação combativa, com atendimento 24 horas para os momentos mais urgentes.</p>
