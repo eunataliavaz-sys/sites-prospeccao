@@ -242,13 +242,13 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 .about-head{grid-area:head;align-self:end}
 .about-body{grid-area:body;align-self:start}
 @media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
-.partners{display:grid;gap:16px;max-width:460px;width:100%}
-.partner{display:flex;gap:18px;align-items:center;background:var(--brand);color:#cfd5e2;border-radius:12px;padding:26px}
-.partner .ico{flex:none;display:grid;place-items:center;background:rgba(209,169,126,.16);color:var(--accent);width:54px;height:54px;border-radius:50%}
-.partner .ico svg{width:24px;height:24px}
-.partner b{display:block;font-family:var(--serif);font-weight:400;color:#fff;font-size:25px;line-height:1.15}
-.partner span{font-size:16px;line-height:1.5}
-.partners .tagline{border:1px dashed var(--line);border-radius:12px;padding:18px 24px;color:var(--muted);font-size:16px}
+.duo{position:relative}
+.duo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:12px;display:block}
+.partners{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin-top:40px}
+.partner{background:var(--brand);color:#cfd5e2;border-radius:12px;padding:16px 18px}
+.partner b{display:block;font-family:var(--serif);font-weight:600;color:#fff;font-size:20px;line-height:1.15}
+.partner span{display:block;font-size:14.5px;line-height:1.45;margin-top:4px}
+@media (max-width:420px){.partners{grid-template-columns:1fr}}
 @media (max-width:860px){.brand small{letter-spacing:.14em}}
 </style>
 </head>
@@ -381,10 +381,13 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 <section class="section" id="sobre">
   <div class="wrap about">
     <div class="about-img reveal">
+      <div class="duo">
+        <img src="assets/sobre.jpg" alt="Duas advogadas (imagem ilustrativa)" loading="lazy">
+        <span class="ilustr">Imagem ilustrativa</span>
+      </div>
       <div class="partners">
-        <div class="partner"><span class="ico"><svg aria-hidden="true"><use href="#i-user"/></svg></span><div><b>Dra. Jucélia</b><span>Advogada</span></div></div>
-        <div class="partner"><span class="ico"><svg aria-hidden="true"><use href="#i-user"/></svg></span><div><b>Dra. Daniele</b><span>Advogada</span></div></div>
-        <div class="tagline">Atendimento no bairro Jardim, em Santo André, de segunda a sexta.</div>
+        <div class="partner"><b>Dra. Jucélia</b><span>Advogada</span></div>
+        <div class="partner"><b>Dra. Daniele</b><span>Advogada</span></div>
       </div>
     </div>
     <div class="about-head reveal">
