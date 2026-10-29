@@ -252,16 +252,11 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 .hero{min-height:100vh;display:flex;align-items:center;padding-bottom:72px}
 .hero-text{padding-bottom:0}
 .hero .wrap{align-items:center}
-.hero-photo img{object-position:60% 50%}
+.hero-photo img{object-position:50% 20%}
 .hero .pledge{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding:0;list-style:none;font-size:15px;color:rgba(255,255,255,.78)}
 .hero .pledge li{display:flex;align-items:center;gap:8px}
 .hero .pledge .ic{width:18px;height:18px;color:var(--accent)}
-.values{background:var(--dark);color:#fff;border-radius:22px;padding:40px 34px;display:grid;gap:26px}
-.values .v{display:flex;gap:16px;align-items:flex-start}
-.values .v .ic{flex:none;width:26px;height:26px;color:var(--accent);margin-top:3px}
-.values b{display:block;font-family:var(--serif);font-weight:600;font-size:21px;margin-bottom:4px}
-.values span{color:rgba(255,255,255,.72);font-size:16px;line-height:1.55}
-@media (max-width:860px){.hero{display:block;min-height:0;padding-bottom:48px}.hero-photo{max-width:320px}.values{padding:30px 24px}}
+@media (max-width:860px){.hero{display:block;min-height:0;padding-bottom:48px}.hero-photo{max-width:320px}}
 </style>
 </head>
 <body>
@@ -314,6 +309,7 @@ html{--gap-secao:clamp(64px,8vw,96px)}
       <li><a href="#inicio">Início</a></li>
       <li><a href="#servicos">Como atendo</a></li>
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <div class="nav-right">
@@ -339,7 +335,8 @@ html{--gap-secao:clamp(64px,8vw,96px)}
       </ul>
     </div>
     <div class="hero-photo reveal">
-      <img src="assets/hero.jpg" alt="Dra. Rosângela Rosa, advogada">
+      <img src="assets/hero.jpg" alt="Advogada (imagem ilustrativa)">
+      <span class="ilustr">Imagem ilustrativa</span>
     </div>
   </div>
 </header>
@@ -388,11 +385,7 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 <section class="section" id="sobre">
   <div class="wrap about">
     <div class="about-img reveal">
-      <div class="values">
-        <div class="v"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><div><b>Acolhimento</b><span>Escuta atenta para entender o que realmente importa no seu caso.</span></div></div>
-        <div class="v"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><div><b>Clareza</b><span>Explicações em linguagem simples, sem juridiquês.</span></div></div>
-        <div class="v"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><div><b>Compromisso</b><span>Acompanhamento próximo em cada etapa, com ética e transparência.</span></div></div>
-      </div>
+      <img src="assets/sobre.jpg" alt="Dra. Rosângela Rosa, advogada" loading="lazy">
     </div>
     <div class="about-head reveal">
       <span class="kicker">Sobre</span>
@@ -403,6 +396,52 @@ html{--gap-secao:clamp(64px,8vw,96px)}
       <p>Aqui você é ouvido com calma, entende cada passo do processo e sabe sempre em que pé está o seu caso. O atendimento pode ser presencial, no escritório, ou pelo WhatsApp.</p>
       <blockquote>“Cada cliente é atendido com atenção e cuidado.”</blockquote>
       <a class="btn" href="https://wa.me/5511941672990?text=Ol%C3%A1%2C%20Dra.%20Ros%C3%A2ngela%21%20Vi%20o%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20o%20meu%20caso." target="_blank" rel="noopener">Falar com a Dra. Rosângela</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="avaliacoes">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="kicker">Avaliações</span>
+      <h2>O que dizem os clientes</h2>
+    </div>
+    <div class="score reveal">
+      <div style="text-align:center"><span class="stars">★★★★★</span><small>Avaliações de exemplo: no site oficial, entram as suas avaliações reais do Google</small></div>
+    </div>
+    <div class="carousel reveal" aria-roledescription="carrossel" aria-label="Avaliações no Google">
+      <div class="track" id="track">
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>A Dra. Rosângela me ouviu com muita paciência e explicou cada passo do processo sem complicar. Saí da primeira conversa bem mais tranquila.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Cláudia R.<small>Avaliação de exemplo</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Atendimento atencioso e muito profissional. Sempre respondeu rápido pelo WhatsApp e me manteve informado do andamento.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Marcos O.<small>Avaliação de exemplo</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Profissional ética, dedicada e humana. Passou segurança desde o primeiro contato e cuidou de tudo com muito carinho.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Patrícia N.<small>Avaliação de exemplo</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Me orientou com clareza e honestidade sobre o meu caso. Recomendo a quem procura uma advogada de confiança em Santo André.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Roberto S.<small>Avaliação de exemplo</small></div></footer>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <p>Excelente atendimento, com respeito e atenção em cada detalhe. Me senti acolhida num momento difícil.</p>
+          <footer><svg class="g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h6a5.1 5.1 0 0 1-2.2 3.4v2.8h3.6c2.1-1.9 3.2-4.8 3.2-8.2z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.4-2.7l-3.6-2.8c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.7H2v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 13.9a6.6 6.6 0 0 1 0-4.2V6.8H2a11 11 0 0 0 0 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.3 1.7l3.2-3.2A11 11 0 0 0 2 6.8l3.7 2.9C6.6 7.4 9.1 5.4 12 5.4z"/></svg><div>Aline F.<small>Avaliação de exemplo</small></div></footer>
+        </figure>
+      </div>
+      <div class="car-ctrl">
+        <button class="car-btn" id="prev" aria-label="Avaliação anterior">‹</button>
+        <div class="dots" id="dots"></div>
+        <button class="car-btn" id="next" aria-label="Próxima avaliação">›</button>
+      </div>
     </div>
   </div>
 </section>
