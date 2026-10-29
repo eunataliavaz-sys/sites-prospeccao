@@ -92,26 +92,20 @@ a{color:inherit}
 }
 @media (max-width:560px){.nav-right .btn.sm{display:none}.brand b{font-size:clamp(17px,5.4vw,24px)}.brand small{letter-spacing:.12em}}
 
-/* hero (SPLIT com arco) */
-.hero{position:relative;background:var(--dark);color:#e7e3dc;overflow:hidden;padding:148px 0 0}
-.hero::after{content:"";position:absolute;right:-10%;top:-20%;width:60%;height:140%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 20%,transparent),transparent 60%);pointer-events:none}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end}
-.hero-text{padding-bottom:96px}
-.hero h1{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(40px,5.6vw,66px);line-height:1.06;margin:18px 0 22px}
-.hero h1 i{color:var(--accent-soft)}
-.hero p{color:#b9b6b0;max-width:32em;margin-bottom:34px}
-.ctas{display:flex;flex-wrap:wrap;gap:14px}
-.facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.1);font-size:15px;color:#b9b6b0}
-.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;color:#fff;line-height:1.1}
-.facts b span{color:var(--accent)}
-.hero-photo{position:relative}
-.hero-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:200px 200px 0 0}
-@media (max-width:860px){
-  .hero{padding-top:128px}
-  .hero .wrap{grid-template-columns:1fr;gap:8px}
-  .hero-text{padding-bottom:40px}
-  .hero-photo{max-width:360px;margin-inline:auto;width:100%}
-}
+/* hero (TYPOGRAPHIC centralizado sobre foto de escritório do kit, escurecida na cor da ID; modelo Lednik) */
+.hero{position:relative;background:linear-gradient(180deg,rgba(15,14,16,.9) 0%,rgba(15,14,16,.72) 55%,rgba(15,14,16,.94) 100%),url(assets/hero.jpg) center/cover var(--dark);color:#e8e4df;overflow:hidden;min-height:100vh;display:flex;align-items:center;padding:170px 0 110px;text-align:center}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5}
+.hero .wrap{position:relative;z-index:1;flex:1}
+.hero>.ilustr{left:16px;bottom:16px;z-index:2}
+.hero-text{max-width:860px;margin-inline:auto}
+.hero h1{font-family:var(--serif);font-weight:600;color:#fff;font-size:clamp(40px,6.4vw,80px);line-height:1.05;margin:22px 0 26px;letter-spacing:-.01em}
+.hero h1 i{color:var(--accent-soft);font-weight:500}
+.hero p{color:#c9c2ba;max-width:34em;margin:0 auto 36px;font-size:17.5px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.pledge{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:44px;padding:0;list-style:none;font-size:15px;color:rgba(255,255,255,.8)}
+.pledge li{display:flex;align-items:center;gap:8px}
+.pledge .ic{width:18px;height:18px;color:var(--accent)}
+@media (max-width:860px){.hero{min-height:0;display:block;padding:150px 0 80px}}
 
 /* seções */
 /* espaço entre seções: UM valor só (--gap-secao). Seções seguidas com o mesmo fundo não somam o espaço;
@@ -246,17 +240,7 @@ html{--gap-secao:clamp(64px,8vw,96px)}
 .about-head{grid-area:head;align-self:end}
 .about-body{grid-area:body;align-self:start}
 @media (max-width:860px){.about{grid-template-areas:"head" "img" "body";row-gap:28px}.about-head h2{margin-bottom:0}}
-.hero h1,.head h2,.about h2,.card h3,.info h3{font-weight:600}
-.hero h1 i{font-weight:500}
-.hero h1{font-size:clamp(42px,5.4vw,68px)}
-.hero{min-height:100vh;display:flex;align-items:center;padding-bottom:72px}
-.hero-text{padding-bottom:0}
-.hero .wrap{align-items:center}
-.hero-photo img{object-position:50% 20%}
-.hero .pledge{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding:0;list-style:none;font-size:15px;color:rgba(255,255,255,.78)}
-.hero .pledge li{display:flex;align-items:center;gap:8px}
-.hero .pledge .ic{width:18px;height:18px;color:var(--accent)}
-@media (max-width:860px){.hero{display:block;min-height:0;padding-bottom:48px}.hero-photo{max-width:320px}}
+.head h2,.about h2,.card h3,.info h3{font-weight:600}
 </style>
 </head>
 <body>
@@ -334,11 +318,8 @@ html{--gap-secao:clamp(64px,8vw,96px)}
         <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Presencial ou pelo WhatsApp</li>
       </ul>
     </div>
-    <div class="hero-photo reveal">
-      <img src="assets/hero.jpg" alt="Advogada (imagem ilustrativa)">
-      <span class="ilustr">Imagem ilustrativa</span>
-    </div>
   </div>
+  <span class="ilustr">Imagem ilustrativa</span>
 </header>
 
 <section class="section" id="servicos">
