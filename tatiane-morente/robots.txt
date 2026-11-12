@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tatianemorenteadv.com.br/sitemap.xml
